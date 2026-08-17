@@ -37,10 +37,7 @@ const technologies = [
     name: "CSS",
     logo: "/stack/image 34.svg",
   },
-  {
-    name: "JavaScript",
-    logo: "/stack/image 35.svg",
-  },
+  
 ];
 
 const TechPill = ({ tech }) => {
