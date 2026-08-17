@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 const services = [
   {
     number: "01",
-    numberSvg: "public/services/01.svg",
+    numberSvg: "services/01.svg",
     title: "Brand Identity",
     description:
       "Develop a strategic brand identity with custom logo design, visual systems, typography, and brand guidelines that create a lasting impression across every touchpoint.",
@@ -44,7 +44,7 @@ const services = [
 
   {
     number: "02",
-    numberSvg: "public/services/02.svg",
+    numberSvg: "services/02.svg",
     title: "Web Design & Development",
     description:
       "Design and develop fast, responsive, SEO-optimized websites that combine beautiful UI/UX with seamless functionality to help your business grow online.",
@@ -88,7 +88,7 @@ const services = [
 
   {
     number: "03",
-    numberSvg: "public/services/03.svg",
+    numberSvg: "services/03.svg",
     title: "Custom Company Portal",
     description:
       "Build secure custom business portals tailored to your workflow, making it easier to manage clients, teams, projects, approvals, files, and everyday operations.",
