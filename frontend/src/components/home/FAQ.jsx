@@ -579,6 +579,13 @@ const faqs = [
       "Yes. Whether you need a complete rebrand, a website redesign, or improvements to an existing digital product, we can help modernize your business while maintaining continuity where needed.",
   },
 
+  
+  {
+    question: "Will I own the final files?",
+    answer:
+      "Will I own the final files?",
+  },
+
   {
     question: "How long does a typical project take?",
     answer:
@@ -597,11 +604,6 @@ const faqs = [
       "Getting started is simple. Book a discovery call or send us an enquiry with your project details. We'll learn about your business, discuss your goals, and recommend the best approach before sharing a tailored proposal, timeline, and quotation.",
   },
 
-  {
-    question: "Will I own the final files?",
-    answer:
-      "Will I own the final files?",
-  }
 ];
 
 
