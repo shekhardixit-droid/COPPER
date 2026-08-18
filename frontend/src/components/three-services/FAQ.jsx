@@ -566,7 +566,7 @@ const FAQ_CSS = `
    FAQ DATA
 ========================================================= */
  
-const faq = [
+const faqs = [
   {
     question: "Can I hire you for just one service?",
     answer:
