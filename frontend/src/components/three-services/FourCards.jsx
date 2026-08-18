@@ -15,7 +15,7 @@ const callPoints = [
   },
   {
     title: "Beyond Launch Support",
-    icon: "public/cp-icons/restart.svg",
+    icon: "/cp-icons/restart.svg",
     description:
       "Ongoing hosting, maintenance and support beyond launch.",
   },
@@ -32,7 +32,6 @@ const CallPoints = () => {
     <section className="bg-white px-4 py-16 sm:px-6 md:px-10 lg:px-16">
 
       <div className="mx-auto w-full max-w-[1200px]">
-
 
         {/* =====================================
             CARDS
@@ -53,6 +52,7 @@ const CallPoints = () => {
             lg:flex-nowrap
             lg:justify-between
             lg:gap-6
+
             font-['DM_Sans']
           "
         >
@@ -78,27 +78,45 @@ const CallPoints = () => {
                 delay: index * 0.1,
               }}
               whileHover={{
-               
                 scale: 1.02,
               }}
               className="
                 group
                 relative
+
                 h-[230px]
                 w-[300px]
+                max-w-full
                 shrink-0
+
                 overflow-hidden
                 rounded-2xl
                 border
                 border-black/10
                 bg-[#f7f7f5]
+
                 font-['DM_Sans']
                 p-5
+
                 transition-all
                 duration-300
+
                 hover:border-orange-500
                 hover:bg-orange-500
                 hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)]
+
+                /* Mobile */
+                max-[360px]:h-[220px]
+                max-[360px]:w-full
+
+                /* Small screens */
+                sm:w-[300px]
+
+                /* Medium screens */
+                md:w-[300px]
+
+                /* Desktop */
+                lg:w-[300px]
               "
             >
 
@@ -137,7 +155,7 @@ const CallPoints = () => {
 
 
               {/* =================================
-                  CONTENT — 236 × 76
+                  CONTENT
               ================================== */}
 
               <div
@@ -145,29 +163,31 @@ const CallPoints = () => {
                   absolute
                   bottom-5
                   left-1/2
-                  w-[236px]
+                  w-[calc(100%-40px)]
+                  max-w-[236px]
                   -translate-x-1/2
                 "
               >
 
-                {/* Heading — 236 × 23 */}
-<h3
-  className="
-    h-[23px]
-    w-[236px]
-    font-['DM_Sans']
-    text-[18px]
-    font-semibold
-    leading-[23px]
-    tracking-tight
-    text-black
-    transition-colors
-    duration-300
-    group-hover:text-white
-  "
->
-  {point.title}
-</h3>
+                {/* Heading */}
+
+                <h3
+                  className="
+                    min-h-[23px]
+                    w-full
+                    font-['DM_Sans']
+                    text-[18px]
+                    font-semibold
+                    leading-[23px]
+                    tracking-tight
+                    text-black
+                    transition-colors
+                    duration-300
+                    group-hover:text-white
+                  "
+                >
+                  {point.title}
+                </h3>
 
 
                 {/* White Divider */}
@@ -176,7 +196,7 @@ const CallPoints = () => {
                   className="
                     my-2
                     h-px
-                    w-[236px]
+                    w-full
                     font-['DM_Sans']
                     bg-black/10
                     transition-colors
@@ -186,23 +206,24 @@ const CallPoints = () => {
                 />
 
 
-                {/* Paragraph — 236 × 41 */}
-<p
-  className="
-    min-h-[41px]
-    w-[236px]
-    font-['DM_Sans']
-    text-[16px]
-    font-light
-    leading-[18px]
-    text-black/65
-    transition-colors
-    duration-300
-    group-hover:text-white/85
-  "
->
-  {point.description}
-</p>
+                {/* Paragraph */}
+
+                <p
+                  className="
+                    min-h-[41px]
+                    w-full
+                    font-['DM_Sans']
+                    text-[16px]
+                    font-light
+                    leading-[18px]
+                    text-black/65
+                    transition-colors
+                    duration-300
+                    group-hover:text-white/85
+                  "
+                >
+                  {point.description}
+                </p>
 
               </div>
 
