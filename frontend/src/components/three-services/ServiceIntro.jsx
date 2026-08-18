@@ -23,12 +23,8 @@ const ServiceIntro = ({
           w-full
           max-w-[1200px]
 
-          /* Mobile */
           max-[767px]:flex
           max-[767px]:flex-col
-
-          /* Tablet */
-          md:max-w-full
         "
       >
 
@@ -118,7 +114,6 @@ const ServiceIntro = ({
             max-w-full
             items-start
 
-            /* Tablet */
             md:static
             md:mt-10
             md:h-auto
@@ -126,7 +121,6 @@ const ServiceIntro = ({
             md:max-w-[640px]
             md:translate-x-0
 
-            /* Mobile */
             max-[767px]:mt-8
             max-[767px]:w-full
             max-[767px]:max-w-full
