@@ -78,6 +78,7 @@ const ServiceIntro = ({
         >
           <h2
             className="
+              max-w-full
               font-dm-sans
               text-[62px]
               font-semibold
@@ -85,11 +86,12 @@ const ServiceIntro = ({
               tracking-[-0.75px]
               text-black
 
-              max-[767px]:text-[42px]
+              max-[767px]:text-[40px]
               max-[767px]:leading-[44px]
+              max-[767px]:tracking-[-0.5px]
 
-              max-[420px]:text-[36px]
-              max-[420px]:leading-[38px]
+              max-[480px]:text-[32px]
+              max-[480px]:leading-[36px]
             "
           >
             {heading}
@@ -108,22 +110,19 @@ const ServiceIntro = ({
             right-0
             top-[42px]
             flex
-            translate-x-20
             h-[95px]
             w-[640px]
             max-w-full
+            translate-x-20
             items-start
 
-            md:static
-            md:mt-10
-            md:h-auto
-            md:w-full
-            md:max-w-[640px]
-            md:translate-x-0
-
+            /* MOBILE ONLY */
+            max-[767px]:static
             max-[767px]:mt-8
+            max-[767px]:h-auto
             max-[767px]:w-full
             max-[767px]:max-w-full
+            max-[767px]:translate-x-0
           "
         >
           <p
