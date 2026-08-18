@@ -117,195 +117,209 @@ const ThreeServices = () => {
     <main className="min-h-screen w-full bg-white">
 
       <Navbar />
+{/* =====================================
+    HERO
+====================================== */}
 
-      {/* =====================================
-          HERO
-      ====================================== */}
+<section className="mt-20 w-full bg-white">
 
-      <section className="mt-20 w-full bg-white">
+  <div
+    className="
+      mx-auto
+      flex
+      h-[343px]
+      w-[1200px]
+      max-w-full
+      flex-col
+      items-center
+      justify-center
 
-        <div
-          className="
-            mx-auto
-            flex
-            h-[343px]
-            w-[1200px]
-            max-w-full
-            flex-col
-            items-center
-            justify-center
+      max-[767px]:h-auto
+      max-[767px]:px-5
+      max-[767px]:py-16
+    "
+  >
 
-            max-[767px]:h-auto
-            max-[767px]:px-5
-            max-[767px]:py-16
-          "
-        >
+    {/* Main Text */}
 
-          {/* Main Text */}
+    <div
+      className="
+        flex
+        h-[152px]
+        w-[892px]
+        max-w-full
+        items-center
+        justify-center
+        text-center
 
-          <div
-            className="
-              flex
-              h-[152px]
-              w-[892px]
-              max-w-full
-              items-center
-              justify-center
-              text-center
+        max-[767px]:h-auto
+        max-[767px]:w-full
+      "
+    >
+      <h1
+        className="
+          w-full
+          font-dm-sans
+          text-[70px]
+          font-bold
+          leading-[76px]
+          tracking-[-0.75px]
+          text-black
 
-              max-[767px]:h-auto
-            "
-          >
-            <h1
-              className="
-                font-dm-sans
-                text-[70px]
-                font-bold
-                leading-[76px]
-                tracking-[-0.75px]
-                text-black
+          max-[767px]:text-[42px]
+          max-[767px]:leading-[46px]
+          max-[767px]:tracking-[-0.5px]
 
-                max-[767px]:text-[42px]
-                max-[767px]:leading-[46px]
-
-                max-[480px]:text-[34px]
-                max-[480px]:leading-[38px]
-              "
-            >
-              Ideas Into Identities.
-              <br />
-              Identities Into Experiences.
-            </h1>
-          </div>
-
-
-          {/* Supporting Text */}
-
-          <div
-            className="
-              mt-6
-              flex
-              h-[76px]
-              w-[750px]
-              max-w-full
-              items-center
-              justify-center
-              text-center
-              -translate-y-5
-
-              max-[767px]:mt-8
-              max-[767px]:h-auto
-              max-[767px]:translate-y-0
-            "
-          >
-            <p
-              className="
-                font-dm-sans
-                text-[18px]
-                font-light
-                leading-[24px]
-                text-black/75
-
-                max-[767px]:text-[16px]
-                max-[767px]:leading-[22px]
-              "
-            >
-              We build distinctive brands, thoughtful digital experiences,
-              and custom systems designed around how your business works.
-            </p>
-          </div>
-
-        </div>
+          max-[480px]:text-[34px]
+          max-[480px]:leading-[38px]
+        "
+      >
+        Ideas Into Identities.
+        <br />
+        Identities Into Experiences.
+      </h1>
+    </div>
 
 
-        {/* =====================================
-            SERVICES HEADING
-        ====================================== */}
+    {/* Supporting Text */}
 
-        <div
-          className="
-            mt-10
-            ml-20
-            flex
-            h-[52px]
-            w-[930px]
-            max-w-full
-            items-center
-            justify-start
-            text-left
+    <div
+      className="
+        mt-6
+        flex
+        h-[76px]
+        w-[750px]
+        max-w-full
+        items-center
+        justify-center
+        text-center
+        -translate-y-5
 
-            max-[767px]:ml-0
-            max-[767px]:h-auto
-            max-[767px]:w-full
-            max-[767px]:px-6
-          "
-        >
-          <p
-            className="
-              font-dm-sans
-              text-[62px]
-              font-semibold
-              leading-[52px]
-              tracking-[-0.75px]
-              text-black
+        max-[767px]:mt-8
+        max-[767px]:h-auto
+        max-[767px]:w-full
+        max-[767px]:translate-y-0
+      "
+    >
+      <p
+        className="
+          w-full
+          font-dm-sans
+          text-[18px]
+          font-light
+          leading-[24px]
+          text-black/75
 
-              max-[767px]:text-[40px]
-              max-[767px]:leading-[44px]
+          max-[767px]:text-[16px]
+          max-[767px]:leading-[22px]
 
-              max-[480px]:text-[34px]
-              max-[480px]:leading-[38px]
-            "
-          >
-            Three Services to Move Forward
-          </p>
-        </div>
+          max-[480px]:text-[15px]
+          max-[480px]:leading-[21px]
+        "
+      >
+        We build distinctive brands, thoughtful digital experiences,
+        and custom systems designed around how your business works.
+      </p>
+    </div>
+
+  </div>
 
 
-        {/* =====================================
-            SERVICES DESCRIPTION
-        ====================================== */}
+  {/* =====================================
+      SERVICES HEADING
+  ====================================== */}
 
-        <div
-          className="
-            mt-6
-            ml-20
-            flex
-            h-[95px]
-            w-[928px]
-            max-w-full
-            items-center
-            justify-start
-            text-left
+  <div
+    className="
+      mt-10
+      ml-20
+      flex
+      h-[52px]
+      w-[930px]
+      max-w-full
+      items-center
+      justify-start
+      text-left
 
-            max-[767px]:ml-0
-            max-[767px]:h-auto
-            max-[767px]:w-full
-            max-[767px]:px-6
-          "
-        >
-          <p
-            className="
-              font-dm-sans
-              text-[18px]
-              font-normal
-              leading-[24px]
-              text-black/75
+      max-[767px]:ml-0
+      max-[767px]:mt-8
+      max-[767px]:h-auto
+      max-[767px]:w-full
+      max-[767px]:px-6
+    "
+  >
+    <p
+      className="
+        w-full
+        font-dm-sans
+        text-[62px]
+        font-semibold
+        leading-[52px]
+        tracking-[-0.75px]
+        text-black
 
-              max-[767px]:text-[16px]
-              max-[767px]:leading-[22px]
-            "
-          >
-            We design brands, digital experiences, and business systems
-            <br className="max-[767px]:hidden" />
-            that help companies stand out and work smarter.
-            <br className="max-[767px]:hidden" />
-            Three focused capabilities, one connected approach,
-            <br className="max-[767px]:hidden" />
-            and everything designed to work together.
-          </p>
-        </div>
+        max-[767px]:text-[40px]
+        max-[767px]:leading-[44px]
+        max-[767px]:tracking-[-0.5px]
 
-      </section>
+        max-[480px]:text-[32px]
+        max-[480px]:leading-[36px]
+      "
+    >
+      Three Services to Move Forward
+    </p>
+  </div>
+
+
+  {/* =====================================
+      SERVICES DESCRIPTION
+  ====================================== */}
+
+  <div
+    className="
+      mt-6
+      ml-20
+      flex
+      h-[95px]
+      w-[928px]
+      max-w-full
+      items-center
+      justify-start
+      text-left
+
+      max-[767px]:ml-0
+      max-[767px]:h-auto
+      max-[767px]:w-full
+      max-[767px]:px-6
+    "
+  >
+    <p
+      className="
+        w-full
+        font-dm-sans
+        text-[18px]
+        font-normal
+        leading-[24px]
+        text-black/75
+
+        max-[767px]:text-[16px]
+        max-[767px]:leading-[22px]
+
+        max-[480px]:text-[15px]
+        max-[480px]:leading-[21px]
+      "
+    >
+      We design brands, digital experiences, and business systems
+      <br className="max-[767px]:hidden" />
+      that help companies stand out and work smarter.
+      <br className="max-[767px]:hidden" />
+      Three focused capabilities, one connected approach,
+      <br className="max-[767px]:hidden" />
+      and everything designed to work together.
+    </p>
+  </div>
+
+</section>
 
 
       <FourCards />
