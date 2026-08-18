@@ -11,7 +11,6 @@ import WhyCopperStudio from "../components/home/WhyCopperStudio";
 import FAQ from "../components/three-services/FAQ";
 import FinalCTA from "../components/contact/CTA";
 
-
 const features = [
   {
     image: "/services/services_branding_5.png",
@@ -119,6 +118,10 @@ const ThreeServices = () => {
 
       <Navbar />
 
+      {/* =====================================
+          HERO
+      ====================================== */}
+
       <section className="mt-20 w-full bg-white">
 
         <div
@@ -131,10 +134,14 @@ const ThreeServices = () => {
             flex-col
             items-center
             justify-center
+
+            max-[767px]:h-auto
+            max-[767px]:px-5
+            max-[767px]:py-16
           "
         >
 
-          {/* Main Text — 892 × 152 */}
+          {/* Main Text */}
 
           <div
             className="
@@ -145,6 +152,8 @@ const ThreeServices = () => {
               items-center
               justify-center
               text-center
+
+              max-[767px]:h-auto
             "
           >
             <h1
@@ -155,6 +164,12 @@ const ThreeServices = () => {
                 leading-[76px]
                 tracking-[-0.75px]
                 text-black
+
+                max-[767px]:text-[42px]
+                max-[767px]:leading-[46px]
+
+                max-[480px]:text-[34px]
+                max-[480px]:leading-[38px]
               "
             >
               Ideas Into Identities.
@@ -164,7 +179,7 @@ const ThreeServices = () => {
           </div>
 
 
-          {/* Supporting Text — 750 × 76 */}
+          {/* Supporting Text */}
 
           <div
             className="
@@ -177,6 +192,10 @@ const ThreeServices = () => {
               justify-center
               text-center
               -translate-y-5
+
+              max-[767px]:mt-8
+              max-[767px]:h-auto
+              max-[767px]:translate-y-0
             "
           >
             <p
@@ -186,6 +205,9 @@ const ThreeServices = () => {
                 font-light
                 leading-[24px]
                 text-black/75
+
+                max-[767px]:text-[16px]
+                max-[767px]:leading-[22px]
               "
             >
               We build distinctive brands, thoughtful digital experiences,
@@ -196,7 +218,9 @@ const ThreeServices = () => {
         </div>
 
 
-        {/* LEFT-ALIGNED TEXT — 930 × 52 */}
+        {/* =====================================
+            SERVICES HEADING
+        ====================================== */}
 
         <div
           className="
@@ -209,6 +233,11 @@ const ThreeServices = () => {
             items-center
             justify-start
             text-left
+
+            max-[767px]:ml-0
+            max-[767px]:h-auto
+            max-[767px]:w-full
+            max-[767px]:px-6
           "
         >
           <p
@@ -219,12 +248,22 @@ const ThreeServices = () => {
               leading-[52px]
               tracking-[-0.75px]
               text-black
+
+              max-[767px]:text-[40px]
+              max-[767px]:leading-[44px]
+
+              max-[480px]:text-[34px]
+              max-[480px]:leading-[38px]
             "
           >
             Three Services to Move Forward
           </p>
         </div>
 
+
+        {/* =====================================
+            SERVICES DESCRIPTION
+        ====================================== */}
 
         <div
           className="
@@ -237,6 +276,11 @@ const ThreeServices = () => {
             items-center
             justify-start
             text-left
+
+            max-[767px]:ml-0
+            max-[767px]:h-auto
+            max-[767px]:w-full
+            max-[767px]:px-6
           "
         >
           <p
@@ -246,14 +290,17 @@ const ThreeServices = () => {
               font-normal
               leading-[24px]
               text-black/75
+
+              max-[767px]:text-[16px]
+              max-[767px]:leading-[22px]
             "
           >
             We design brands, digital experiences, and business systems
-            <br />
+            <br className="max-[767px]:hidden" />
             that help companies stand out and work smarter.
-            <br />
+            <br className="max-[767px]:hidden" />
             Three focused capabilities, one connected approach,
-            <br />
+            <br className="max-[767px]:hidden" />
             and everything designed to work together.
           </p>
         </div>
@@ -281,6 +328,7 @@ const ThreeServices = () => {
           w-full
           px-6
           pb-20
+
           sm:px-10
           md:px-16
         "
@@ -330,6 +378,7 @@ const ThreeServices = () => {
           w-full
           px-6
           pb-20
+
           sm:px-10
           md:px-16
         "
@@ -374,6 +423,7 @@ const ThreeServices = () => {
           w-full
           px-6
           pb-20
+
           sm:px-10
           md:px-16
         "
@@ -406,7 +456,7 @@ const ThreeServices = () => {
               "
             >
 
-              {/* IMAGE — 397 × 309 */}
+              {/* IMAGE */}
 
               <div
                 className="
@@ -415,6 +465,8 @@ const ThreeServices = () => {
                   max-w-full
                   overflow-hidden
                   rounded-xl
+
+                  max-[767px]:h-[260px]
                 "
               >
                 <img
@@ -480,22 +532,19 @@ const ThreeServices = () => {
       </section>
 
 
+      <Process />
 
-      <Process/>
+      <TechStack />
 
-      <TechStack/>
+      <SelectedProjects2 />
 
-      <SelectedProjects2/>
+      <CustomerReviews />
 
-      <CustomerReviews/>
+      <WhyCopperStudio />
 
-      <WhyCopperStudio/>
+      <FAQ />
 
-      <FAQ/>
-
-
-      <FinalCTA/>
-
+      <FinalCTA />
 
       <Footer />
 
