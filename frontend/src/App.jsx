@@ -9,7 +9,13 @@ import CustomPortal from "./pages/CustomPortal";
 
 import Projects from "./pages/Projects";
 import VisionPage from "./pages/VisionPage";
+
 import BI from "./components/project/BrandIdentity";
+import Webdesign from "./components/project/Webdesign";
+import Designsystem from "./components/project/Designsystem";
+import Casesstudy from "./components/project/Casestudy";
+import Manifesto from "./components/project/Manifesto";
+import Webdesign2 from "./components/project/Webdesign2";
 
 function App() {
   return (
@@ -29,10 +35,12 @@ function App() {
         {/* Projects */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/vision" element={<VisionPage />} />
-        <Route
-          path="/projects/brand-identity"
-          element={<BI />}
-        />
+        <Route path="/projects/brand-identity" element={<BI />} />
+        <Route path="/projects/web-design" element={<Webdesign />} />
+        <Route path="/projects/design-system" element={<Designsystem />} />
+        <Route path="/projects/case-study" element={<Casesstudy />} />
+        <Route path="/projects/manifesto" element={<Manifesto />} />
+        <Route path="/projects/web-design-2" element={<Webdesign2 />} />
 
       </Routes>
     </BrowserRouter>

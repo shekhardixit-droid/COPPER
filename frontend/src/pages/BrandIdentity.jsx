@@ -7,7 +7,7 @@ import Footer from "../components/home/Footer.jsx";
 
 
 
-import LandingFeatureCard from "../components/brand-identity/LandingFeatureCard.jsx.jsx";
+import LandingFeatureCard from "../components/brand-identity/LandingFeatureCard.jsx";
 import Marquee from "../components/brand-identity/Marquee.jsx";
 
 const features = [
