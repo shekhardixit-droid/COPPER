@@ -5,8 +5,6 @@ import CustomerReviews from "../components/home/CustomerReviews.jsx";
 import CTA from "../components/brand-identity/CTA.jsx";
 import Footer from "../components/home/Footer.jsx";
 
-
-
 import LandingFeatureCard from "../components/brand-identity/LandingFeatureCard.jsx";
 import Marquee from "../components/brand-identity/Marquee.jsx";
 
@@ -15,36 +13,53 @@ const features = [
     image: "/services/services_branding_5.png",
     heading: "Brand Identity & Strategy",
     description:
-      "Logo design, brand strategy, visual identity, and brand guidelines that help your business stand out and build lasting recognition. ",
-    tags: ["Brand Strategy", "Logo Design", "Typography & Colour Palette","Patterns & Iconography"],
+      "Logo design, brand strategy, visual identity, and brand guidelines that help your business stand out and build lasting recognition.",
+    tags: [
+      "Brand Strategy",
+      "Logo Design",
+      "Typography & Colour Palette",
+      "Patterns & Iconography",
+    ],
   },
   {
     image: "/services/services_branding_6.png",
-    heading: "Corporate Branding & Business Assets ",
+    heading: "Corporate Branding & Business Assets",
     description:
       "Bring your brand into every everyday business interaction with thoughtfully designed corporate assets.",
-    tags: ["Business Card", "Leatherhead & Envelope","Digital Documents Templates", "Employee Assets"],
+    tags: [
+      "Business Card",
+      "Leatherhead & Envelope",
+      "Digital Documents Templates",
+      "Employee Assets",
+    ],
   },
   {
     image: "/services/services_branding_7.png",
     heading: "Marketing Collateral & Social Media Design",
     description:
       "Turn your brand into engaging marketing content designed to capture attention and communicate clearly.",
-    tags: ["Brochure/Print Collateral", "Digital & Promotional Assets", "Marketing Templates & Assets"],
+    tags: [
+      "Brochure/Print Collateral",
+      "Digital & Promotional Assets",
+      "Marketing Templates & Assets",
+    ],
   },
   {
     image: "/services/services_branding_8.png",
     heading: "Packaging, Environmental & Merchandise Design",
     description:
       "Extend your brand beyond the screen and into the physical experiences your customers interact with.",
-    tags: ["Packaging & Label Design", "Apparel & Merchandise", "Event & Promotional Branding"],
+    tags: [
+      "Packaging & Label Design",
+      "Apparel & Merchandise",
+      "Event & Promotional Branding",
+    ],
   },
 ];
 
-const BrandIdentity = () => {
+function BrandIdentity() {
   return (
     <main className="min-h-screen w-full bg-white">
-
       <Navbar />
 
       {/* =====================================
@@ -56,8 +71,6 @@ const BrandIdentity = () => {
       </section>
 
       <Hero />
-
-      
 
       <div
         className="
@@ -94,8 +107,8 @@ const BrandIdentity = () => {
           "
         >
           <span className="text-black/40">
-            We build strategic brand identities that give your business a clear
-            point of view.
+            We build strategic brand identities that give your business a
+            clear point of view.
           </span>{" "}
           <span className="text-black">
             From logo design and visual language to typography, colour, and
@@ -107,7 +120,6 @@ const BrandIdentity = () => {
           </span>
         </p>
       </div>
-
 
       <div
         className="
@@ -134,25 +146,24 @@ const BrandIdentity = () => {
             items-center
           "
         >
-         <h2
-  className="
-    font-dm-sans
-    text-[36px]
-    font-semibold
-    leading-tight
-    tracking-tight
-    text-black
-    sm:text-[48px]
-    md:text-[56px]
-    lg:text-[62px]
-    lg:leading-[52px]
-    lg:whitespace-nowrap
-  "
->
-  Brand Identity
-</h2>
+          <h2
+            className="
+              font-dm-sans
+              text-[36px]
+              font-semibold
+              leading-tight
+              tracking-tight
+              text-black
+              sm:text-[48px]
+              md:text-[56px]
+              lg:text-[62px]
+              lg:leading-[52px]
+              lg:whitespace-nowrap
+            "
+          >
+            Brand Identity
+          </h2>
         </div>
-
 
         {/* Paragraph */}
 
@@ -166,26 +177,25 @@ const BrandIdentity = () => {
             items-start
           "
         >
-        <p
-  className="
-    w-full
-    max-w-[747px]
-    font-dm-sans
-    text-[15px]
-    font-normal
-    leading-[24px]
-    text-black/80
-    sm:text-[17px]
-    lg:text-[18px]
-  "
->
-  Develop a strategic brand identity with custom logo design, visual
-  systems, typography, and brand guidelines that create a lasting
-  impression across every touchpoint.
-</p>
+          <p
+            className="
+              w-full
+              max-w-[747px]
+              font-dm-sans
+              text-[15px]
+              font-normal
+              leading-[24px]
+              text-black/80
+              sm:text-[17px]
+              lg:text-[18px]
+            "
+          >
+            Develop a strategic brand identity with custom logo design,
+            visual systems, typography, and brand guidelines that create a
+            lasting impression across every touchpoint.
+          </p>
         </div>
       </div>
-
 
       {/* =====================================
           FEATURE CARDS — 2 × 2
@@ -195,11 +205,11 @@ const BrandIdentity = () => {
         className="
           mt-10
           w-full
-          px-4
           gap-y-3
+          px-4
           pb-20
-          sm:px-6
           sm:mt-14
+          sm:px-6
           md:px-10
           lg:mt-16
           lg:px-16
@@ -211,8 +221,8 @@ const BrandIdentity = () => {
             w-full
             grid-cols-1
             justify-items-center
-            gap-y-5
             gap-x-2
+            gap-y-5
             md:grid-cols-2
           "
         >
@@ -228,16 +238,15 @@ const BrandIdentity = () => {
         </div>
       </section>
 
-      <Marquee/>
+      <Marquee />
 
-      <CustomerReviews/>
+      <CustomerReviews />
 
-      <CTA/>
+      <CTA />
 
-      <Footer/>
-
+      <Footer />
     </main>
   );
-};
+}
 
 export default BrandIdentity;
