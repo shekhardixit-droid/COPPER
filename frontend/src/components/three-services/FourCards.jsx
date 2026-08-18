@@ -15,7 +15,7 @@ const callPoints = [
   },
   {
     title: "Beyond Launch Support",
-    icon: "/cp-icons/restart.svg",
+    icon: "public/cp-icons/restart.svg",
     description:
       "Ongoing hosting, maintenance and support beyond launch.",
   },
