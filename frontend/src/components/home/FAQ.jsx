@@ -596,6 +596,12 @@ const faqs = [
     answer:
       "Getting started is simple. Book a discovery call or send us an enquiry with your project details. We'll learn about your business, discuss your goals, and recommend the best approach before sharing a tailored proposal, timeline, and quotation.",
   },
+
+  {
+    question: "Will I own the final files?",
+    answer:
+      "Will I own the final files?",
+  }
 ];
 
 
