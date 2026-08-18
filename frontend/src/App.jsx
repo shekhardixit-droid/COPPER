@@ -16,6 +16,8 @@ import Designsystem from "./components/project/Designsystem";
 import Casesstudy from "./components/project/Casestudy";
 import Manifesto from "./components/project/Manifesto";
 import Webdesign2 from "./components/project/Webdesign2";
+import ThreeServices from "./pages/ThreeServices";
+
 
 function App() {
   return (
@@ -41,7 +43,7 @@ function App() {
         <Route path="/projects/case-study" element={<Casesstudy />} />
         <Route path="/projects/manifesto" element={<Manifesto />} />
         <Route path="/projects/web-design-2" element={<Webdesign2 />} />
-
+                <Route path="/services" element={<ThreeServices />} />
       </Routes>
     </BrowserRouter>
   );
