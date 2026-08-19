@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-white">
       <footer
@@ -321,38 +323,54 @@ const Footer = () => {
                 PAGES
               </p>
 
-              <div className="flex flex-col gap-3.5 sm:gap-4">
+             <div className="flex flex-col gap-3.5 sm:gap-4">
 
-                {[
-                  "Home",
-                  "Studio",
-                  "Services",
-                  "Projects",
-                  "Blogs",
-                ].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="
-                      w-fit
-                      text-sm
-                      max-[1023px]:ml-0
-                      lg:ml-15
-                       font-dm-sans
-                      text-white/60
-                      transition-colors
-                      duration-300
-                      hover:text-orange-500
-                    "
-                  >
-                    {item}
-                  </a>
-                ))}
+  {[
+    "Home",
+    "Studio",
+    "Services",
+    "Projects",
+    "Blogs",
+  ].map((item) => (
+    <a
+      key={item}
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
 
-              </div>
+        if (item === "Home") {
+          navigate("/");
+        } else if (item === "Studio") {
+          navigate("/meet-copper");
+        } else if (item === "Services") {
+          navigate("/services");
+        } else if (item === "Projects") {
+          navigate("/main-projects");
+        } else if (item === "Blogs") {
+          navigate("/blogs");
+        }
 
-            </div>
+        window.scrollTo(0, 0);
+      }}
+      className="
+        w-fit
+        text-sm
+        max-[1023px]:ml-0
+        lg:ml-15
+         font-dm-sans
+        text-white/60
+        transition-colors
+        duration-300
+        hover:text-orange-500
+      "
+    >
+      {item}
+    </a>
+  ))}
 
+</div>
+
+</div>
 
             {/* =================================================
                 04 — RESOURCES

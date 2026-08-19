@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 const FinalCTA = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-white px-4 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16 lg:py-32">
       <div className="mx-auto w-full max-w-[95%]">
@@ -76,6 +79,7 @@ const FinalCTA = () => {
           {/* Buttons */}
 
           <div
+           
             className="
               mt-8
               flex
@@ -92,7 +96,10 @@ const FinalCTA = () => {
 
             {/* Primary */}
 <motion.a
-  href="#contact"
+ onClick={() => {
+  navigate("/scope-builder");
+  window.scrollTo(0, 0);
+}}
   whileHover={{
     scale: 1.04,
   }}
