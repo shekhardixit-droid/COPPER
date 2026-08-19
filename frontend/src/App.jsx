@@ -20,7 +20,6 @@ import Casesstudy from "./components/project/Casestudy";
 import Manifesto from "./components/project/Manifesto";
 import Webdesign2 from "./components/project/Webdesign2";
 import ThreeServices from "./pages/ThreeServices";
- import ThinkUFind from "./pages/ThinkUFind";
 
 
 function App() {
@@ -39,7 +38,6 @@ function App() {
           element={<Disclosures />}
          
         />
-        <Route path="/think-u-find" element={<ThinkUFind />} />
         {/* Service Pages */}
         <Route path="/brand-identity" element={<BrandIdentity />} />
         <Route path="/web-design" element={<WebDev />} />
