@@ -155,6 +155,7 @@ const Navbar = () => {
           {/* Projects */}
 
           <button
+            onClick={() => navigate("/projects")}
             className="
               rounded-full
               px-4
@@ -195,30 +196,30 @@ const Navbar = () => {
           {/* =================================================
               GET IN TOUCH
           ================================================= */}
-
-          <button
-            className="
-              group
-              ml-3
-              flex
-              h-[40px]
-              w-[148px]
-              shrink-0
-              items-center
-              justify-between
-              rounded-full
-              bg-black
-              pl-5
-              pr-1
-              text-sm
-              font-semibold
-              text-white
-              transition-all
-              duration-300
-              hover:bg-gray-900
-              font-dm-sans
-            "
-          >
+<button
+  onClick={() => navigate("/contact")}
+  className="
+    group
+    ml-3
+    flex
+    h-[40px]
+    w-[148px]
+    shrink-0
+    items-center
+    justify-between
+    rounded-full
+    bg-black
+    pl-5
+    pr-1
+    text-sm
+    font-semibold
+    text-white
+    transition-all
+    duration-300
+    hover:bg-gray-900
+    font-dm-sans
+  "
+>
             <span>
               Get in Touch
             </span>
@@ -346,6 +347,10 @@ const Navbar = () => {
                       if (item === "Services") {
                         navigate("/services");
                       }
+
+                      if (item === "Projects") {
+                        navigate("/projects");
+                      }
                     }}
                     className={`
                       w-full
@@ -383,7 +388,10 @@ const Navbar = () => {
                   transition={{
                     delay: 0.25,
                   }}
-                  onClick={() => setMenuOpen(false)}
+                 onClick={() => {
+  setMenuOpen(false);
+  navigate("/contact");
+}}
                   className="
                     group
                     mt-2
