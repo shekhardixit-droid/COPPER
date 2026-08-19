@@ -6,6 +6,9 @@ import ScopeBuilder from "./pages/ScopeBuilder";
 import BrandIdentity from "./pages/BrandIdentity";
 import WebDev from "./pages/WebDev";
 import CustomPortal from "./pages/CustomPortal";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Disclosures from "./pages/Disclosures";
 
 import Projects from "./pages/Projects";
 import VisionPage from "./pages/VisionPage";
@@ -28,7 +31,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/scope-builder" element={<ScopeBuilder />} />
-
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+          path="/disclosures"
+          element={<Disclosures />}
+        />
         {/* Service Pages */}
         <Route path="/brand-identity" element={<BrandIdentity />} />
         <Route path="/web-design" element={<WebDev />} />
