@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
 
@@ -6,6 +7,7 @@ const navItems = ["Home", "Studio", "Services", "Projects", "Client Login"];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav
@@ -132,6 +134,7 @@ const Navbar = () => {
           {/* Services */}
 
           <button
+            onClick={() => navigate("/services")}
             className="
               rounded-full
               px-4
@@ -337,7 +340,13 @@ const Navbar = () => {
                     transition={{
                       delay: index * 0.05,
                     }}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false);
+
+                      if (item === "Services") {
+                        navigate("/services");
+                      }
+                    }}
                     className={`
                       w-full
                       rounded-2xl
