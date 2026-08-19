@@ -21,7 +21,7 @@ import Manifesto from "./components/project/Manifesto";
 import Webdesign2 from "./components/project/Webdesign2";
 import ThreeServices from "./pages/ThreeServices";
 import MainProjects from "./pages/MainProjects";
-
+import MeetCopper from "./pages/MeetCopper";
 
 function App() {
   return (
@@ -55,6 +55,7 @@ function App() {
                 <Route path="/services" element={<ThreeServices />} />
                 <Route path="/disclosures" element={<Disclosures />} />
                 <Route path="/main-projects" element={<MainProjects/>} />
+                <Route path="/meet-copper" element={<MeetCopper/>} />
 
       </Routes>
     </BrowserRouter>
