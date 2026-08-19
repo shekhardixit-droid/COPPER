@@ -331,7 +331,11 @@ const ThreeServices = () => {
 
       <ServiceIntro
         svg="/services/main01.svg"
-        heading="Brand Identity"
+        heading={
+          <>
+            Brand Identity
+          </>
+        }
         description="Develop a strategic brand identity with custom logo design, visual systems, typography, and brand guidelines that create a lasting impression across every touchpoint. Build a consistent and recognisable brand presence that connects with your audience and grows with your business."
       />
 
@@ -426,7 +430,12 @@ const ThreeServices = () => {
 
       <ServiceIntro
         svg="/services/main03.svg"
-        heading="Custom Company Portals"
+        heading={
+          <>
+            Custom <br />
+            Company Portal
+          </>
+        }
         description="Create secure custom business portals tailored to your workflow. We build systems that simplify communication, centralize information, automate everyday operations, and give your team better control over how the business works."
       />
 

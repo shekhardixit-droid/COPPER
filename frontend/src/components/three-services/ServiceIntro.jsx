@@ -19,7 +19,7 @@ const ServiceIntro = ({
       <div
         className="
           relative
-          mx-0
+          mx-auto
           w-full
           max-w-[1200px]
 
@@ -28,9 +28,7 @@ const ServiceIntro = ({
         "
       >
 
-        {/* =====================================
-            SVG — 157.75 × 113.25
-        ====================================== */}
+        {/* SVG */}
 
         <div
           className="
@@ -54,10 +52,7 @@ const ServiceIntro = ({
         </div>
 
 
-        {/* =====================================
-            HEADING — 418 × 52
-            OVERLAPS SVG
-        ====================================== */}
+        {/* HEADING */}
 
         <div
           className="
@@ -77,32 +72,33 @@ const ServiceIntro = ({
           "
         >
           <h2
-            className="
-              max-w-full
-              font-dm-sans
-              text-[62px]
-              font-semibold
-              leading-[52px]
-              tracking-[-0.75px]
-              text-black
+  className="
+    h-[124px]
+    w-[502px]
+    max-w-full
+    font-dm-sans
+    text-[62px]
+    font-semibold
+    leading-[52px]
+    tracking-[-0.75px]
+    text-black
+    whitespace-nowrap
+    max-[767px]:h-auto
+    max-[767px]:w-full
+    max-[767px]:text-[40px]
+    max-[767px]:leading-[44px]
+    max-[767px]:tracking-[-0.5px]
 
-              max-[767px]:text-[40px]
-              max-[767px]:leading-[44px]
-              max-[767px]:tracking-[-0.5px]
-
-              max-[480px]:text-[32px]
-              max-[480px]:leading-[36px]
-            "
-          >
-            {heading}
-          </h2>
+    max-[480px]:text-[32px]
+    max-[480px]:leading-[36px]
+  "
+>
+  {heading}
+</h2>
         </div>
 
 
-        {/* =====================================
-            PARAGRAPH — 640 × 95
-            RIGHT SIDE
-        ====================================== */}
+        {/* PARAGRAPH */}
 
         <div
           className="
@@ -112,23 +108,19 @@ const ServiceIntro = ({
             flex
             h-[95px]
             w-[640px]
-            max-w-full
-            translate-x-20
+            max-w-[50%]
             items-start
 
-            /* MOBILE ONLY */
             max-[767px]:static
             max-[767px]:mt-8
             max-[767px]:h-auto
             max-[767px]:w-full
             max-[767px]:max-w-full
-            max-[767px]:translate-x-0
           "
         >
           <p
             className="
               w-full
-              max-w-none
               font-dm-sans
               text-[18px]
               font-normal
