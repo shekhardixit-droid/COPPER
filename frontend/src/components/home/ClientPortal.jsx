@@ -341,21 +341,22 @@ const ClientPortal = () => {
                     {feature.name}
                   </h3>
 
+{/* Divider */}
 
-                  {/* Divider */}
+<div
+  className="
+    translate-y-14
+    my-3
+    h-px
+    w-full
+    bg-orange-500
+    transition-colors
+    duration-300
+    group-hover:bg-white
 
-                  <div
-                    className="
-                      translate-y-14
-                      my-3
-                      h-px
-                      w-full
-                      bg-orange-500
-                      transition-colors
-                      duration-300
-                      group-hover:bg-white
-                    "
-                  />
+    max-[767px]:translate-y-0
+  "
+/>
 
 
                   {/* Paragraph */}
