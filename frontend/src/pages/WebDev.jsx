@@ -6,7 +6,7 @@ import CTA from "../components/webdev/CTA";
 import Footer from "../components/home/Footer.jsx";
 
 import LandingFeatureCard from "../components/webdev/LandingFeatureCard.jsx";
-import Marquee from "../components/brand-identity/Marquee.jsx";
+import Marquee from "../components/webdev/Marquee.jsx";
 
 const features = [
   {

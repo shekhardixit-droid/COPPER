@@ -2,16 +2,24 @@ import { motion } from "framer-motion";
 import { MdChevronRight } from "react-icons/md";
 
 const projects = [
-  "/projects/projects_common grounds.png",
-  "/projects/projects_cottson_1.png",
-  "/projects/projects_cottson_2.png",
-  "/projects/projects_datacircles_1.png",
-  "/projects/projects_datacircles_2.png",
-  "/projects/projects_ftat.png",
-  "/projects/projects_nitty gritty.png",
-  "/projects/projects_nora.png",
-  "/projects/projects_qodenext.png",
-  "/projects/projects_umaraj.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118379/umaraj_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118377/nitty_gritty_2.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118375/qodenext.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118375/datacircles_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118374/dentora_2.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118374/little_scholars.png",
+
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118372/palmora_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118370/ftat.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118367/cottson_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118366/umaraj_2.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118365/nitty_gritty_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118365/bacoola_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118364/dentora_3.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118362/web_design_mockup_1.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118362/nitty_gritty_3.png",
+  "https://res.cloudinary.com/ioempbte/image/upload/v1787118361/datacircles_2.png",
+  
 ];
 
 const ProjectImage = ({ image, index }) => {
@@ -192,7 +200,7 @@ const SelectedProjects2 = () => {
               x: ["0%", "-50%"],
             }}
             transition={{
-              duration: 30,
+              duration: 50,
               repeat: Infinity,
               ease: "linear",
             }}

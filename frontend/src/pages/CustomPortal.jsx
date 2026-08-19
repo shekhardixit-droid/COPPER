@@ -5,7 +5,7 @@ import CustomerReviews from "../components/home/CustomerReviews.jsx";
 import CTA from "../components/custom-portal/CTA";
 import Footer from "../components/home/Footer.jsx";
 
-import Marquee from "../components/brand-identity/Marquee.jsx";
+import Marquee from "../components/custom-portal/Marquee.jsx";
 
 const features = [
   {

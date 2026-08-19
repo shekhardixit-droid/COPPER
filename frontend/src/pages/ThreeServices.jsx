@@ -5,7 +5,7 @@ import ServiceIntro from "../components/three-services/ServiceIntro";
 import LandingFeatureCard from "../components/brand-identity/LandingFeatureCard";
 import Process from "../components/home/Process";
 import TechStack from "../components/home/Techstack";
-import SelectedProjects2 from "../components/home/SelectedProjects2";
+import WhatWeBuild from "../components/three-services/WhatWeBuild";
 import CustomerReviews from "../components/home/CustomerReviews";
 import WhyCopperStudio from "../components/home/WhyCopperStudio";
 import FAQ from "../components/three-services/FAQ";
@@ -559,7 +559,7 @@ const ThreeServices = () => {
 
       <TechStack />
 
-      <SelectedProjects2 />
+     <WhatWeBuild/>
 
       <CustomerReviews />
 
