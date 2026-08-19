@@ -52,6 +52,7 @@ function App() {
         <Route path="/projects/manifesto" element={<Manifesto />} />
         <Route path="/projects/web-design-2" element={<Webdesign2 />} />
                 <Route path="/services" element={<ThreeServices />} />
+                <Route path="/disclosures" element={<Disclosures />} />
       </Routes>
     </BrowserRouter>
   );
