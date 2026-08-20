@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
 
 const navItems = ["Home", "Studio", "Services", "Projects", "Client Login"];
 
@@ -97,7 +97,10 @@ const Navbar = () => {
           {/* Home */}
 
           <button
-            onClick={() => navigate("/")}
+                   onClick={() => {
+  navigate("/");
+  window.scrollTo(0, 0);
+}}
             className="
               rounded-full
               px-4
@@ -115,7 +118,10 @@ const Navbar = () => {
           {/* Studio */}
 
           <button
-            onClick={() => navigate("/studio")}
+          onClick={() => {
+  navigate("/meet-copper");
+  window.scrollTo(0, 0);
+}}
             className="
               rounded-full
               px-4
@@ -136,7 +142,10 @@ const Navbar = () => {
           {/* Services */}
 
           <button
-            onClick={() => navigate("/services")}
+           onClick={() => {
+  navigate("/services");
+  window.scrollTo(0, 0);
+}}
             className="
               rounded-full
               px-4
@@ -157,7 +166,7 @@ const Navbar = () => {
           {/* Projects */}
 
           <button
-            onClick={() => navigate("/projects")}
+            onClick={() => navigate("/main-projects")}
             className="
               rounded-full
               px-4
@@ -198,31 +207,33 @@ const Navbar = () => {
           {/* =================================================
               GET IN TOUCH
           ================================================= */}
-
-          <button
-            onClick={() => navigate("/contact")}
-            className="
-              group
-              ml-3
-              flex
-              h-[40px]
-              w-[148px]
-              shrink-0
-              items-center
-              justify-between
-              rounded-full
-              bg-black
-              pl-5
-              pr-1
-              text-sm
-              font-semibold
-              text-white
-              transition-all
-              duration-300
-              hover:bg-gray-900
-              font-dm-sans
-            "
-          >
+<button
+           onClick={() => {
+  navigate("/contact");
+  window.scrollTo(0, 0);
+}}
+  className="
+    group
+    ml-3
+    flex
+    h-[40px]
+    w-[148px]
+    shrink-0
+    items-center
+    justify-between
+    rounded-full
+    bg-black
+    pl-5
+    pr-1
+    text-sm
+    font-semibold
+    text-white
+    transition-all
+    duration-300
+    hover:bg-gray-900
+    font-dm-sans
+  "
+>
             <span>
               Get in Touch
             </span>
@@ -347,14 +358,32 @@ const Navbar = () => {
                     onClick={() => {
                       setMenuOpen(false);
 
-                      if (item === "Home") {
+                      
+                       if (item === "Home") {
                         navigate("/");
-                      } else if (item === "Studio") {
-                        navigate("/studio");
-                      } else if (item === "Services") {
+                         window.scrollTo(0, 0);
+
+                      }
+
+                      
+                       if (item === "Get in Touch") {
+                        navigate("/contact");
+                         window.scrollTo(0, 0);
+                      }
+
+                       if (item === "Studio") {
+                        navigate("/meet-copper");
+                         window.scrollTo(0, 0);
+                      }
+
+                      if (item === "Services") {
                         navigate("/services");
-                      } else if (item === "Projects") {
-                        navigate("/projects");
+                         window.scrollTo(0, 0);
+                      }
+
+                      if (item === "Projects") {
+                        navigate("/main-projects");
+                         window.scrollTo(0, 0);
                       }
                     }}
                     className={`
@@ -393,10 +422,10 @@ const Navbar = () => {
                   transition={{
                     delay: 0.25,
                   }}
-                  onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/contact");
-                  }}
+                 onClick={() => {
+  setMenuOpen(false);
+  navigate("/contact");
+}}
                   className="
                     group
                     mt-2
