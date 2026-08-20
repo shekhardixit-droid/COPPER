@@ -30,7 +30,7 @@ const Enquiry = () => {
     setStatus("loading");
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || "https://copperbackend-fygep7k72-sd-ccf1.vercel.app/"}api/contact-enquiry`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "https://copperbackend.vercel.app/"}api/contact-enquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstName, lastName, email, message }),
