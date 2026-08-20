@@ -17,16 +17,24 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
-    // allow requests with no origin (curl, Postman, server-to-server)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);
-    // return false instead of throwing — avoids empty response crashes
     return callback(null, false);
   },
   credentials: true,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// ── DB middleware — connect before every request ──────────────
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    return res.status(500).json({ success: false, message: "Database connection failed." });
+  }
+});
 
 // ── Routes ───────────────────────────────────────────────────
 app.use("/api/tell-us", tellUsRoutes);
@@ -36,14 +44,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Copper Studio API is running." });
 });
 
-// ── Start (local only — Vercel uses module.exports) ──────────
-connectDB().then(() => {
+// ── Local server (Vercel uses module.exports) ─────────────────
+if (process.env.VERCEL !== "1") {
   const PORT = process.env.PORT || 5000;
-  if (process.env.VERCEL !== "1") {
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  }
-});
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
 
 module.exports = app;
