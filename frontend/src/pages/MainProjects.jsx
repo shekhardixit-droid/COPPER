@@ -284,6 +284,7 @@ const MainProjects = () => {
       "Website",
       "Client Portal"
     ]}
+    link="/cottson"
   />
 
   
@@ -295,6 +296,7 @@ const MainProjects = () => {
       "Fitness & Wellness",
       "Branding",
     ]}
+    link="/nora"
   />
 
   
@@ -315,8 +317,8 @@ const MainProjects = () => {
     points={[
       "Marketing",
       "Website",
-     
     ]}
+    link="/nittygritty"
   />
 
   <Cards
@@ -334,9 +336,9 @@ const MainProjects = () => {
     heading="Coffee Theory"
     points={[
       "F&B/Hospitality",
-      "Branding",
-    
+      "Branding",    
     ]}
+    link="/coffeetheory"
   />
 
   <Cards
@@ -344,9 +346,9 @@ const MainProjects = () => {
     heading="DataCircles: CRM & Invoicing Software"
     points={[
       "SaaS/Tech",
-      "Branding",
-      
+      "Branding",      
     ]}
+    link="/datacircles"
   />
 
   <Cards

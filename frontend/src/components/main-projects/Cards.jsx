@@ -1,17 +1,28 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Cards = ({
   image,
   heading,
   points = [],
+  link,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <motion.div
+    onClick={() => {
+  if (link) {
+    navigate(link);
+    window.scrollTo(0, 0);
+  }
+}}
       className="
         group
         h-[399px]
         w-[413.34px]
         max-w-full
+        cursor-pointer
         overflow-hidden
         rounded-[10px]
         bg-white
@@ -20,7 +31,7 @@ const Cards = ({
         max-[767px]:w-full
       "
       whileHover={{
-        y: -4,
+        y: -2,
       }}
       transition={{
         duration: 0.3,
@@ -58,12 +69,12 @@ const Cards = ({
 
       <div
         className="
+          mt-1
           flex
           h-[40.7px]
           w-[413.34px]
           flex-col
           justify-start
-          mt-1
 
           max-[767px]:h-auto
           max-[767px]:w-full
