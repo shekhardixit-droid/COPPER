@@ -48,7 +48,8 @@ const FloatingActions = () => {
   />
 </a>
       {/* Calendar */}
-      <button
+      <a
+            href="https://calendly.com/d/dv5z-d4q-bp4/the-copper-studio-introduction-meeting"
         type="button"
         aria-label="Book a meeting"
         className="
@@ -73,11 +74,13 @@ const FloatingActions = () => {
           strokeWidth={1.8}
           className="sm:h-[17px] sm:w-[17px]"
         />
-      </button>
+      </a>
 
       {/* Instagram */}
-      <button
-        type="button"
+      <a
+      
+       href="https://www.instagram.com/the_copperstudio/"
+        
         aria-label="Instagram"
         className="
           flex
@@ -100,7 +103,7 @@ const FloatingActions = () => {
           strokeWidth={1.8}
           className="sm:h-[18px] sm:w-[18px]"
         />
-      </button>
+      </a>
 
     </div>
   );

@@ -156,7 +156,7 @@ const Footer = () => {
                 {/* Instagram */}
 
                 <a
-                  href="#"
+                  href="https://www.instagram.com/the_copperstudio/"
                   aria-label="Instagram"
                   className="
                     flex
@@ -189,7 +189,7 @@ const Footer = () => {
                 {/* Calendar */}
 
                 <a
-                  href="#"
+                  href="https://calendly.com/d/dv5z-d4q-bp4/the-copper-studio-introduction-meeting"
                   aria-label="Calendar"
                   className="
                     flex

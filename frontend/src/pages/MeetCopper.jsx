@@ -1,7 +1,7 @@
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import FinalCTA from "../components/home/FinalCTA";
-import FAQ2 from "../components/contact/FAQ2";
+import FAQ from "../components/meet-copper/FAQ";
 import CallPoints from "../components/three-services/FourCards";
 import Process from "../components/home/Process";
 import Techstack from "../components/home/Techstack";
@@ -742,7 +742,7 @@ const MeetCopper = () => {
 
       <CallPoints />
 
-      <FAQ2 />
+      <FAQ />
 
 
       {/* FINAL CTA */}
