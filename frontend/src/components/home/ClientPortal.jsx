@@ -346,7 +346,7 @@ const ClientPortal = () => {
 
                   <div
                     className="
-                      translate-y-14
+                      translate-y-13
                       my-3
                       h-px
                       w-full
