@@ -22,15 +22,12 @@ import Webdesign2 from "./components/project/Webdesign2";
 import ThreeServices from "./pages/ThreeServices";
 import MeetCopper from "./pages/MeetCopper";
 import MainProjects from "./pages/MainProjects";
-<<<<<<< Updated upstream
 import JoinCopper from "./pages/JoinCopper";
-=======
 import DataCircles from "./pages/DataCircles";
 import NittyGritty from "./pages/NittyGritty";
 import Cottson from "./pages/Cottson";
 import Nora from "./pages/Nora";
 import CoffeeTheory from "./pages/CoffeeTheory";
->>>>>>> Stashed changes
 
 
 function App() {
@@ -66,9 +63,7 @@ function App() {
                 <Route path="/services" element={<ThreeServices />} />
                 <Route path="/meet-copper" element={<MeetCopper />} />
                 <Route path="/main-projects" element={<MainProjects />} />
-<<<<<<< Updated upstream
                 <Route path="/join-copper" element={<JoinCopper />} />
-=======
                 <Route path="/datacircles" element={<DataCircles />} />
                  <Route path="/nittygritty" element={<NittyGritty/>} />
                  <Route path="/cottson" element={<Cottson/>} />
@@ -77,7 +72,6 @@ function App() {
 
 
 
->>>>>>> Stashed changes
       </Routes>
     </BrowserRouter>
   );
