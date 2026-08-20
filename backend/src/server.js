@@ -12,6 +12,7 @@ const app = express();
 // ── Middleware ────────────────────────────────────────────────
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://copper-self.vercel.app",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
