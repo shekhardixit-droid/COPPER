@@ -2,15 +2,13 @@
 
 ## Overview
 
-| Service  | Technology          | Container port | Default host port |
-|----------|---------------------|---------------|-------------------|
-| frontend | Vite → nginx        | 80            | 3000              |
-| backend  | Express + Mongoose  | 5000          | not exposed*      |
+| Service  | Technology          | Container port | Host port |
+|----------|---------------------|---------------|-----------|
+| frontend | Vite → nginx        | 80            | 3000      |
+| backend  | Express + Mongoose  | 5000          | **5001**  |
 
-\* The backend is on an internal Docker network only. The browser talks to it
-directly via `VITE_API_URL` (which is your VPS public IP/domain + port 5000).
-If you want the backend port reachable from the host for debugging, uncomment
-the `ports` block in `docker-compose.yml`.
+> Port 5000 on the VPS host is occupied by another application.
+> COPPER's backend is mapped to host port **5001** → container port 5000.
 
 MongoDB is hosted on MongoDB Atlas — no database container is needed.
 
@@ -44,24 +42,21 @@ cp .env.example .env
 nano .env   # or vim .env
 ```
 
-Fill in every value. The file must look like this (replace placeholders):
+Fill in every value. The file must look exactly like this:
 
 ```env
 FRONTEND_PORT=3000
-VITE_API_URL=http://YOUR_VPS_IP:5000/
-BACKEND_PORT=5000
+VITE_API_URL=http://200.234.34.214:5001/
+BACKEND_PORT=5001
 MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/dbname?retryWrites=true&w=majority
-FRONTEND_URL=http://YOUR_VPS_IP:3000
+FRONTEND_URL=http://200.234.34.214:3000
 ```
 
 **Important:**
-- `VITE_API_URL` must be the URL the **user's browser** can reach.
-  If you have a domain: `https://api.yourdomain.com/`
-  Without a domain: `http://YOUR_VPS_IP:5000/`
-- `FRONTEND_URL` must match what the browser sends as the `Origin` header.
-  If you have a domain: `https://yourdomain.com`
-  Without a domain: `http://YOUR_VPS_IP:3000`
-- Both must end consistently (API URL ends with `/`, FRONTEND_URL has no trailing slash).
+- `VITE_API_URL` must be the URL the **user's browser** can reach — `http://200.234.34.214:5001/`
+- `FRONTEND_URL` must match the exact origin the browser sends — `http://200.234.34.214:3000`
+- `VITE_API_URL` must end with `/`. `FRONTEND_URL` must have no trailing slash.
+- If you change `VITE_API_URL` you must rebuild: `docker compose up --build -d`
 
 ---
 
@@ -91,12 +86,12 @@ docker compose logs backend
 # Check frontend logs
 docker compose logs frontend
 
-# Test the backend API directly
-curl http://YOUR_VPS_IP:5000/
+# Test the backend API directly (host port 5001)
+curl http://200.234.34.214:5001/
 # Expected: {"message":"Copper Studio API is running."}
 
 # Open frontend in browser
-http://YOUR_VPS_IP:3000
+http://200.234.34.214:3000
 ```
 
 ---
@@ -117,32 +112,41 @@ If you are using Hostinger's Docker Manager UI instead of the CLI:
 
 ### Root `.env` (read by docker-compose)
 
-| Variable        | Required | Description                                                    |
-|-----------------|----------|----------------------------------------------------------------|
-| `VITE_API_URL`  | Yes      | Public backend URL the browser calls. Must end with `/`.      |
-| `MONGODB_URI`   | Yes      | MongoDB Atlas connection string.                               |
-| `FRONTEND_URL`  | Yes      | Public frontend URL for backend CORS allow-list.               |
-| `FRONTEND_PORT` | No       | Host port for the frontend. Default: `3000`.                  |
-| `BACKEND_PORT`  | No       | Internal backend port. Default: `5000`.                       |
+| Variable        | Required | Value for this VPS                          |
+|-----------------|----------|---------------------------------------------|
+| `VITE_API_URL`  | Yes      | `http://200.234.34.214:5001/`               |
+| `MONGODB_URI`   | Yes      | Your MongoDB Atlas connection string        |
+| `FRONTEND_URL`  | Yes      | `http://200.234.34.214:3000`                |
+| `FRONTEND_PORT` | No       | `3000` (default)                            |
+| `BACKEND_PORT`  | No       | `5001` (avoids conflict with existing app)  |
 
 ---
 
 ## How frontend communicates with backend
 
 ```
-Browser → http://YOUR_VPS_IP:3000 (nginx serves the React SPA)
+Browser → http://200.234.34.214:3000   (nginx serves the React SPA)
           ↓
           React app makes API calls to VITE_API_URL
           ↓
-Browser → http://YOUR_VPS_IP:5000/api/... (Express backend)
+Browser → http://200.234.34.214:5001/api/...  (Express backend, host port 5001)
+          ↓
+          Docker maps 5001 → container port 5000
 ```
 
 `VITE_API_URL` is baked into the JavaScript bundle at **build time** by Vite.
-This means if you change `VITE_API_URL`, you must rebuild the Docker image:
+Changing it requires a rebuild: `docker compose up --build -d`
 
-```bash
-docker compose up --build -d
+---
+
+## Port mapping
+
 ```
+Host 3000  →  copper_frontend container port 80   (nginx)
+Host 5001  →  copper_backend  container port 5000 (Express)
+```
+
+Host port 5000 is intentionally left free for the existing VPS application.
 
 ---
 
@@ -154,7 +158,7 @@ is needed. Provide your Atlas connection string as `MONGODB_URI`.
 To allow connections from your VPS:
 1. Log in to MongoDB Atlas.
 2. Go to **Network Access**.
-3. Add your VPS public IP address (or `0.0.0.0/0` for all IPs — less secure).
+3. Add `200.234.34.214` (or `0.0.0.0/0` for all IPs — less secure).
 
 ---
 
@@ -179,22 +183,22 @@ docker compose down
 
 ### Frontend shows blank page
 - Check nginx logs: `docker compose logs frontend`
-- Ensure the `dist/` folder was built: `docker compose exec frontend ls /usr/share/nginx/html`
+- Ensure assets were built: `docker compose exec frontend ls /usr/share/nginx/html`
 
 ### API calls fail (network error / CORS error)
-- Confirm `VITE_API_URL` is the **public** IP/domain, not `localhost` or an internal IP.
-- Confirm `FRONTEND_URL` in backend env matches the exact origin the browser sends.
-- Rebuild after changing `VITE_API_URL`: `docker compose up --build -d`
-- Check backend is running: `curl http://YOUR_VPS_IP:5000/`
+- Confirm `VITE_API_URL=http://200.234.34.214:5001/` — not localhost, not port 5000.
+- Confirm `FRONTEND_URL=http://200.234.34.214:3000` matches the exact browser origin.
+- Rebuild after any URL change: `docker compose up --build -d`
+- Test backend directly: `curl http://200.234.34.214:5001/`
 
 ### Database connection failed
 - Confirm `MONGODB_URI` is set correctly in `.env`.
-- Confirm your VPS IP is whitelisted in MongoDB Atlas Network Access.
+- Confirm `200.234.34.214` is whitelisted in MongoDB Atlas Network Access.
 - Check backend logs: `docker compose logs backend`
 
 ### Port already in use
-- Change `FRONTEND_PORT` or `BACKEND_PORT` in `.env`.
-- Check what's using a port: `ss -tlnp | grep 3000`
+- `5001` is the backend host port. If also occupied: change `BACKEND_PORT` in `.env`.
+- Check what's using a port: `ss -tlnp | grep 5001`
 
 ### Container keeps restarting
 - Read the logs: `docker compose logs --tail=50 backend`
