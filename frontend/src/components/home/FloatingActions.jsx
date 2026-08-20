@@ -20,35 +20,33 @@ const FloatingActions = () => {
         sm:gap-3
       "
     >
+{/* Call */}
+<a
+  href="tel:+919820933877"
+  aria-label="Call us"
+  className="
+    flex
+    h-9
+    w-9
+    items-center
+    justify-center
+    rounded-full
 
-      {/* Call */}
-      <button
-        type="button"
-        aria-label="Call us"
-        className="
-          flex
-          h-9
-          w-9
-          items-center
-          justify-center
-          rounded-full
-        
-          bg-white
-          text-black
-          shadow-md
-          backdrop-blur-md
-         
-          sm:h-10
-          sm:w-10
-        "
-      >
-        <FiPhone
-          size={16}
-          strokeWidth={1.8}
-          className="sm:h-[17px] sm:w-[17px]"
-        />
-      </button>
+    bg-white
+    text-black
+    shadow-md
+    backdrop-blur-md
 
+    sm:h-10
+    sm:w-10
+  "
+>
+  <FiPhone
+    size={16}
+    strokeWidth={1.8}
+    className="sm:h-[17px] sm:w-[17px]"
+  />
+</a>
       {/* Calendar */}
       <button
         type="button"

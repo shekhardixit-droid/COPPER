@@ -134,7 +134,7 @@ const FinalCTA = () => {
             {/* Secondary */}
 
             <motion.a
-              href="#projects"
+              href="https://wa.me/919820933877"
               whileHover={{
                 scale: 1.04,
               }}

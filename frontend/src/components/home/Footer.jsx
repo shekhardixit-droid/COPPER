@@ -123,7 +123,7 @@ const Footer = () => {
                 {/* WhatsApp */}
 
                 <a
-                  href="#"
+                href="https://wa.me/919820933877"
                   aria-label="WhatsApp"
                   className="
                     flex

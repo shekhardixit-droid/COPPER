@@ -143,7 +143,7 @@ const FinalCTA = () => {
             {/* Secondary */}
 
             <motion.a
-              href="#projects"
+             href="https://wa.me/919820933877"
               onClick={(e) => { e.preventDefault(); navigate("/main-projects"); window.scrollTo(0, 0); }}
               whileHover={{
                 scale: 1.04,

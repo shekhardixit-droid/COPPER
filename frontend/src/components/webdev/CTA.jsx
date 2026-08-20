@@ -82,7 +82,7 @@ const FinalCTA = () => {
             </motion.a>
 
             <motion.a
-              href="#projects"
+               href="https://wa.me/919820933877"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="
