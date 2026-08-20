@@ -10,12 +10,12 @@ services:
     container_name: copper_backend
     restart: unless-stopped
     environment:
-      - PORT=${BACKEND_PORT:-5001}
+      - PORT=${BACKEND_PORT:-5002}
       - MONGODB_URI=${MONGODB_URI}
       - FRONTEND_URL=${FRONTEND_URL}
-    # Backend is publicly reachable on BACKEND_PORT (default 5001)
+    # Backend is publicly reachable on BACKEND_PORT (default 5002)
     ports:
-      - "${BACKEND_PORT:-5001}:5000"
+      - "${BACKEND_PORT:-5002}:5000"
     networks:
       - copper_network
 
