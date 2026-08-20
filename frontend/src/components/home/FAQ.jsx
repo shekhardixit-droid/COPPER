@@ -584,7 +584,8 @@ const faqs = [
   {
     question: "Will I own the final files?",
     answer:
-      "Will I own the final files?",
+     
+      "Absolutely. Once the project is complete, you'll receive ownership of all final deliverables, and they'll remain available through your dedicated client portal with lifetime access.",
   },
 
   {
