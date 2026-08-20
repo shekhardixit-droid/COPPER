@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+
+  # ── Backend (Express API) ──────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: copper_backend
+    restart: unless-stopped
+    environment:
+      - PORT=${BACKEND_PORT:-5000}
+      - MONGODB_URI=${MONGODB_URI}
+      - FRONTEND_URL=${FRONTEND_URL}
+    # Backend is NOT exposed publicly — only reachable by the
+    # frontend container and the internal Docker network.
+    # To expose for debugging: uncomment the ports block below.
+    # ports:
+    #   - "${BACKEND_PORT:-5000}:5000"
+    networks:
+      - copper_network
+
+  # ── Frontend (Vite build served by nginx) ─────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # VITE_API_URL is baked into the JS bundle at build time.
+        # It must point to the public-facing backend URL that the
+        # user's browser can reach.
+        VITE_API_URL: ${VITE_API_URL}
+    container_name: copper_frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    depends_on:
+      - backend
+    networks:
+      - copper_network
+
+networks:
+  copper_network:
+    driver: bridge
