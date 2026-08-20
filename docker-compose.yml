@@ -34,7 +34,7 @@ services:
     container_name: copper_frontend
     restart: unless-stopped
     ports:
-      - "${FRONTEND_PORT:-3000}:80"
+      - "3002:80"
     depends_on:
       - backend
     networks:
