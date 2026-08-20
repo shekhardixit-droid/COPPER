@@ -12,7 +12,7 @@ const app = express();
 // ── Middleware ────────────────────────────────────────────────
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://copper-gamma-blush.vercel.app",
+  "https://thecopperstudio.com",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
