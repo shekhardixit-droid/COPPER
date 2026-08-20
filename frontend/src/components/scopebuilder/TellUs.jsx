@@ -65,7 +65,8 @@ export default function TellUs({ onBack, onContinue, onClose, scopeData = {} }) 
           selectedServices,
         }),
       });
-      const result = await res.json();
+      let result = {};
+      try { result = await res.json(); } catch (_) {}
       if (!res.ok) throw new Error(result.message || "Failed to save");
       setShowPopup(true);
     } catch (err) {

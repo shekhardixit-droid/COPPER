@@ -36,7 +36,8 @@ const Enquiry = () => {
         body: JSON.stringify({ firstName, lastName, email, message }),
       });
 
-      const data = await res.json();
+      let data = {};
+      try { data = await res.json(); } catch (_) {}
 
       if (!res.ok || !data.success) {
         throw new Error(data.message || "Submission failed.");
