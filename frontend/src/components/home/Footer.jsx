@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
-
   return (
     <div className="w-full bg-white">
       <footer
@@ -18,11 +17,13 @@ const Footer = () => {
           text-white
           sm:px-6
           sm:pt-16
-          h-auto
-          lg:h-[500px]
+         
+         h-auto
+         lg:h-[500px]
           md:px-10
           md:pb-8
           md:pt-20
+         
           lg:px-16
         "
       >
@@ -75,42 +76,42 @@ const Footer = () => {
 
               {/* Heading */}
 
-              <h2
-                className="
-                  whitespace-nowrap
-                  font-dm-sans
-                  text-[24px]
-                  font-bold
-                  max-[1023px]:translate-x-0
-                  lg:-translate-x-20
-                  leading-[32px]
-                  tracking-[-0.04em]
-                  drop-shadow-[0_0_18px_rgba(249,115,22,0.2)]
-                "
-              >
-                THE COPPER STUDIO
-              </h2>
+             <h2
+  className="
+    whitespace-nowrap
+    font-dm-sans
+    text-[24px]
+    font-bold
+    max-[1023px]:translate-x-0
+    lg:-translate-x-20
+    leading-[32px]
+    tracking-[-0.04em]
+    drop-shadow-[0_0_18px_rgba(249,115,22,0.2)]
+  "
+>
+  THE COPPER STUDIO
+</h2>
 
 
               {/* Description */}
 
               <p
-                className="
-                  mt-5
-                  max-w-sm
-                  font-dm-sans
-                  text-[14px]
-                  max-[1023px]:translate-x-0
-                  lg:-translate-x-20
-                  font-normal
-                  leading-[18px]
-                  text-white/40
-                  sm:mt-6
-                "
-              >
-                Copper Studio is a design and development studio creating distinctive
-                brands, digital experiences, and custom business solutions.
-              </p>
+  className="
+    mt-5
+    max-w-sm
+    font-dm-sans
+    text-[14px]
+    max-[1023px]:translate-x-0
+    lg:-translate-x-20
+    font-normal
+    leading-[18px]
+    text-white/40
+    sm:mt-6
+  "
+>
+  Copper Studio is a design and development studio creating distinctive
+  brands, digital experiences, and custom business solutions.
+</p>
 
 
               {/* =================================================
@@ -237,7 +238,7 @@ const Footer = () => {
                   tracking-[0.2em]
                   text-white
                   sm:mb-6
-                  font-dm-sans
+                   font-dm-sans
                 "
               >
                 CONNECT
@@ -256,7 +257,7 @@ const Footer = () => {
                     text-white/60
                     transition-colors
                     duration-300
-                    font-dm-sans
+                     font-dm-sans
                     hover:text-orange-500
                   "
                 >
@@ -272,7 +273,7 @@ const Footer = () => {
                     transition-colors
                     duration-300
                     hover:text-orange-500
-                    font-dm-sans
+                     font-dm-sans
                   "
                 >
                   P: +91 9820933877
@@ -284,7 +285,7 @@ const Footer = () => {
                     text-sm
                     leading-6
                     text-white/60
-                    font-dm-sans
+                     font-dm-sans
                   "
                 >
                   Office 721, Centura Square IT Park,
@@ -316,44 +317,60 @@ const Footer = () => {
                   tracking-[0.2em]
                   text-white
                   sm:mb-6
-                  font-dm-sans
+                   font-dm-sans
                 "
               >
                 PAGES
               </p>
 
-              <div className="flex flex-col gap-3.5 sm:gap-4">
+             <div className="flex flex-col gap-3.5 sm:gap-4">
 
-                {[
-                  "Home",
-                  "Studio",
-                  "Services",
-                  "Projects",
-                  "Blogs",
-                ].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="
-                      w-fit
-                      text-sm
-                      max-[1023px]:ml-0
-                      lg:ml-15
-                      font-dm-sans
-                      text-white/60
-                      transition-colors
-                      duration-300
-                      hover:text-orange-500
-                    "
-                  >
-                    {item}
-                  </a>
-                ))}
+  {[
+    "Home",
+    "Studio",
+    "Services",
+    "Projects",
+    "Blogs",
+  ].map((item) => (
+    <a
+      key={item}
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
 
-              </div>
+        if (item === "Home") {
+          navigate("/");
+        } else if (item === "Studio") {
+          navigate("/meet-copper");
+        } else if (item === "Services") {
+          navigate("/services");
+        } else if (item === "Projects") {
+          navigate("/main-projects");
+        } else if (item === "Blogs") {
+          navigate("/blogs");
+        }
 
-            </div>
+        window.scrollTo(0, 0);
+      }}
+      className="
+        w-fit
+        text-sm
+        max-[1023px]:ml-0
+        lg:ml-15
+         font-dm-sans
+        text-white/60
+        transition-colors
+        duration-300
+        hover:text-orange-500
+      "
+    >
+      {item}
+    </a>
+  ))}
 
+</div>
+
+</div>
 
             {/* =================================================
                 04 — RESOURCES
@@ -371,7 +388,7 @@ const Footer = () => {
                   uppercase
                   tracking-[0.2em]
                   text-white
-                  font-dm-sans
+                   font-dm-sans
                   sm:mb-6
                 "
               >
@@ -388,34 +405,32 @@ const Footer = () => {
                   "Disclosures",
                 ].map((item) => (
                   <a
-                    key={item}
-                    href="#"
-                    onClick={(e) => {
-                      if (
-                        item === "Terms and Conditions" ||
-                        item === "Privacy Policy" ||
-                        item === "Disclosures"
-                      ) {
-                        e.preventDefault();
+      key={item}
+      href="#"
+      onClick={(e) => {
+        e.preventDefault();
 
-                        if (item === "Terms and Conditions") {
-                          navigate("/terms-and-conditions");
-                        } else if (item === "Privacy Policy") {
-                          navigate("/privacy-policy");
-                        } else if (item === "Disclosures") {
-                          navigate("/disclosures");
-                        }
-
-                        window.scrollTo(0, 0);
-                      }
-                    }}
+        if (item === "Home") {
+          navigate("/");
+        } else if (item === "Studio") {
+          navigate("/meet-copper");
+        } else if (item === "Terms and Conditions") {
+          navigate("/terms-and-conditions");
+        } else if (item === "Privacy Policy") {
+          navigate("/privacy-policy");
+        } else if (item === "Disclosures") {
+          navigate("/disclosures");
+        }
+        
+        window.scrollTo(0, 0);
+      }}
                     className="
                       w-fit
                       max-[1023px]:ml-0
                       lg:ml-20
                       max-w-full
                       text-sm
-                      font-dm-sans
+                       font-dm-sans
                       leading-6
                       text-white/60
                       transition-colors
@@ -433,35 +448,32 @@ const Footer = () => {
 
           </div>
 
-
           {/* =================================================
-              BOTTOM SVG
-          ================================================= */}
+    BOTTOM SVG
+================================================= */}
 
-          <div className="relative mt-30 flex w-full justify-center">
-
-            <img
-              src="/footer_copper studio.svg"
-              alt=""
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                bottom-0
-                left-1/2
-                mt-10
-                z-0
-                w-[100vw]
-                h-[396px]
-                max-w-none
-                -translate-x-1/2
-                translate-y-35
-                object-contain
-                opacity-100
-              "
-            />
-
-          </div>
+<div className="relative mt-30 flex w-full justify-center">
+  <img
+  src="/footer_copper studio.svg"
+  alt=""
+  aria-hidden="true"
+  className="
+    pointer-events-none
+    absolute
+    bottom-0
+    left-1/2
+    mt-10
+    z-0
+    w-[100vw]
+    h-[396px]
+    max-w-none
+    -translate-x-1/2
+    translate-y-35
+    object-contain
+    opacity-100
+  "
+/>
+</div>
 
 
           {/* =================================================
@@ -469,62 +481,66 @@ const Footer = () => {
           ================================================= */}
 
           <div
-            className="
-              ml-auto
-              flex
-              w-fit
-              flex-col
-              items-end
-              gap-4
-              pt-5
-              text-xs
-              text-white/30
-              font-dm-sans
-              max-[1023px]:translate-x-0
-              max-[1023px]:w-full
-              max-[1023px]:items-start
-              lg:translate-x-25
-              lg:translate-y-5
-              sm:flex-row
-              sm:items-center
-              sm:justify-end
-              sm:pt-6
-            "
-          >
+  className="
+    ml-auto
+    flex
+    w-fit
+    flex-col
+    items-end
+    gap-4
+    pt-5
+    text-xs
+    text-white/30
+    font-dm-sans
+    max-[1023px]:translate-x-0
+    max-[1023px]:w-full
+    max-[1023px]:items-start
+    lg:translate-x-25
+    lg:translate-y-5
+    sm:flex-row
+    sm:items-center
+    sm:justify-end
+    sm:pt-6
+  "
+>
 
             <p>
               © {new Date().getFullYear()} Copper Studio.All Rights reserved
             </p>
 
+
+            
           </div>
 
 
           <div
-            className="
-              flex
-              w-fit
-              flex-col
-              items-start
-              gap-4
-              pt-5
-              font-dm-sans
-              text-[12px]
-              font-normal
-              leading-[16px]
-              text-white/30
-              sm:flex-row
-              sm:items-center
-              sm:justify-start
-              max-[1023px]:translate-x-0
-              max-[1023px]:translate-y-0
-              lg:-translate-y-5
-              lg:-translate-x-30
-              sm:pt-6
-            "
-          >
-            <p>
+ className="
+  flex
+  w-fit
+  flex-col
+  items-start
+  gap-4
+  pt-5
+  font-dm-sans
+  text-[12px]
+  font-normal
+  leading-[16px]
+  text-white/30
+  sm:flex-row
+  sm:items-center
+  sm:justify-start
+  max-[1023px]:translate-x-0
+  max-[1023px]:translate-y-0
+  lg:-translate-y-5
+  lg:-translate-x-30
+  sm:pt-6
+"
+>         <p>
               Design by Copper Studio
             </p>
+
+
+            
           </div>
 
         </div>
