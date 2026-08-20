@@ -12,6 +12,7 @@ const FAQ_CSS = `
 ========================================================= */
 
 .faq-section {
+
   width: 100%;
   background: #ffffff;
   padding: 80px 20px;
