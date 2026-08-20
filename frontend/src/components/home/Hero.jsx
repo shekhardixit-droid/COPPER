@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import FloatingActions from "./FloatingActions";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-white px-2 py-2 sm:px-3 sm:py-3">
 
@@ -270,6 +272,7 @@ const Hero = () => {
             {/* View All Services */}
 
             <motion.button
+              onClick={() => { navigate("/services"); window.scrollTo(0, 0); }}
               whileHover={{
                 backgroundColor: "#ffffff",
                 color: "#000000",
@@ -300,6 +303,7 @@ const Hero = () => {
             {/* Let's Connect */}
 
             <motion.button
+              onClick={() => { navigate("/contact"); window.scrollTo(0, 0); }}
               whileHover={{
                 backgroundColor: "#ffffff",
                 color: "#000000",

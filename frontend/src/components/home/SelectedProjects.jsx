@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MdChevronRight } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   "/projects/projects_common grounds.png",
@@ -73,6 +74,7 @@ const ProjectImage = ({ image, index }) => {
 };
 
 const SelectedProjects = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-white">
 
@@ -155,6 +157,7 @@ const SelectedProjects = () => {
             {/* See All Projects */}
 
             <motion.button
+              onClick={() => { navigate("/main-projects"); window.scrollTo(0, 0); }}
               whileHover={{
                 y: -2,
               }}

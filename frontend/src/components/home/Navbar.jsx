@@ -108,6 +108,8 @@ const Navbar = () => {
               text-[16px]
               font-normal
               font-dm-sans
+              hover:bg-gray-100
+              hover:text-gray-900
               text-black
             "
           >

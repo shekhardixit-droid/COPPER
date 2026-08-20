@@ -1,12 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { MdChevronRight } from "react-icons/md";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
     number: "01",
     numberSvg: "services/01.svg",
     title: "Brand Identity",
+    route: "/brand-identity",
     description:
       "Develop a strategic brand identity with custom logo design, visual systems, typography, and brand guidelines that create a lasting impression across every touchpoint.",
     images: [
@@ -46,6 +48,7 @@ const services = [
     number: "02",
     numberSvg: "services/02.svg",
     title: "Web Design & Development",
+    route: "/web-design",
     description:
       "Design and develop fast, responsive, SEO-optimized websites that combine beautiful UI/UX with seamless functionality to help your business grow online.",
     images: [
@@ -90,6 +93,7 @@ const services = [
     number: "03",
     numberSvg: "services/03.svg",
     title: "Custom Company Portal",
+    route: "/custom-portal",
     description:
       "Build secure custom business portals tailored to your workflow, making it easier to manage clients, teams, projects, approvals, files, and everyday operations.",
     images: [
@@ -117,6 +121,7 @@ const services = [
 
 const Services = () => {
   const servicesRef = useRef(null);
+  const navigate = useNavigate();
 
   const isServicesInView = useInView(servicesRef, {
     once: false,
@@ -186,6 +191,7 @@ const Services = () => {
           </h2>
 
           <motion.button
+            onClick={() => { navigate("/services"); window.scrollTo(0, 0); }}
             whileHover={{
               scale: 1.04,
             }}
@@ -285,6 +291,7 @@ const ServiceCard = ({
   isServicesInView,
 }) => {
   const [hoveredImage, setHoveredImage] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <motion.div
@@ -724,6 +731,7 @@ const ServiceCard = ({
         ================================================= */}
 
         <motion.button
+          onClick={() => { navigate(service.route); window.scrollTo(0, 0); }}
           whileHover={{
             scale: 1.04,
           }}

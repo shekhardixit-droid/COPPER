@@ -22,6 +22,7 @@ import Webdesign2 from "./components/project/Webdesign2";
 import ThreeServices from "./pages/ThreeServices";
 import MeetCopper from "./pages/MeetCopper";
 import MainProjects from "./pages/MainProjects";
+import JoinCopper from "./pages/JoinCopper";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
                 <Route path="/services" element={<ThreeServices />} />
                 <Route path="/meet-copper" element={<MeetCopper />} />
                 <Route path="/main-projects" element={<MainProjects />} />
+                <Route path="/join-copper" element={<JoinCopper />} />
       </Routes>
     </BrowserRouter>
   );
