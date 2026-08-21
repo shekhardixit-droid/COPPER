@@ -10,7 +10,7 @@ import Marquee from "../components/brand-identity/Marquee.jsx";
 
 const features = [
   {
-    image: "/services/services_branding_5.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_5.png?updatedAt=1787289846541",
     heading: "Brand Identity & Strategy",
     description:
       "Logo design, brand strategy, visual identity, and brand guidelines that help your business stand out and build lasting recognition.",
@@ -22,7 +22,7 @@ const features = [
     ],
   },
   {
-    image: "/services/services_branding_6.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_6.png?updatedAt=1787289848100",
     heading: "Corporate Branding & Business Assets",
     description:
       "Bring your brand into every everyday business interaction with thoughtfully designed corporate assets.",
@@ -34,7 +34,7 @@ const features = [
     ],
   },
   {
-    image: "/services/services_branding_7.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_7.png?updatedAt=1787289848397",
     heading: "Marketing Collateral & Social Media Design",
     description:
       "Turn your brand into engaging marketing content designed to capture attention and communicate clearly.",
@@ -45,7 +45,7 @@ const features = [
     ],
   },
   {
-    image: "/services/services_branding_8.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_8.png?updatedAt=1787289849018",
     heading: "Packaging, Environmental & Merchandise Design",
     description:
       "Extend your brand beyond the screen and into the physical experiences your customers interact with.",

@@ -9,19 +9,19 @@ import Marquee from "../components/custom-portal/Marquee.jsx";
 
 const features = [
   {
-    image: "/services/cp1.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/Frame%202147227968.png",
     heading: "Custom Company Portals",
     description:
       "Secure client portals that simplify communication, file sharing, approvals and project tracking. ",
   },
   {
-    image:  "/services/cp2.svg",
+    image:  "https://ik.imagekit.io/qiap0iq38/home/services/Frame%202147227970.png",
     heading: "Custom CRM Solutions",
     description:
       "Tailored CRM solutions that centralize customer data, sales and relationship management.",
   },
   {
-    image:  "/services/cp3.svg",
+    image:  "https://ik.imagekit.io/qiap0iq38/home/services/Frame%202147227969.png",
     heading: "Billing & Invoicing Systems",
     description:
       "Custom invoicing systems that automate billing, payments and financial workflows.",

@@ -3,9 +3,9 @@ import { MdChevronRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const projects = [
-  "https://res.cloudinary.com/ioempbte/image/upload/v1787119911/crm_copper.png",
-  "https://res.cloudinary.com/ioempbte/image/upload/v1787119915/crm_ftat.png",
-  "https://res.cloudinary.com/ioempbte/image/upload/v1787119910/crm_cottson.png",
+  "https://ik.imagekit.io/qiap0iq38/home/services/crm_copper.png",
+  "https://ik.imagekit.io/qiap0iq38/home/services/crm_ftat.png",
+  "https://ik.imagekit.io/qiap0iq38/home/services/crm_cottson.png",
   
 ];
 

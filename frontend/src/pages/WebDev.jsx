@@ -10,28 +10,28 @@ import Marquee from "../components/webdev/Marquee.jsx";
 
 const features = [
   {
-    image: "/services/services_website_5.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_5.png?updatedAt=1787289848992",
     heading: "Custom Website Design",
     description:
       "Custom, responsive website designed to reflect your brand and deliver a seamless user experience.",
     tags: [],
   },
   {
-    image: "/services/services_website_6.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_6.png?updatedAt=1787289847422",
     heading: "E-Commerce Stores",
     description:
       "Online stores built to showcase products, simplify shopping and increase sales.",
     tags: [],
   },
   {
-     image: "/services/services_website_7.png",
+     image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_7.png?updatedAt=1787289848294",
     heading: "Campaign Landing Page",
     description:
       "Conversion focused landing pages designed to capture leads and drive customer action.",
     tags: [],
   },
   {
-     image: "/services/services_website_8.png",
+     image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_8.png?updatedAt=1787289847631",
     heading: "Content Management Systems (CMS)",
     description:
       "Easy-to-manage CMS websites that let you update content without technical expertise.",
