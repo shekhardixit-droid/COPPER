@@ -80,39 +80,48 @@ const Conversation = () => {
       ====================================== */}
 
       <div className="mt-7 flex flex-col gap-5">
+{/* Email */}
+<div
+  className="flex items-center gap-4 cursor-pointer"
+  onClick={() => (window.location.href = "mailto:contact@thecopperstudio.com")}
+>
+  <div className="flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-black/5">
+    <img src="/contactus/mail.png" alt="Email" className="h-5 w-5 object-contain" />
+  </div>
+  <div>
+    <h3 className="text-sm font-medium text-black font-['DM_Sans'] sm:text-base">Email</h3>
+    <p className="mt-1 text-xs leading-5 font-['DM_Sans'] text-black/45 sm:text-sm">contact@thecopperstudio.com</p>
+  </div>
+</div>
 
-        {/* Email */}
-        <div className="flex items-center gap-4">
-          <div className="flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-black/5">
-            <img src="/contactus/mail.png" alt="Email" className="h-5 w-5 object-contain" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium text-black font-['DM_Sans'] sm:text-base">Email</h3>
-            <p className="mt-1 text-xs leading-5 font-['DM_Sans'] text-black/45 sm:text-sm">contact@thecopperstudio.com</p>
-          </div>
-        </div>
-
-        {/* WhatsApp */}
-        <div className="flex items-center gap-4">
-          <div className="flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-black/5">
-            <img src="/contactus/wtsp.png" alt="WhatsApp" className="h-5 w-5 object-contain" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium font-['DM_Sans'] text-black sm:text-base">Whatsapp Us</h3>
-            <p className="mt-1 text-xs leading-5 font-['DM_Sans'] text-black/45 sm:text-sm">+91 9820933877</p>
-          </div>
-        </div>
+       {/* WhatsApp */}
+<div
+  className="flex items-center gap-4 cursor-pointer"
+  onClick={() => window.open("https://wa.me/919820933877", "_blank")}
+>
+  <div className="flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-black/5">
+    <img src="/contactus/wtsp.png" alt="WhatsApp" className="h-5 w-5 object-contain" />
+  </div>
+  <div>
+    <h3 className="text-sm font-medium font-['DM_Sans'] text-black sm:text-base">Whatsapp Us</h3>
+    <p className="mt-1 text-xs leading-5 font-['DM_Sans'] text-black/45 sm:text-sm">+91 9820933877</p>
+  </div>
+</div>
 
         {/* Phone */}
-        <div className="flex items-center gap-4">
-          <div className="flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-black/5">
-            <img src="/contactus/phone.png" alt="Phone" className="h-5 w-5 object-contain" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium font-['DM_Sans'] text-black sm:text-base">Phone Number</h3>
-            <p className="mt-1 text-xs leading-5 font-['DM_Sans'] text-black/45 sm:text-sm">+91 9820933877</p>
-          </div>
-        </div>
+        
+<div
+  className="flex items-center gap-4 cursor-pointer"
+  onClick={() => (window.location.href = "tel:+919820933877")}
+>
+  <div className="flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-black/5">
+    <img src="/contactus/phone.png" alt="Phone" className="h-5 w-5 object-contain" />
+  </div>
+  <div>
+    <h3 className="text-sm font-medium font-['DM_Sans'] text-black sm:text-base">Call Us</h3>
+    <p className="mt-1 text-xs leading-5 font-['DM_Sans'] text-black/45 sm:text-sm">+91 9820933877</p>
+  </div>
+</div>
 
       </div>
 

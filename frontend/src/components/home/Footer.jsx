@@ -347,7 +347,7 @@ const Footer = () => {
         } else if (item === "Projects") {
           navigate("/main-projects");
         } else if (item === "Blogs") {
-          navigate("/blogs");
+          navigate("/projects");
         }
 
         window.scrollTo(0, 0);
@@ -402,6 +402,7 @@ const Footer = () => {
                   "Careers",
                   "Terms and Conditions",
                   "Privacy Policy",
+                  
                   "Disclosures",
                 ].map((item) => (
                   <a
@@ -421,6 +422,10 @@ const Footer = () => {
         } else if (item === "Disclosures") {
           navigate("/disclosures");
         }
+        else if (item === "Careers") {
+          navigate("/join-copper");
+        }
+        
         
         window.scrollTo(0, 0);
       }}

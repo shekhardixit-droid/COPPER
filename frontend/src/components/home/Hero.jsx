@@ -37,51 +37,15 @@ const Hero = () => {
         {/* =====================================
             STATIC BACKGROUND
         ====================================== */}
-
-        <div
-          className="
-            absolute
-            inset-0
-            z-0
-            bg-cover
-            bg-center
-            bg-no-repeat
-          "
-          style={{
-            backgroundImage: "url('https://ik.imagekit.io/qiap0iq38/home/Group.png')",
-          }}
-        />
-
-
-        {/* =====================================
-            DARK OVERLAY
-        ====================================== */}
-
-        <div
-          className="
-            absolute
-            inset-0
-            z-10
-            bg-black/20
-          "
-        />
-
-
-        {/* =====================================
-            SUBTLE GRADIENT
-        ====================================== */}
-
-        <div
-          className="
-            absolute
-            inset-0
-            z-10
-            bg-gradient-to-b
-            from-black/10
-            via-transparent
-            to-black/20
-          "
-        />
+<div className="absolute inset-0 z-0">
+  <img
+    src="https://ik.imagekit.io/qiap0iq38/tr:w-1600,q-75,f-webp/home/Group.png"
+    alt=""
+    fetchPriority="high"
+    decoding="async"
+    className="h-full w-full object-cover object-center"
+  />
+</div>
 
 
         {/* =====================================

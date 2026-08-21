@@ -760,36 +760,40 @@ const JoinCopper = () => {
             your work catches our eye, we’ll make room for the right talent.
           </p>
 
-          <button
-            type="button"
-            className="
-              mt-[22px]
+         <a
+  href="mailto:contact@thecopperstudio.com"
+  className="
+    mt-[22px]
 
-              h-[40px]
-              px-[22px]
+    inline-flex
+    h-[40px]
+    items-center
+    justify-center
+    px-[22px]
 
-              rounded-full
-              border-0
+    rounded-full
+    border-0
 
-              bg-[#FFFFFF]
-              text-[#1A1A1A]
+    bg-[#FFFFFF]
+    text-[#1A1A1A]
 
-              font-['DM_Sans']
-              font-semibold
-              text-[13px]
-              leading-[20px]
+    font-['DM_Sans']
+    font-semibold
+    text-[13px]
+    leading-[20px]
 
-              shadow-[0px_4px_8px_rgba(0,0,0,0.18)]
+    shadow-[0px_4px_8px_rgba(0,0,0,0.18)]
 
-              cursor-pointer
+    cursor-pointer
+    no-underline
 
-              max-[600px]:mt-[20px]
-              max-[600px]:h-[38px]
-              max-[600px]:px-[20px]
-            "
-          >
-            Send Your Work
-          </button>
+    max-[600px]:mt-[20px]
+    max-[600px]:h-[38px]
+    max-[600px]:px-[20px]
+  "
+>
+  Send Your Work
+</a>
         </section>
       </main>
 
