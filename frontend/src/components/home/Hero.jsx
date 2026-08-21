@@ -102,8 +102,8 @@ const Hero = () => {
             text-center
           "
         >
-<div className="inline-flex w-[375px] h-[35px] items-center justify-center rounded-full border border-white/20 bg-black/10 px-[20px]">
-  <span className="font-dm-sans text-[15px] font-normal leading-[20px] tracking-[-0.1px] text-[#F9F8F4]/75">
+<div className="inline-flex w-[377px] h-[36px] items-center justify-center rounded-full border border-white/20 bg-black/10 px-[20px]">
+  <span className="font-dm-sans text-[14px] font-normal leading-[20px] tracking-[-0.1px] text-[#F9F8F4]/65 ">
     Brand Identity <span className="text-[25px] align-middle">·</span> Website Design <span className="text-[25px] align-middle">·</span> Custom Portals
   </span>
 </div>
