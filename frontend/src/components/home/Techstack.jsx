@@ -3,39 +3,44 @@ import { motion } from "framer-motion";
 const technologies = [
   {
     name: "Figma",
-    logo: "/stack/Vector.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/Frame.png",
   },
   {
     name: "Photoshop",
-    logo: "/stack/image 35.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2027.png",
   },
   {
     name: "React",
-    logo: "/stack/image 28.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2028.png",
   },
   {
     name: "Next.js",
-    logo: "/stack/image 29.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2029.png",
   },
   {
     name: "Node.js",
-    logo: "/stack/image 30.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2030.png",
   },
   {
     name: "Firebase",
-    logo: "/stack/image 31.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2031.png",
   },
   {
     name: "HTML",
-    logo: "/stack/image 32.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2032.png",
   },
   {
     name: "MongoDB",
-    logo: "/stack/image 33.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2033.png",
   },
   {
     name: "CSS",
-    logo: "/stack/image 34.svg",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2034.png",
+  },
+   {
+    name: "JS",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/image%2035.png",
+    
   },
   
 ];

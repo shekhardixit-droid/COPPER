@@ -6,21 +6,21 @@ const reasons = [
     title: "All Under One Roof",
     description:
       "Branding, websites, and digital experiences designed together.",
-    image: "/stack/all under one roof_diagram.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/clientportal/all%20under%20one%20roof_diagram%201.png",
   },
   {
     number: "02",
     title: "Dedicated Client Portal",
     description:
       "Every conversation, file, and milestone in one organized workspace.",
-    image: "/stack/client portal_diagram.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/clientportal/client%20portal_diagram%201.png",
   },
   {
     number: "03",
     title: "Ongoing Support",
     description:
       "Reliable hosting and ongoing support to keep your website running smooth.",
-    image: "/stack/ongoing support_diagram.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/clientportal/ongoing%20support_diagram%201.png",
   },
 ];
 

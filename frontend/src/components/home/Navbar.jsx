@@ -63,7 +63,7 @@ const Navbar = () => {
           "
         >
           <img
-            src="/CSlogo.svg"
+            src="https://ik.imagekit.io/qiap0iq38/home/Group%201948753787.png"
             alt="Copper Studio"
             className="
               h-[22px]
