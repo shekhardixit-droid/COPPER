@@ -370,8 +370,9 @@ const ServiceCard = ({
   alt={service.number}
   className="
     h-auto
-    h-[225px]
-    w-[283px]
+    -translate-x-3
+    h-[180px]
+    w-[215px]
     object-contain
     opacity-50
     
