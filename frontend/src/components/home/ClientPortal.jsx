@@ -3,25 +3,25 @@ import { motion } from "framer-motion";
 const features = [
   {
     name: "Complete Transparency",
-    logo: "/cp-icons/logo1.png",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/monitor.svg",
     description:
       "Track timelines, project progress, meetings and updates in one place.",
   },
   {
     name: "Everything in One Place",
-    logo: "/cp-icons/logo2.png",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/logo2.png",
     description:
       "Access, upload, download and manage all your project files without endless emails treads.",
   },
   {
     name: "Faster Feedback",
-    logo: "/cp-icons/logo3.png",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/logo3.png",
     description:
       "Share feedback, approvals and files directly through the portal for smoother communication.",
   },
   {
     name: "Lifetime Access to Your Work",
-    logo: "/cp-icons/logo4.png",
+    logo: "https://ik.imagekit.io/qiap0iq38/home/clientportal/logo4.png",
     description:
       "Revisit your project assets anytime, even after the project is complete.",
   },
@@ -206,7 +206,7 @@ const ClientPortal = () => {
             <div className="w-full bg-white">
 
               <img
-                src="/client-portal.png"
+                src="https://ik.imagekit.io/qiap0iq38/home/clientportal/client-portal.png"
                 alt="Client portal"
                 className="
                   block

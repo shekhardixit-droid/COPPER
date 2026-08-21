@@ -48,7 +48,7 @@ const Hero = () => {
             bg-no-repeat
           "
           style={{
-            backgroundImage: "url('/CSbg.png')",
+            backgroundImage: "url('https://ik.imagekit.io/qiap0iq38/home/Group.png')",
           }}
         />
 
@@ -102,37 +102,11 @@ const Hero = () => {
             text-center
           "
         >
-
-          {/* =====================================
-              HERO SVG PILL
-          ====================================== */}
-
-          <motion.img
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.3,
-              ease: "easeOut",
-            }}
-            src="/Container.svg"
-            alt="Brand Identity, Website Design, Custom Portals"
-            className="
-              h-[35px]
-              w-[375px]
-              max-w-full
-              shrink-0
-              object-contain
-            "
-          />
-
-
+<div className="inline-flex w-[375px] h-[35px] items-center justify-center rounded-full border border-white/20 bg-black/10 px-[20px]">
+  <span className="font-dm-sans text-[15px] font-normal leading-[20px] tracking-[-0.1px] text-[#F9F8F4]/75">
+    Brand Identity <span className="text-[25px] align-middle">·</span> Website Design <span className="text-[25px] align-middle">·</span> Custom Portals
+  </span>
+</div>
           {/* =====================================
               MAIN HEADING
               947 × 164

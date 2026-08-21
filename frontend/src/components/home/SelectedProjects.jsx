@@ -3,16 +3,16 @@ import { MdChevronRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const projects = [
-  "/projects/projects_common grounds.png",
-  "/projects/projects_cottson_1.png",
-  "/projects/projects_cottson_2.png",
-  "/projects/projects_datacircles_1.png",
-  "/projects/projects_datacircles_2.png",
-  "/projects/projects_ftat.png",
-  "/projects/projects_nitty gritty.png",
-  "/projects/projects_nora.png",
-  "/projects/projects_qodenext.png",
-  "/projects/projects_umaraj.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_common%20grounds.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_cottson_1.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_cottson_2.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_datacircles_2.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_datacircles_1.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_nitty%20gritty.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_ftat.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_umaraj.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_nora.png",
+  "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_qodenext.png",
 ];
 
 const firstRow = projects.slice(0, 5);

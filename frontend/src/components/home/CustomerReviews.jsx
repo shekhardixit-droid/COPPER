@@ -7,21 +7,21 @@ const reviews = [
       "Copper Studio completely transformed how we manage our business. The new website makes it easy for customers to explore our services and get in touch, while the custom CRM has made tracking clients, cab assignments, driver availability, and trip details incredibly efficient. Everything is now organized in one place, saving our team hours every week and giving us a scalable system.",
     name: "Subhash Mishra | Director",
     company: "Facilities Tours & Travels Pvt. Ltd.",
-    image: "/client_reviews/c1.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/client%20review/c1.svg",
   },
   {
     quote:
       "Copper Studio created a website that represents our agency perfectly. The team understood our vision, organized our content clearly, and delivered a modern, user-friendly experience. The new website has strengthened our online presence and given us a scalable platform to showcase our work and support our growth.",
     name: "Pratik Jambhale | Founder",
     company: "Nitty Gritty Labz LLP",
-    image: "/client_reviews/c2.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/client%20review/c2.svg",
   },
   {
     quote:
       "Copper Studio developed a rebranding proposal backed by thorough research and strategic thinking. They took the time to understand our business before presenting multiple concepts, each with a clear rationale. The proposal gave us a strong vision for how our brand could evolve and grow.",
     name: "Mallika Kadambande | Marketing Head",
     company: "Qodenext India Private Limited",
-    image: "/client_reviews/c3.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/client%20review/WhatsApp%20Image%202026-08-07%20at%2011.05.32%20AM%201.png",
   },
 ];
 
@@ -115,7 +115,7 @@ const CustomerReviews = () => {
           "
         >
           <img
-            src="/icons/client_testimonial.png"
+            src="https://ik.imagekit.io/qiap0iq38/home/client%20review/client_testimonial.png"
             alt="Copper Studio"
             className="
               h-full

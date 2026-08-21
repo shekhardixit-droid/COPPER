@@ -6,35 +6,35 @@ import { useNavigate } from "react-router-dom";
 const services = [
   {
     number: "01",
-    numberSvg: "services/01.svg",
+    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/01.svg?updatedAt=1787289933199",
     title: "Brand Identity",
     route: "/brand-identity",
     description:
       "Develop a strategic brand identity with custom logo design, visual systems, typography, and brand guidelines that create a lasting impression across every touchpoint.",
     images: [
       {
-        src: "/services/services_branding_5.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_5.png?updatedAt=1787289846541",
         collapsedText: "Brand Identity",
         expandedHeading: "Brand Identity & Strategy",
         expandedDescription:
           "Logo design, brand strategy, visual identity, and brand guidelines that help your business stand out and build lasting recognition.",
       },
       {
-        src: "/services/services_branding_6.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_6.png?updatedAt=1787289848100",
         collapsedText: "Business Assets",
         expandedHeading: "Corporate Branding & Assets",
         expandedDescription:
           "Business cards, stationery, presentations, and branded assets that create a professional and consistent brand experience.",
       },
       {
-        src: "/services/services_branding_7.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_7.png?updatedAt=1787289848397",
         collapsedText: "Marketing Collateral",
         expandedHeading: "Marketing Collateral & Social Media Design",
         expandedDescription:
           "Brochures, flyers, social media creatives, and marketing materials designed to increase visibility and strengthen your brand.",
       },
       {
-        src: "/services/services_branding_8.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_8.png?updatedAt=1787289849018",
         collapsedText: "Packaging Design",
         expandedHeading:
           "Packaging, Environmental & Merchandise Design",
@@ -46,35 +46,35 @@ const services = [
 
   {
     number: "02",
-    numberSvg: "services/02.svg",
+    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/02.svg?updatedAt=1787289933200",
     title: "Web Design & Development",
     route: "/web-design",
     description:
       "Design and develop fast, responsive, SEO-optimized websites that combine beautiful UI/UX with seamless functionality to help your business grow online.",
     images: [
       {
-        src: "/services/services_website_5.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_5.png?updatedAt=1787289848992",
         collapsedText: "Website",
         expandedHeading: "Custom Website Design",
         expandedDescription:
           "Custom, responsive websites designed to reflect your brand and deliver a seamless user experience.",
       },
       {
-        src: "/services/services_website_6.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_6.png?updatedAt=1787289847422",
         collapsedText: "E-Commerce",
         expandedHeading: "E-Commerce Stores",
         expandedDescription:
           "Online stores built to showcase products, simplify shopping, and increase sales.",
       },
       {
-        src: "/services/services_website_7.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_7.png?updatedAt=1787289848294",
         collapsedText: "Landing Page",
         expandedHeading: "Campaign Landing Page",
         expandedDescription:
           "Conversion focused landing pages designed to capture leads and drive customer action.",
       },
       {
-        src: "/services/services_website_8.png",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_8.png?updatedAt=1787289847631",
         collapsedText: "CMS",
         expandedHeading: (
           <>
@@ -91,26 +91,26 @@ const services = [
 
   {
     number: "03",
-    numberSvg: "services/03.svg",
+    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/03.svg?updatedAt=1787289933272",
     title: "Custom Company Portal",
     route: "/custom-portal",
     description:
       "Build secure custom business portals tailored to your workflow, making it easier to manage clients, teams, projects, approvals, files, and everyday operations.",
     images: [
       {
-        src: "/services/po1.svg",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/po1.svg?updatedAt=1787289899781",
         expandedHeading: "Custom Portals",
         expandedDescription:
           "Secure client portals that simplify communication, file sharing, approvals, and project tracking.",
       },
       {
-        src: "/services/po5.svg",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/po5.svg",
         expandedHeading: "Billing & Invoicing",
         expandedDescription:
           "Custom invoicing systems that automate billing, payments, and financial workflows.",
       },
       {
-        src: "/services/po3.svg",
+        src: "https://ik.imagekit.io/qiap0iq38/home/services/po3.svg?updatedAt=1787289899888",
         expandedHeading: "Custom CRM",
         expandedDescription:
           "Tailored CRM solutions that centralize customer data, sales, and relationship management.",

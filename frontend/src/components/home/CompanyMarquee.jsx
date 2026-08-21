@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  "/companies/logo_bacoola.png",
-  "/companies/logo_celinea.png",
-  "/companies/logo_coffee theory.png",
-  "/companies/logo_cottson.png",
-  "/companies/logo_datacircles.png",
-  "/companies/logo_nitty gritty.png",
-  "/companies/logo_palmore.png",
-  "/companies/logo_tea archive.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Frame%202147227958.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/datacircles%20logo%201.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/cottson%20logo%201.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/nitty%20gritty%20logo%201.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Group%2035.png",
+  
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Tea%20Archive.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Group%201948753749.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/umaraj.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Group%201948753687.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Group%201948753751.png",
+  "https://ik.imagekit.io/qiap0iq38/home/logos/Group%201948753748.png"
 ];
 
 const CompanyMarquee = () => {
