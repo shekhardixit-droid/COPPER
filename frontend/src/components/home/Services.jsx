@@ -501,10 +501,14 @@ const ServiceCard = ({
                   flex
                   w-full
                   items-center
-                  justify-center
+                  justify-start
                   gap-2
-                  overflow-hidden
+                  overflow-x-auto
+                  overflow-y-hidden
+                  scrollbar-hide
+                  sm:justify-center
                   sm:gap-3
+                  sm:overflow-hidden
                 "
               >
                 {service.images.map((image, imageIndex) => {
