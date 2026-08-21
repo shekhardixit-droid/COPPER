@@ -7,6 +7,99 @@ import Cards from "../components/main-projects/Cards";
 const MainProjects = () => {
   const [activeIndustry, setActiveIndustry] = useState("All");
 
+
+const projects = [
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130549/cottson.png",
+    heading: "Cottson Clothing: Custom Corporate Clothing",
+    points: ["Fashion & Lifestyle", "Branding", "Website", "Client Portal"],
+    link: "/cottson",
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130566/nora.png",
+    heading: "Nora: Yoga & Pilates Studio",
+    points: ["Fitness & Wellness", "Branding"],
+    link: "/nora",
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130578/umraj.png",
+    heading: "Umaraj: Ethic Men’s Wear",
+    points: ["Fashion & Lifestyle", "Branding", "Website"],
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130590/p3.png",
+    heading: "Nitty Gritty Labz: Marketing Agency",
+    points: ["Marketing", "Website"],
+    link: "/nittygritty",
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130601/p4.png",
+    heading: "Facilities Tours & Travels Pvt. Ltd.",
+    points: ["Travel", "Website", "CRM"],
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130615/p5.png",
+    heading: "Coffee Theory",
+    points: ["F&B/Hospitality", "Branding"],
+    link: "/coffeetheory",
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130626/p6.png",
+    heading: "DataCircles: CRM & Invoicing Software",
+    points: ["SaaS/Tech", "Branding"],
+    link: "/datacircles",
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130637/p7.png",
+    heading: "Little Scholars",
+    points: ["Institute", "Website", "Development"],
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130647/p8.png",
+    heading: "Bacoola",
+    points: ["Fashion & Lifestyle", "Branding", "E-Commerce Website"],
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130658/p9.png",
+    heading: "Dentora: Dental Clinic",
+    points: ["Healthcare", "Branding", "Website"],
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/ioempbte/image/upload/v1787130668/p10.png",
+    heading: "Palmore: Beachside Resort",
+    points: ["F&B/Hospitality", "Branding", "Website & Landing Page"],
+  },
+];
+
+const filteredProjects =
+  activeIndustry === "All"
+    ? projects
+    : projects.filter((project) =>
+        project.points.includes(activeIndustry)
+      );
+
+
   return (
     <div className="w-full bg-white">
 
@@ -275,128 +368,16 @@ const MainProjects = () => {
     lg:px-0
   "
 >
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130549/cottson.png"
-    heading="Cottson Clothing: Custom Corporate Clothing"
-    points={[
-      "Fashion & Lifestyle",
-      "Branding",
-      "Website",
-      "Client Portal"
-    ]}
-    link="/cottson"
-  />
-
-  
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130566/nora.png"
-    heading="Nora: Yoga & Pilates Studio"
-    points={[
-      "Fitness & Wellness",
-      "Branding",
-    ]}
-    link="/nora"
-  />
-
-  
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130578/umraj.png"
-    heading="Umaraj: Ethic Men’s Wear"
-    points={[
-      "Fashion & Lifestyle",
-      "Branding",
-      "Website",
-    ]}
-  />
-
-  
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130590/p3.png"
-    heading="Nitty Gritty Labz: Marketing Agency"
-    points={[
-      "Marketing",
-      "Website",
-    ]}
-    link="/nittygritty"
-  />
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130601/p4.png"
-    heading="Facilities Tours & Travels Pvt. Ltd."
-    points={[
-      "Travel",
-      "Website",
-      "CRM",
-    ]}
-  />
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130615/p5.png"
-    heading="Coffee Theory"
-    points={[
-      "F&B/Hospitality",
-      "Branding",    
-    ]}
-    link="/coffeetheory"
-  />
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130626/p6.png"
-    heading="DataCircles: CRM & Invoicing Software"
-    points={[
-      "SaaS/Tech",
-      "Branding",      
-    ]}
-    link="/datacircles"
-  />
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130637/p7.png"
-    heading="Little Scholars"
-    points={[
-      "Institute",
-      "Website",
-      "Development",
-    ]}
-  />
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130647/p8.png"
-    heading="Bacoola"
-    points={[
-      "Fashion & Lifestyle",
-      "Branding",
-      "E-Commerce Website",
-      
-    ]}
-  />
-
-  <Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130658/p9.png"
-    heading="Dentora: Dental Clinic"
-    points={[
-      "Healthcare",
-      "Branding",
-      "Website",
-      
-    ]}
-  />
-
-  
-<Cards
-    image="https://res.cloudinary.com/ioempbte/image/upload/v1787130668/p10.png"
-    heading="Palmore: Beachside Resort"
-     points={[
-      "F&B/Hospitality",
-      "Branding",
-      "Website & Landing Page"
-     
-    ]}
-  />
-   
- 
-</div> 
+  {filteredProjects.map((project) => (
+    <Cards
+      key={project.heading}
+      image={project.image}
+      heading={project.heading}
+      points={project.points}
+      link={project.link}
+    />
+  ))}
+</div>
   
       {/* MAIN PROJECTS CONTENT */}  
       <main>  
