@@ -13,7 +13,7 @@ import FinalCTA from "../components/contact/CTA";
 
 const features = [
   {
-    image: "/services/services_branding_5.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_5.png?updatedAt=1787289846541",
     heading: "Brand Identity & Strategy",
     description:
       "Logo design, brand strategy, visual identity, and brand guidelines that help your business stand out and build lasting recognition.",
@@ -25,7 +25,7 @@ const features = [
     ],
   },
   {
-    image: "/services/services_branding_6.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_6.png?updatedAt=1787289848100",
     heading: "Corporate Branding & Business Assets",
     description:
       "Bring your brand into every everyday business interaction with thoughtfully designed corporate assets.",
@@ -37,7 +37,7 @@ const features = [
     ],
   },
   {
-    image: "/services/services_branding_7.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_7.png?updatedAt=1787289848397",
     heading: "Marketing Collateral & Social Media Design",
     description:
       "Turn your brand into engaging marketing content designed to capture attention and communicate clearly.",
@@ -48,7 +48,7 @@ const features = [
     ],
   },
   {
-    image: "/services/services_branding_8.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_8.png?updatedAt=1787289849018",
     heading: "Packaging, Environmental & Merchandise Design",
     description:
       "Extend your brand beyond the screen and into the physical experiences your customers interact with.",
@@ -62,28 +62,28 @@ const features = [
 
 const features1 = [
   {
-    image: "/services/services_website_5.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_5.png?updatedAt=1787289848992",
     heading: "Custom Website Design",
     description:
       "Custom, responsive website designed to reflect your brand and deliver a seamless user experience.",
     tags: [],
   },
   {
-    image: "/services/services_website_6.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_6.png?updatedAt=1787289847422",
     heading: "E-Commerce Stores",
     description:
       "Online stores built to showcase products, simplify shopping and increase sales.",
     tags: [],
   },
   {
-    image: "/services/services_website_7.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_7.png?updatedAt=1787289848294",
     heading: "Campaign Landing Page",
     description:
       "Conversion focused landing pages designed to capture leads and drive customer action.",
     tags: [],
   },
   {
-    image: "/services/services_website_8.png",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_8.png?updatedAt=1787289847631",
     heading: "Content Management Systems (CMS)",
     description:
       "Easy-to-manage CMS websites that let you update content without technical expertise.",
@@ -93,19 +93,19 @@ const features1 = [
 
 const features2 = [
   {
-    image: "/services/cp1.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/Frame%202147227968.png",
     heading: "Custom Company Portals",
     description:
       "Secure client portals that simplify communication, file sharing, approvals and project tracking.",
   },
   {
-    image: "/services/cp2.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/Frame%202147227969.png",
     heading: "Custom CRM Solutions",
     description:
       "Tailored CRM solutions that centralize customer data, sales and relationship management.",
   },
   {
-    image: "/services/cp3.svg",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/Frame%202147227970.png",
     heading: "Billing & Invoicing Systems",
     description:
       "Custom invoicing systems that automate billing, payments and financial workflows.",
