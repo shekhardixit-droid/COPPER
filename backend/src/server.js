@@ -13,16 +13,32 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://thecopperstudio.com",
+  "https://www.thecopperstudio.com",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
+    // allow requests with no origin (server-to-server, curl, Postman)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);
-    return callback(null, false);
+    return callback(new Error(`CORS: origin ${origin} not allowed`));
   },
   credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+// Handle OPTIONS preflight explicitly so it never falls through to routes
+app.options("*", cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error(`CORS: origin ${origin} not allowed`));
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
