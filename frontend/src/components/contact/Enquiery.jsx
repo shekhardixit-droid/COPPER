@@ -27,10 +27,12 @@ const Enquiry = () => {
       return;
     }
 
+    if (status === "loading") return;
     setStatus("loading");
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact-enquiry`, {
+      const apiBase = import.meta.env.VITE_API_URL || "https://thecopperstudio.com";
+      const res = await fetch(`${apiBase}/api/contact-enquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstName, lastName, email, message }),

@@ -54,15 +54,20 @@ export default function TellUs({ onBack, onContinue, onClose, scopeData = {} }) 
     setErrorMsg("");
     setIsSubmitting(true);
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tell-us`, {
+      const apiBase = import.meta.env.VITE_API_URL || "https://thecopperstudio.com";
+      const res = await fetch(`${apiBase}/api/tell-us`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
           industry,
           whatToBuild: Array.isArray(whatToBuild) ? whatToBuild.join(", ") : whatToBuild,
           whatBrings,
-          selectedServices,
+          selectedServices: Array.isArray(selectedServices) ? selectedServices : [],
         }),
       });
       let result = {};
