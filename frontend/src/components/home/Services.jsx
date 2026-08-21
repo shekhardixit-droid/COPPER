@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const services = [
   {
     number: "01",
-    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/01.svg?updatedAt=1787289933199",
+    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/01.png",
     title: "Brand Identity",
     route: "/brand-identity",
     description:
@@ -46,7 +46,7 @@ const services = [
 
   {
     number: "02",
-    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/02.svg?updatedAt=1787289933200",
+    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/02.png",
     title: "Web Design & Development",
     route: "/web-design",
     description:
@@ -91,7 +91,7 @@ const services = [
 
   {
     number: "03",
-    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/03.svg?updatedAt=1787289933272",
+    numberSvg: "https://ik.imagekit.io/qiap0iq38/home/services/03.png",
     title: "Custom Company Portal",
     route: "/custom-portal",
     description:
@@ -371,7 +371,7 @@ const ServiceCard = ({
   className="
     h-auto
     h-[225px]
-    w-[283pxpx]
+    w-[283px]
     object-contain
     opacity-50
     
