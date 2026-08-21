@@ -90,21 +90,21 @@ const Hero = () => {
       items-center
       whitespace-nowrap
       font-dm-sans
-      text-[14.5px]
+      text-[14px]
       font-normal
       leading-[20px]
-      tracking-[-0.1px]
+      tracking-[-0.2px]
       text-[#F9F8F4]/75
 
       max-[600px]:text-[13.5px]
     "
   >
     Brand Identity
-    <span className="mx-[6px] text-[22px] leading-none align-middle">
+    <span className="mx-[6px] text-[24px] leading-none align-middle">
       ·
     </span>
     Website Design
-    <span className="mx-[6px] text-[22px] leading-none align-middle">
+    <span className="mx-[6px] text-[24px] leading-none align-middle">
       ·
     </span>
     Custom Portals
