@@ -4,6 +4,7 @@ const { sendNotification } = require("../utils/sendNotification");
 const submitContactEnquiry = async (req, res) => {
   try {
     const { firstName, lastName, email, phone, message } = req.body;
+    console.log("[ContactEnquiry] Received:", { firstName, lastName, email, phone, message });
 
     if (!firstName || !lastName || !email || !message) {
       return res.status(400).json({
