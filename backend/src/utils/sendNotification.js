@@ -213,7 +213,7 @@ const sendNotification = async (type, data) => {
       await resend.emails.send({
         from:    FROM,
         to:      data.email,
-        subject: `We've received your message — Copper Studio`,
+        subject: `Copper Studio`,
         html:    buildContactEnquiryUserEmail(data),
       });
 
@@ -229,7 +229,7 @@ const sendNotification = async (type, data) => {
       await resend.emails.send({
         from:    FROM,
         to:      data.email,
-        subject: `We've received your project scope — Copper Studio`,
+        subject: `Copper Studio`,
         html:    buildTellUsUserEmail(data),
       });
 
