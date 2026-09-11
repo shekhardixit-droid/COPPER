@@ -90,6 +90,7 @@ const buildContactEnquiryTeamEmail = (d) => `
       <h2 style="${styles.sectionH2}">Contact Information</h2>
       ${row("Name",         esc(d.firstName) + " " + esc(d.lastName))}
       ${row("Email",        esc(d.email))}
+      ${row("Phone",        esc(d.phone || "—"))}
       ${row("Submitted At", esc(formatIST(d.createdAt)))}
     </div>
     <div style="${styles.section}">
