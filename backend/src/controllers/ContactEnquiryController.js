@@ -3,9 +3,9 @@ const { sendNotification } = require("../utils/sendNotification");
 
 const submitContactEnquiry = async (req, res) => {
   try {
-    const { firstName, lastName, email, message } = req.body;
+    const { firstName, lastName, email, phone, message } = req.body;
 
-    if (!firstName || !lastName || !email || !message) {
+    if (!firstName || !lastName || !email || !phone || !message) {
       return res.status(400).json({
         success: false,
         message: "All fields are required.",
@@ -16,6 +16,7 @@ const submitContactEnquiry = async (req, res) => {
       firstName,
       lastName,
       email,
+      phone,
       message,
     });
 
@@ -27,8 +28,22 @@ const submitContactEnquiry = async (req, res) => {
       message: "Enquiry submitted successfully.",
       data: enquiry,
     });
+
   } catch (error) {
     console.error("Contact enquiry error:", error);
+
+    // Mongoose validation error
+    if (error.name === "ValidationError") {
+      const errors = Object.values(error.errors).map(
+        (err) => err.message
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: errors[0],
+      });
+    }
+
     return res.status(500).json({
       success: false,
       message: "Failed to save enquiry.",
