@@ -28,8 +28,8 @@ const contactEnquirySchema = new mongoose.Schema(
     },
     phone: {
       type: String,
-      required: true,
       trim: true,
+      default: null,
     },
     message: {
       type: String,

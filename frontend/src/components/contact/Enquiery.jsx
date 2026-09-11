@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_REGEX = /^\+\d{1,4}[\s-]?\d[\d\s-]{5,13}\d$/;
+const PHONE_REGEX = /^[+]?[\d\s\-().]{7,20}$/;
 
 const Enquiry = () => {
   const [form, setForm] = useState({
@@ -50,7 +50,7 @@ const Enquiry = () => {
     if (!values.phone.trim()) {
       errors.phone = "Phone number is required.";
     } else if (!PHONE_REGEX.test(values.phone.trim())) {
-      errors.phone = "Enter a valid number with country code, e.g. +91 9876543210.";
+      errors.phone = "Enter a valid phone number.";
     }
 
     if (!values.message.trim()) {
@@ -242,7 +242,7 @@ const Enquiry = () => {
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              placeholder="+1 555 000 0000"
+              placeholder="+91 98765 43210"
               className={`
                 h-[48px] w-full rounded-xl border
                 bg-white px-4 text-sm text-black outline-none

@@ -5,7 +5,7 @@ const submitContactEnquiry = async (req, res) => {
   try {
     const { firstName, lastName, email, phone, message } = req.body;
 
-    if (!firstName || !lastName || !email || !phone || !message) {
+    if (!firstName || !lastName || !email || !message) {
       return res.status(400).json({
         success: false,
         message: "All fields are required.",
