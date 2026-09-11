@@ -13,6 +13,7 @@ services:
       - PORT=5000
       - MONGODB_URI=${MONGODB_URI}
       - FRONTEND_URL=${FRONTEND_URL}
+      - RESEND_API_KEY=${RESEND_API_KEY}
     # Backend host port is hardcoded to 5002.
     # (Host ports 5000 and 5001 are occupied by other VPS applications.)
     # Container always listens on 5000 internally.
