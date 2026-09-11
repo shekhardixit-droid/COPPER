@@ -103,7 +103,7 @@ const buildContactEnquiryTeamEmail = (d) => `
 const buildContactEnquiryUserEmail = (d) => `
 <div style="${styles.wrapper}">
   <div style="${styles.header}">
-    <h1 style="${styles.headerH1}">We've received your message.</h1>
+    
     <p style="${styles.headerSub}">Copper Studio</p>
   </div>
   <div style="${styles.body}">
