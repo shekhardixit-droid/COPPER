@@ -1,22 +1,200 @@
 const { Resend } = require("resend");
 
-const TEAM_EMAIL    = "shekhar.dixit@datacircles.in";
-const FROM_TEAM     = "Copper Studio <hello@thecopperstudio.com>";
-const FROM_USER     = "Copper Studio <hello@thecopperstudio.com>";
+const TEAM_EMAIL = "contact@thecopperstudio.com";
+const FROM       = "Copper Studio <hello@thecopperstudio.com>";
+
+// ── Helpers ───────────────────────────────────────────────────
+
+/**
+ * Escape user-submitted text for safe HTML insertion.
+ * Prevents XSS in email clients.
+ */
+const esc = (str) => {
+  if (str === null || str === undefined) return "—";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+};
+
+/**
+ * Extract a human-readable name from a selectedServices item.
+ * Each item is an object with a `name` property (e.g. "Brand Identity").
+ * Falls back gracefully if the shape is unexpected.
+ */
+const serviceName = (item) => {
+  if (!item) return null;
+  if (typeof item === "string") return item;
+  if (typeof item === "object") {
+    return item.name || item.label || item.title || item.value || JSON.stringify(item);
+  }
+  return String(item);
+};
+
+/**
+ * Format a MongoDB createdAt timestamp to IST for email display.
+ * Example output: "11 Sep 2026, 1:06 PM"
+ * Does NOT change how the timestamp is stored in MongoDB.
+ */
+const formatIST = (date) => {
+  try {
+    return new Date(date).toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day:      "numeric",
+      month:    "short",
+      year:     "numeric",
+      hour:     "numeric",
+      minute:   "2-digit",
+      hour12:   true,
+    });
+  } catch (_) {
+    return String(date);
+  }
+};
+
+// ── Shared styles ─────────────────────────────────────────────
+const styles = {
+  wrapper:    "font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;",
+  header:     "background:#0f0f0f;padding:32px 40px;border-radius:12px 12px 0 0;",
+  headerH1:   "margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.3px;",
+  headerSub:  "margin:8px 0 0;color:#888888;font-size:14px;",
+  body:       "padding:32px 40px;background:#fafafa;",
+  section:    "margin-bottom:28px;",
+  sectionH2:  "margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#888888;border-bottom:1px solid #e5e5e5;padding-bottom:8px;",
+  row:        "display:flex;gap:12px;margin-bottom:10px;",
+  label:      "min-width:130px;font-size:13px;color:#888888;font-weight:500;",
+  value:      "font-size:13px;color:#111111;flex:1;word-break:break-word;",
+  messageBox: "background:#f5f5f5;border-left:3px solid #e05c18;padding:14px 18px;border-radius:4px;font-size:13px;color:#333333;line-height:1.6;white-space:pre-wrap;",
+  footer:     "padding:20px 40px;background:#f0f0f0;border-radius:0 0 12px 12px;text-align:center;font-size:12px;color:#aaaaaa;",
+};
+
+// ── Row helper ────────────────────────────────────────────────
+const row = (label, value) => `
+  <div style="${styles.row}">
+    <span style="${styles.label}">${label}</span>
+    <span style="${styles.value}">${value}</span>
+  </div>`;
+
+// ── Email builders ────────────────────────────────────────────
+
+const buildContactEnquiryTeamEmail = (d) => `
+<div style="${styles.wrapper}">
+  <div style="${styles.header}">
+    <h1 style="${styles.headerH1}">New Contact Enquiry</h1>
+    <p style="${styles.headerSub}">A new enquiry has been submitted through the website.</p>
+  </div>
+  <div style="${styles.body}">
+    <div style="${styles.section}">
+      <h2 style="${styles.sectionH2}">Contact Information</h2>
+      ${row("Name",         esc(d.firstName) + " " + esc(d.lastName))}
+      ${row("Email",        esc(d.email))}
+      ${row("Submitted At", esc(formatIST(d.createdAt)))}
+    </div>
+    <div style="${styles.section}">
+      <h2 style="${styles.sectionH2}">Message</h2>
+      <div style="${styles.messageBox}">${esc(d.message)}</div>
+    </div>
+  </div>
+  <div style="${styles.footer}">This notification was generated automatically from the website.</div>
+</div>`;
+
+const buildContactEnquiryUserEmail = (d) => `
+<div style="${styles.wrapper}">
+  <div style="${styles.header}">
+    <h1 style="${styles.headerH1}">We've received your message.</h1>
+    <p style="${styles.headerSub}">Copper Studio</p>
+  </div>
+  <div style="${styles.body}">
+    <p style="font-size:15px;color:#111111;margin:0 0 16px;">Hi ${esc(d.firstName)},</p>
+    <p style="font-size:14px;color:#444444;line-height:1.7;margin:0 0 16px;">
+      Thank you for reaching out to <strong>Copper Studio</strong>.
+      We've received your message and will get back to you within <strong>24 hours</strong>.
+    </p>
+    <div style="${styles.messageBox}">${esc(d.message)}</div>
+    <p style="font-size:14px;color:#444444;margin:24px 0 0;">Warm regards,<br/><strong>Copper Studio Team</strong></p>
+  </div>
+  <div style="${styles.footer}">This is an automated confirmation. Please do not reply to this email.</div>
+</div>`;
+
+const buildTellUsTeamEmail = (d) => {
+  // Extract human-readable service names from selectedServices objects
+  const servicesList = Array.isArray(d.selectedServices) && d.selectedServices.length > 0
+    ? d.selectedServices
+        .map((s) => `<li style="margin-bottom:4px;">${esc(serviceName(s))}</li>`)
+        .join("")
+    : "<li>—</li>";
+
+  return `
+<div style="${styles.wrapper}">
+  <div style="${styles.header}">
+    <h1 style="${styles.headerH1}">New Scope Builder Submission</h1>
+    <p style="${styles.headerSub}">A new project inquiry has been submitted through the website.</p>
+  </div>
+  <div style="${styles.body}">
+    <div style="${styles.section}">
+      <h2 style="${styles.sectionH2}">Contact Information</h2>
+      ${row("Name",    esc(d.name))}
+      ${row("Email",   esc(d.email))}
+      ${row("Phone",   esc(d.phone))}
+      ${row("Company", esc(d.company))}
+    </div>
+    <div style="${styles.section}">
+      <h2 style="${styles.sectionH2}">Project Details</h2>
+      ${row("Industry",          esc(d.industry    || "—"))}
+      ${row("What To Build",     esc(d.whatToBuild || "—"))}
+      ${row("What Brings You",   esc(d.whatBrings  || "—"))}
+      <div style="${styles.row}">
+        <span style="${styles.label}">Selected Services</span>
+        <ul style="margin:0;padding-left:18px;flex:1;">
+          ${servicesList}
+        </ul>
+      </div>
+    </div>
+    <div style="${styles.section}">
+      <h2 style="${styles.sectionH2}">Message</h2>
+      <div style="${styles.messageBox}">${esc(d.message)}</div>
+    </div>
+    ${row("Submitted At", esc(formatIST(d.createdAt)))}
+  </div>
+  <div style="${styles.footer}">This notification was generated automatically from the website.</div>
+</div>`;
+};
+
+const buildTellUsUserEmail = (d) => `
+<div style="${styles.wrapper}">
+  <div style="${styles.header}">
+    <h1 style="${styles.headerH1}">We've received your project scope.</h1>
+    <p style="${styles.headerSub}">Copper Studio</p>
+  </div>
+  <div style="${styles.body}">
+    <p style="font-size:15px;color:#111111;margin:0 0 16px;">Hi ${esc(d.name)},</p>
+    <p style="font-size:14px;color:#444444;line-height:1.7;margin:0 0 16px;">
+      Thank you for sharing your project details with <strong>Copper Studio</strong>.
+      We've received your scope and will review it carefully.
+      Our team will get back to you within <strong>24 hours</strong>.
+    </p>
+    <p style="font-size:14px;color:#444444;margin:24px 0 0;">Warm regards,<br/><strong>Copper Studio Team</strong></p>
+  </div>
+  <div style="${styles.footer}">This is an automated confirmation. Please do not reply to this email.</div>
+</div>`;
+
+// ── Main function ─────────────────────────────────────────────
 
 /**
  * Send 2 emails after a successful MongoDB insert:
- * 1. Notification to team with full submission data
- * 2. Confirmation to the user that we received their message
+ *   1. Team notification  → contact@thecopperstudio.com
+ *   2. User confirmation  → the address the user submitted
  *
- * Fails silently — NEVER throws, so the caller's response is unaffected.
+ * Fails silently — NEVER throws so the existing API response is unaffected.
  *
  * @param {"contact-enquiry"|"tell-us"} type
- * @param {object} data — the saved MongoDB document
+ * @param {object} data — the saved MongoDB document (Mongoose doc)
  */
 const sendNotification = async (type, data) => {
   if (!process.env.RESEND_API_KEY) {
-    console.warn("RESEND_API_KEY not set — skipping email notification.");
+    console.warn("[Resend] RESEND_API_KEY not set — skipping email notification.");
     return;
   }
 
@@ -25,88 +203,41 @@ const sendNotification = async (type, data) => {
   try {
     if (type === "contact-enquiry") {
 
-      // ── 1. Team notification ────────────────────────────────
       await resend.emails.send({
-        from:    FROM_TEAM,
+        from:    FROM,
         to:      TEAM_EMAIL,
-        subject: `New Contact Enquiry — ${data.firstName} ${data.lastName}`,
-        html: `
-          <h2 style="font-family:sans-serif;">New Contact Enquiry</h2>
-          <table cellpadding="8" cellspacing="0" style="font-family:sans-serif;border-collapse:collapse;">
-            <tr><td><strong>Name</strong></td><td>${data.firstName} ${data.lastName}</td></tr>
-            <tr><td><strong>Email</strong></td><td>${data.email}</td></tr>
-            <tr><td><strong>Message</strong></td><td>${data.message}</td></tr>
-            <tr><td><strong>Submitted At</strong></td><td>${data.createdAt}</td></tr>
-          </table>
-        `,
+        subject: `New Contact Enquiry — ${esc(data.firstName)} ${esc(data.lastName)}`,
+        html:    buildContactEnquiryTeamEmail(data),
       });
 
-      // ── 2. User confirmation ────────────────────────────────
       await resend.emails.send({
-        from:    FROM_USER,
+        from:    FROM,
         to:      data.email,
         subject: `We've received your message — Copper Studio`,
-        html: `
-          <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
-            <h2>Hi ${data.firstName},</h2>
-            <p>Thank you for reaching out to <strong>Copper Studio</strong>.</p>
-            <p>We've received your message and will get back to you within <strong>24 hours</strong>.</p>
-            <p style="color:#888;font-size:13px;">Your message: "${data.message}"</p>
-            <br/>
-            <p>Warm regards,<br/><strong>Copper Studio Team</strong></p>
-          </div>
-        `,
+        html:    buildContactEnquiryUserEmail(data),
       });
 
     } else if (type === "tell-us") {
 
-      const services = Array.isArray(data.selectedServices)
-        ? data.selectedServices.join(", ") || "—"
-        : "—";
-
-      // ── 1. Team notification ────────────────────────────────
       await resend.emails.send({
-        from:    FROM_TEAM,
+        from:    FROM,
         to:      TEAM_EMAIL,
-        subject: `New Scope Builder Submission — ${data.name}`,
-        html: `
-          <h2 style="font-family:sans-serif;">New Scope Builder Submission</h2>
-          <table cellpadding="8" cellspacing="0" style="font-family:sans-serif;border-collapse:collapse;">
-            <tr><td><strong>Name</strong></td><td>${data.name}</td></tr>
-            <tr><td><strong>Email</strong></td><td>${data.email}</td></tr>
-            <tr><td><strong>Phone</strong></td><td>${data.phone}</td></tr>
-            <tr><td><strong>Company</strong></td><td>${data.company}</td></tr>
-            <tr><td><strong>Message</strong></td><td>${data.message}</td></tr>
-            <tr><td><strong>Industry</strong></td><td>${data.industry || "—"}</td></tr>
-            <tr><td><strong>What To Build</strong></td><td>${data.whatToBuild || "—"}</td></tr>
-            <tr><td><strong>What Brings You</strong></td><td>${data.whatBrings || "—"}</td></tr>
-            <tr><td><strong>Selected Services</strong></td><td>${services}</td></tr>
-            <tr><td><strong>Submitted At</strong></td><td>${data.createdAt}</td></tr>
-          </table>
-        `,
+        subject: `New Scope Builder Submission — ${esc(data.name)}`,
+        html:    buildTellUsTeamEmail(data),
       });
 
-      // ── 2. User confirmation ────────────────────────────────
       await resend.emails.send({
-        from:    FROM_USER,
+        from:    FROM,
         to:      data.email,
         subject: `We've received your project scope — Copper Studio`,
-        html: `
-          <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
-            <h2>Hi ${data.name},</h2>
-            <p>Thank you for sharing your project details with <strong>Copper Studio</strong>.</p>
-            <p>We've received your scope and will review it carefully. Our team will get back to you within <strong>24 hours</strong>.</p>
-            <br/>
-            <p>Warm regards,<br/><strong>Copper Studio Team</strong></p>
-          </div>
-        `,
+        html:    buildTellUsUserEmail(data),
       });
 
     }
 
     console.log(`[Resend] Both emails sent for ${type}`);
   } catch (err) {
-    // Log but never rethrow — email failure must not affect the API response
+    // Never rethrow — email failure must not affect the API response
     console.error(`[Resend] Failed to send email for ${type}:`, err.message);
   }
 };
