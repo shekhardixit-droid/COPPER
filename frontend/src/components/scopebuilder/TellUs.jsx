@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\+?\d{1,4}[\s-]?\d[\d\s-]{5,13}\d$/;
+
 const SuccessPopup = ({ show, onClose }) => (
   <AnimatePresence>
     {show && (
@@ -30,12 +33,15 @@ const SuccessPopup = ({ show, onClose }) => (
   </AnimatePresence>
 );
 
-const Field = ({ id, label, type = "text", placeholder, value, onChange }) => (
+const Field = ({ id, label, type = "text", placeholder, value, onChange, error }) => (
   <div className="flex flex-col">
     <label htmlFor={id} className="font-['DM_Sans'] text-[12px] font-semibold text-black sm:text-[13px]">{label}</label>
     <input id={id} name={id} type={type} placeholder={placeholder} value={value} onChange={onChange}
-      className="mt-[5px] h-[22px] w-full border-0 border-b border-[#d0d0d0] bg-transparent px-0 pb-[4px] font-['DM_Sans'] text-[12px] text-black outline-none placeholder:text-[#c0c0c0] focus:border-black/50 sm:text-[13px]"
+      className={`mt-[5px] h-[22px] w-full border-0 border-b bg-transparent px-0 pb-[4px] font-['DM_Sans'] text-[12px] text-black outline-none placeholder:text-[#c0c0c0] sm:text-[13px] ${
+        error ? "border-red-400 focus:border-red-400" : "border-[#d0d0d0] focus:border-black/50"
+      }`}
     />
+    {error && <p className="mt-1 font-['DM_Sans'] text-[10px] text-red-500 sm:text-[11px]">{error}</p>}
   </div>
 );
 
@@ -43,15 +49,66 @@ export default function TellUs({ onBack, onContinue, onClose, scopeData = {} }) 
   const { industry = null, whatToBuild = null, whatBrings = null, selectedServices = [] } = scopeData;
 
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [fieldErrors, setFieldErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPopup,    setShowPopup]    = useState(false);
   const [errorMsg,     setErrorMsg]     = useState("");
 
-  const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.name.trim()) {
+      errors.name = "Full name is required.";
+    } else if (values.name.trim().length < 2) {
+      errors.name = "Name must be at least 2 characters.";
+    }
+
+    if (!values.email.trim()) {
+      errors.email = "Work email is required.";
+    } else if (!EMAIL_REGEX.test(values.email.trim())) {
+      errors.email = "Please enter a valid email address.";
+    }
+
+    if (!values.phone.trim()) {
+      errors.phone = "Phone number is required.";
+    } else if (!PHONE_REGEX.test(values.phone.trim())) {
+      errors.phone = "Please enter a valid phone number.";
+    }
+
+    if (!values.company.trim()) {
+      errors.company = "Company/brand name is required.";
+    }
+
+    if (!values.message.trim()) {
+      errors.message = "Please tell us a bit about the project.";
+    } else if (values.message.trim().length < 10) {
+      errors.message = "Please add a bit more detail (min 10 characters).";
+    } else if (values.message.trim().length > 2000) {
+      errors.message = "Message must be under 2000 characters.";
+    }
+
+    return errors;
+  };
 
   const handleSubmit = async () => {
     if (isSubmitting) return;
     setErrorMsg("");
+
+    const errors = validate(formData);
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      setErrorMsg("Please fix the highlighted fields.");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const apiBase = import.meta.env.VITE_API_URL || "https://thecopperstudio.com";
@@ -59,11 +116,11 @@ export default function TellUs({ onBack, onContinue, onClose, scopeData = {} }) 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          message: formData.message,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          company: formData.company.trim(),
+          message: formData.message.trim(),
           industry,
           whatToBuild: Array.isArray(whatToBuild) ? whatToBuild.join(", ") : whatToBuild,
           whatBrings,
@@ -142,10 +199,10 @@ export default function TellUs({ onBack, onContinue, onClose, scopeData = {} }) 
 
             {/* LEFT — 4 fields */}
             <div className="flex flex-col gap-[14px]">
-              <Field id="name"    label="Full Name"          placeholder="Enter Your Name"          value={formData.name}    onChange={handleChange} />
-              <Field id="email"   label="Work Email"         type="email" placeholder="Enter Your Email"         value={formData.email}   onChange={handleChange} />
-              <Field id="phone"   label="Phone Number"       type="tel"   placeholder="Enter Your Phone Number"  value={formData.phone}   onChange={handleChange} />
-              <Field id="company" label="Company/Brand Name" placeholder="Enter Your Company Name"   value={formData.company} onChange={handleChange} />
+              <Field id="name"    label="Full Name"          placeholder="Enter Your Name"          value={formData.name}    onChange={handleChange} error={fieldErrors.name} />
+              <Field id="email"   label="Work Email"         type="email" placeholder="Enter Your Email"         value={formData.email}   onChange={handleChange} error={fieldErrors.email} />
+              <Field id="phone"   label="Phone Number"       type="tel"   placeholder="Enter Your Phone Number"  value={formData.phone}   onChange={handleChange} error={fieldErrors.phone} />
+              <Field id="company" label="Company/Brand Name" placeholder="Enter Your Company Name"   value={formData.company} onChange={handleChange} error={fieldErrors.company} />
             </div>
 
             {/* RIGHT — textarea */}
@@ -155,8 +212,11 @@ export default function TellUs({ onBack, onContinue, onClose, scopeData = {} }) 
               </label>
               <textarea id="message" name="message" value={formData.message} onChange={handleChange}
                 placeholder={"eg. Launching a new specialty coffee brand in Bangalore. Already have a name.\nNeed everything else."}
-                className="mt-[5px] h-[120px] w-full resize-none rounded-xl border border-[#d8d8d8] bg-white px-3 py-3 font-['DM_Sans'] text-[12px] leading-[1.5] text-black outline-none placeholder:text-[#c0c0c0] focus:border-black/40 sm:h-[150px] sm:rounded-[12px] sm:px-[14px] sm:py-[12px]"
+                className={`mt-[5px] h-[120px] w-full resize-none rounded-xl border bg-white px-3 py-3 font-['DM_Sans'] text-[12px] leading-[1.5] text-black outline-none placeholder:text-[#c0c0c0] sm:h-[150px] sm:rounded-[12px] sm:px-[14px] sm:py-[12px] ${
+                  fieldErrors.message ? "border-red-400 focus:border-red-400" : "border-[#d8d8d8] focus:border-black/40"
+                }`}
               />
+              {fieldErrors.message && <p className="mt-1 font-['DM_Sans'] text-[10px] text-red-500 sm:text-[11px]">{fieldErrors.message}</p>}
             </div>
 
           </div>

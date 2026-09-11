@@ -2,28 +2,77 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\+\d{1,4}[\s-]?\d[\d\s-]{5,13}\d$/;
+
 const Enquiry = () => {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     message: "",
   });
+  const [fieldErrors, setFieldErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    // clear that field's error as the user types
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.firstName.trim()) {
+      errors.firstName = "First name is required.";
+    } else if (values.firstName.trim().length < 2) {
+      errors.firstName = "First name must be at least 2 characters.";
+    }
+
+    if (!values.lastName.trim()) {
+      errors.lastName = "Last name is required.";
+    } else if (values.lastName.trim().length < 2) {
+      errors.lastName = "Last name must be at least 2 characters.";
+    }
+
+    if (!values.email.trim()) {
+      errors.email = "Email is required.";
+    } else if (!EMAIL_REGEX.test(values.email.trim())) {
+      errors.email = "Please enter a valid email address.";
+    }
+
+    if (!values.phone.trim()) {
+      errors.phone = "Phone number is required.";
+    } else if (!PHONE_REGEX.test(values.phone.trim())) {
+      errors.phone = "Enter a valid number with country code, e.g. +91 9876543210.";
+    }
+
+    if (!values.message.trim()) {
+      errors.message = "Message is required.";
+    } else if (values.message.trim().length < 10) {
+      errors.message = "Message must be at least 10 characters.";
+    } else if (values.message.trim().length > 2000) {
+      errors.message = "Message must be under 2000 characters.";
+    }
+
+    return errors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg("");
 
-    const { firstName, lastName, email, message } = form;
+    const errors = validate(form);
+    setFieldErrors(errors);
 
-    if (!firstName.trim() || !lastName.trim() || !email.trim() || !message.trim()) {
-      setErrorMsg("Please fill in all fields.");
+    if (Object.keys(errors).length > 0) {
+      setErrorMsg("Please fix the highlighted fields.");
       return;
     }
 
@@ -35,7 +84,13 @@ const Enquiry = () => {
       const res = await fetch(`${apiBase}/api/contact-enquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, email, message }),
+        body: JSON.stringify({
+          firstName: form.firstName.trim(),
+          lastName: form.lastName.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          message: form.message.trim(),
+        }),
       });
 
       let data = {};
@@ -46,7 +101,8 @@ const Enquiry = () => {
       }
 
       setStatus("success");
-      setForm({ firstName: "", lastName: "", email: "", message: "" });
+      setForm({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+      setFieldErrors({});
     } catch (err) {
       setStatus("error");
       setErrorMsg(err.message || "Something went wrong. Please try again.");
@@ -105,7 +161,7 @@ const Enquiry = () => {
         <form className="mt-8 w-full" onSubmit={handleSubmit} noValidate>
 
           {/* FIRST + LAST NAME */}
-          <div className="flex h-[97px] w-full gap-4">
+          <div className="flex w-full gap-4">
 
             <div className="flex h-full flex-1 flex-col">
               <label className="mb-3 text-sm font-medium text-black font-['DM_Sans']">
@@ -117,12 +173,16 @@ const Enquiry = () => {
                 value={form.firstName}
                 onChange={handleChange}
                 placeholder="First name"
-                className="
-                  h-[48px] w-full rounded-xl border border-black/10
+                className={`
+                  h-[48px] w-full rounded-xl border
                   bg-white px-4 text-sm text-black outline-none
-                  placeholder:text-black/30 focus:border-black/30
-                "
+                  placeholder:text-black/30
+                  ${fieldErrors.firstName ? "border-red-400 focus:border-red-400" : "border-black/10 focus:border-black/30"}
+                `}
               />
+              {fieldErrors.firstName && (
+                <p className="mt-1 text-xs text-red-500 font-['DM_Sans']">{fieldErrors.firstName}</p>
+              )}
             </div>
 
             <div className="flex h-full flex-1 flex-col">
@@ -135,18 +195,22 @@ const Enquiry = () => {
                 value={form.lastName}
                 onChange={handleChange}
                 placeholder="Last name"
-                className="
-                  h-[48px] w-full rounded-xl border border-black/10
+                className={`
+                  h-[48px] w-full rounded-xl border
                   bg-white px-4 text-sm text-black outline-none
-                  placeholder:text-black/30 focus:border-black/30
-                "
+                  placeholder:text-black/30
+                  ${fieldErrors.lastName ? "border-red-400 focus:border-red-400" : "border-black/10 focus:border-black/30"}
+                `}
               />
+              {fieldErrors.lastName && (
+                <p className="mt-1 text-xs text-red-500 font-['DM_Sans']">{fieldErrors.lastName}</p>
+              )}
             </div>
 
           </div>
 
           {/* EMAIL */}
-          <div className="mt-5 h-[121px] w-full">
+          <div className="mt-5 w-full">
             <label className="mb-3 block text-sm font-medium font-['DM_Sans'] text-black">
               Email Address
             </label>
@@ -156,16 +220,43 @@ const Enquiry = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className="
-                h-[48px] w-full rounded-xl border border-black/10
+              className={`
+                h-[48px] w-full rounded-xl border
                 bg-white px-4 text-sm text-black outline-none
-                placeholder:text-black/30 focus:border-black/30
-              "
+                placeholder:text-black/30
+                ${fieldErrors.email ? "border-red-400 focus:border-red-400" : "border-black/10 focus:border-black/30"}
+              `}
             />
+            {fieldErrors.email && (
+              <p className="mt-1 text-xs text-red-500 font-['DM_Sans']">{fieldErrors.email}</p>
+            )}
+          </div>
+
+          {/* PHONE NUMBER */}
+          <div className="mt-5 w-full">
+            <label className="mb-3 block text-sm font-medium font-['DM_Sans'] text-black">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              placeholder="+1 555 000 0000"
+              className={`
+                h-[48px] w-full rounded-xl border
+                bg-white px-4 text-sm text-black outline-none
+                placeholder:text-black/30
+                ${fieldErrors.phone ? "border-red-400 focus:border-red-400" : "border-black/10 focus:border-black/30"}
+              `}
+            />
+            {fieldErrors.phone && (
+              <p className="mt-1 text-xs text-red-500 font-['DM_Sans']">{fieldErrors.phone}</p>
+            )}
           </div>
 
           {/* MESSAGE */}
-          <div className="mt-2 h-[205px] w-full">
+          <div className="mt-5 w-full">
             <label className="mb-3 block text-sm font-medium text-black font-['DM_Sans']">
               Write a Message
             </label>
@@ -174,12 +265,16 @@ const Enquiry = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="Tell us about your project..."
-              className="
-                h-[165px] w-full resize-none rounded-xl border border-black/10
+              className={`
+                h-[165px] w-full resize-none rounded-xl border
                 bg-white px-4 py-4 text-sm leading-6 text-black outline-none
-                placeholder:text-black/30 focus:border-black/30
-              "
+                placeholder:text-black/30
+                ${fieldErrors.message ? "border-red-400 focus:border-red-400" : "border-black/10 focus:border-black/30"}
+              `}
             />
+            {fieldErrors.message && (
+              <p className="mt-1 text-xs text-red-500 font-['DM_Sans']">{fieldErrors.message}</p>
+            )}
           </div>
 
           {/* ERROR MESSAGE */}
