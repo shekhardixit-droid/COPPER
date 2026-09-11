@@ -1,8 +1,8 @@
 const { Resend } = require("resend");
 
 const TEAM_EMAIL    = "shekhar.dixit@datacircles.in";
-const FROM_TEAM     = "Copper Studio <onboarding@resend.dev>";
-const FROM_USER     = "Copper Studio <onboarding@resend.dev>";
+const FROM_TEAM     = "Copper Studio <hello@thecopperstudio.com>";
+const FROM_USER     = "Copper Studio <hello@thecopperstudio.com>";
 
 /**
  * Send 2 emails after a successful MongoDB insert:
