@@ -1,6 +1,6 @@
 const { Resend } = require("resend");
 
-const TEAM_EMAIL = "contact@thecopperstudio.com";
+const TEAM_EMAIL = "shekhar.dixit@datacircles.in";
 const FROM       = "Copper Studio <hello@thecopperstudio.com>";
 
 // ── Helpers ───────────────────────────────────────────────────
