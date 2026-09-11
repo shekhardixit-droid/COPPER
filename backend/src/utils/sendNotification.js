@@ -1,6 +1,6 @@
 const { Resend } = require("resend");
 
-const RECIPIENT = "contact@thecopperstudio.com";
+const RECIPIENT = "shekhar.dixit@datacircles.in";
 const FROM      = "Copper Studio <onboarding@resend.dev>";
 
 /**
