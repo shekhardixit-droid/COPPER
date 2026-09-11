@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_REGEX = /^[+]?[\d\s\-().]{7,20}$/;
+const PHONE_REGEX = /^[+]?[\d\s\-().]{7,20}$/; // accepts +91 9876543210 or 9876543210
 
 const Enquiry = () => {
   const [form, setForm] = useState({
