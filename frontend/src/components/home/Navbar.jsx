@@ -1,13 +1,29 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
 
 const navItems = ["Home", "Studio", "Services", "Projects", "Client Login"];
 
+const routeMap = {
+  Home:           "/",
+  Studio:         "/meet-copper",
+  Services:       "/services",
+  Projects:       "/main-projects",
+  "Client Login": null,
+};
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (item) => {
+    const route = routeMap[item];
+    if (!route) return false;
+    if (route === "/") return location.pathname === "/";
+    return location.pathname.startsWith(route);
+  };
 
   return (
     <nav
@@ -101,7 +117,7 @@ const Navbar = () => {
   navigate("/");
   window.scrollTo(0, 0);
 }}
-            className="
+            className={`
               rounded-full
               px-4
               py-1.5
@@ -111,7 +127,8 @@ const Navbar = () => {
               hover:bg-gray-100
               hover:text-gray-900
               text-black
-            "
+              ${isActive("Home") ? "bg-gray-100 text-gray-900" : ""}
+            `}
           >
             Home
           </button>
@@ -124,7 +141,7 @@ const Navbar = () => {
   navigate("/meet-copper");
   window.scrollTo(0, 0);
 }}
-            className="
+            className={`
               rounded-full
               px-4
               py-1.5
@@ -135,7 +152,8 @@ const Navbar = () => {
               transition
               hover:bg-gray-100
               hover:text-gray-900
-            "
+              ${isActive("Studio") ? "bg-gray-100 text-gray-900" : ""}
+            `}
           >
             Studio
           </button>
@@ -148,7 +166,7 @@ const Navbar = () => {
   navigate("/services");
   window.scrollTo(0, 0);
 }}
-            className="
+            className={`
               rounded-full
               px-4
               py-1.5
@@ -159,7 +177,8 @@ const Navbar = () => {
               hover:bg-gray-100
               hover:text-gray-900
               font-dm-sans
-            "
+              ${isActive("Services") ? "bg-gray-100 text-gray-900" : ""}
+            `}
           >
             Services
           </button>
@@ -169,7 +188,7 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate("/main-projects")}
-            className="
+            className={`
               rounded-full
               px-4
               py-1.5
@@ -180,7 +199,8 @@ const Navbar = () => {
               hover:bg-gray-100
               hover:text-gray-900
               font-dm-sans
-            "
+              ${isActive("Projects") ? "bg-gray-100 text-gray-900" : ""}
+            `}
           >
             Projects
           </button>
@@ -398,7 +418,7 @@ const Navbar = () => {
                       font-medium
                       transition-colors
                       ${
-                        index === 0
+                        isActive(item)
                           ? "bg-gray-100 text-gray-900"
                           : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                       }

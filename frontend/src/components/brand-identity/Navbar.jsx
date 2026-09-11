@@ -1,11 +1,29 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
 
 const navItems = ["Home", "Studio", "Services", "Projects", "Client Login"];
 
+const routeMap = {
+  Home:           "/",
+  Studio:         "/meet-copper",
+  Services:       "/services",
+  Projects:       "/main-projects",
+  "Client Login": null,
+};
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (item) => {
+    const route = routeMap[item];
+    if (!route) return false;
+    if (route === "/") return location.pathname === "/";
+    return location.pathname.startsWith(route);
+  };
 
   return (
     <nav className="fixed left-1/2 top-4 z-50 w-[calc(100%-2rem)] -translate-x-1/2 sm:top-5 sm:w-[90%] sm:max-w-6xl">
@@ -212,7 +230,13 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      onClick={() => setMenuOpen(false)}
+                      onClick={() => {
+                        setMenuOpen(false);
+                        if (item === "Home") { navigate("/"); window.scrollTo(0,0); }
+                        if (item === "Studio") { navigate("/meet-copper"); window.scrollTo(0,0); }
+                        if (item === "Services") { navigate("/services"); window.scrollTo(0,0); }
+                        if (item === "Projects") { navigate("/main-projects"); window.scrollTo(0,0); }
+                      }}
                       className={`
                         w-full
                         rounded-2xl
@@ -223,7 +247,7 @@ const Navbar = () => {
                         font-medium
                         transition-colors
                         ${
-                          index === 0
+                          isActive(item)
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                         }
