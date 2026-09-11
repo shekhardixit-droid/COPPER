@@ -79,27 +79,30 @@ const row = (label, value) => `
 
 // ── Email builders ────────────────────────────────────────────
 
-const buildContactEnquiryTeamEmail = (d) => `
-<div style="${styles.wrapper}">
-  <div style="${styles.header}">
-    <h1 style="${styles.headerH1}">New Contact Enquiry</h1>
-    <p style="${styles.headerSub}">A new enquiry has been submitted through the website.</p>
-  </div>
-  <div style="${styles.body}">
-    <div style="${styles.section}">
-      <h2 style="${styles.sectionH2}">Contact Information</h2>
-      ${row("Name",         esc(d.firstName) + " " + esc(d.lastName))}
-      ${row("Email",        esc(d.email))}
-      ${row("Phone",        esc(d.phone || "—"))}
-      ${row("Submitted At", esc(formatIST(d.createdAt)))}
-    </div>
-    <div style="${styles.section}">
-      <h2 style="${styles.sectionH2}">Message</h2>
-      <div style="${styles.messageBox}">${esc(d.message)}</div>
-    </div>
-  </div>
-  <div style="${styles.footer}">This notification was generated automatically from the website.</div>
-</div>`;
+const buildContactEnquiryTeamEmail = (d) => `<!DOCTYPE html>
+<html><body style="margin:0;padding:0;font-family:Arial,sans-serif;background:#f4f4f4;">
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:20px;">
+<table width="580" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;">
+  <tr><td style="background:#0f0f0f;padding:24px 32px;">
+    <h1 style="margin:0;color:#fff;font-size:20px;">New Contact Enquiry</h1>
+    <p style="margin:6px 0 0;color:#999;font-size:13px;">Submitted through thecopperstudio.com</p>
+  </td></tr>
+  <tr><td style="padding:24px 32px;">
+    <table width="100%" cellpadding="6" cellspacing="0">
+      <tr><td style="color:#888;font-size:13px;width:120px;">Name</td><td style="font-size:13px;color:#111;">${esc(d.firstName)} ${esc(d.lastName)}</td></tr>
+      <tr><td style="color:#888;font-size:13px;">Email</td><td style="font-size:13px;color:#111;">${esc(d.email)}</td></tr>
+      <tr><td style="color:#888;font-size:13px;">Phone</td><td style="font-size:13px;color:#111;">${esc(d.phone || "—")}</td></tr>
+      <tr><td style="color:#888;font-size:13px;">Date</td><td style="font-size:13px;color:#111;">${esc(formatIST(d.createdAt))}</td></tr>
+      <tr><td style="color:#888;font-size:13px;vertical-align:top;padding-top:12px;">Message</td>
+          <td style="font-size:13px;color:#333;padding-top:12px;border-left:3px solid #e05c18;padding-left:12px;">${esc(d.message)}</td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="background:#f0f0f0;padding:12px 32px;font-size:11px;color:#aaa;text-align:center;">
+    This notification was generated automatically from the website.
+  </td></tr>
+</table>
+</td></tr></table>
+</body></html>`;
 
 const buildContactEnquiryUserEmail = (d) => `
 <div style="${styles.wrapper}">
