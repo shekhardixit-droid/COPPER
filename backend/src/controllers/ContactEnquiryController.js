@@ -1,4 +1,5 @@
 const ContactEnquiry = require("../models/ContactEnquiry");
+const { sendNotification } = require("../utils/sendNotification");
 
 const submitContactEnquiry = async (req, res) => {
   try {
@@ -17,6 +18,9 @@ const submitContactEnquiry = async (req, res) => {
       email,
       message,
     });
+
+    // Send notification email — fires after successful insert, fails silently
+    sendNotification("contact-enquiry", enquiry);
 
     return res.status(201).json({
       success: true,

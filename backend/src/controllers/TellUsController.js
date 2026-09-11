@@ -1,4 +1,5 @@
 const TellUsSubmission = require("../models/TellUsSubmission");
+const { sendNotification } = require("../utils/sendNotification");
 
 const submitTellUsForm = async (req, res) => {
   try {
@@ -32,6 +33,9 @@ const submitTellUsForm = async (req, res) => {
       whatBrings:       whatBrings       || null,
       selectedServices: Array.isArray(selectedServices) ? selectedServices : [],
     });
+
+    // Send notification email — fires after successful insert, fails silently
+    sendNotification("tell-us", submission);
 
     return res.status(201).json({
       success: true,
