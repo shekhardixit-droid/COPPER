@@ -1,7 +1,7 @@
 const { Resend } = require("resend");
 
 const RECIPIENT = "contact@thecopperstudio.com";
-const FROM      = "Copper Studio <onboarding@resend.dev>";
+const FROM      = "Copper Studio <shekhar.dixit@datacircles.in>";
 
 /**
  * Send an email notification after a successful MongoDB insert.
