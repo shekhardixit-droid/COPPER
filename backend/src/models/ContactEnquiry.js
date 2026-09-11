@@ -30,10 +30,6 @@ const contactEnquirySchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      match: [
-        /^\+\d{1,4}\s\d{6,14}$/,
-        "Please enter a valid phone number with country code.",
-      ],
     },
     message: {
       type: String,
