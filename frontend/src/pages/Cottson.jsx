@@ -132,7 +132,7 @@ const Cottson = () => {
         >
           <img
             src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%20154.png"
-            alt=""
+            alt="Cottson Clothing brand identity hero"
             className="h-full w-full object-cover rounded-[12px] sm:rounded-[16px]"
           />
         </div>
@@ -218,7 +218,8 @@ const Cottson = () => {
           <div className="w-full lg:w-[750px] max-w-full aspect-[3/2] lg:h-[500px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px]">
             <img
               src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%202147227995.png"
-              alt=""
+              alt="Cottson brand identity challenge — existing visual presence"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>
@@ -226,7 +227,8 @@ const Cottson = () => {
           <div className="w-full lg:w-[510px] max-w-full aspect-[510/500] lg:h-[500px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px]">
             <img
               src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%202147227996.png"
-              alt=""
+              alt="Cottson brand identity — logo and typography detail"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>
@@ -314,7 +316,8 @@ const Cottson = () => {
           <div className="w-full lg:w-[630px] max-w-full aspect-[3/2] lg:h-[400px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px]">
             <img
               src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%202147227993.png"
-              alt=""
+              alt="Cottson brand idea — interwoven thread symbol"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>
@@ -322,7 +325,8 @@ const Cottson = () => {
           <div className="w-full lg:w-[630px] max-w-full aspect-[510/500] lg:h-[400px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px]">
             <img
               src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%202147227994%20(1).png"
-              alt=""
+              alt="Cottson brand colour palette and visual language"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>
@@ -415,7 +419,7 @@ const Cottson = () => {
               key={i}
               className="aspect-square w-full lg:h-[413px] lg:w-[413px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px] mx-auto"
             >
-              <img src={src} alt="" className="h-full w-full object-cover" />
+              <img src={src} alt={`Cottson brochure design ${i + 1}`} loading="lazy" className="h-full w-full object-cover" />
             </div>
           ))}
         </div>
@@ -506,7 +510,8 @@ const Cottson = () => {
           <div className="w-full lg:w-[630px] max-w-full aspect-[3/2] lg:h-[400px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px]">
             <img
               src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%202147228001.png"
-              alt=""
+              alt="Cottson website and client portal design"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>
@@ -514,7 +519,8 @@ const Cottson = () => {
           <div className="w-full lg:w-[630px] max-w-full aspect-[510/500] lg:h-[400px] lg:aspect-auto overflow-hidden rounded-[12px] sm:rounded-[16px]">
             <img
               src="https://ik.imagekit.io/qiap0iq38/cottson/Frame%202147227999.png"
-              alt=""
+              alt="Cottson connected brand system final result"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>

@@ -28,6 +28,7 @@ import NittyGritty from "./pages/NittyGritty";
 import Cottson from "./pages/Cottson";
 import Nora from "./pages/Nora";
 import CoffeeTheory from "./pages/CoffeeTheory";
+import NotFound from "./pages/NotFound";
 
 
 function App() {
@@ -69,7 +70,7 @@ function App() {
                  <Route path="/cottson" element={<Cottson/>} />
                  <Route path="/nora" element={<Nora/>} />
                    <Route path="/coffeetheory" element={<CoffeeTheory/>} />
-
+                  <Route path="*" element={<NotFound />} />
 
 
       </Routes>

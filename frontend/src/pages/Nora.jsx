@@ -141,7 +141,7 @@ const Nora = () => {
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%20154.png"
-      alt=""
+      alt="Nora yoga studio brand identity hero"
       className="h-full w-full object-cover"
     />
   </div>
@@ -163,7 +163,8 @@ const Nora = () => {
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147227997.png"
-      alt=""
+      alt="Nora brand identity — custom wordmark"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -294,7 +295,8 @@ Rather than relying on conventional wellness visuals, we created a flexible iden
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228002.png"
-    alt=""
+    alt="Nora brand symbols representing yoga practices"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -443,7 +445,8 @@ The result is a brand that feels fluid rather than fixed, just like movement its
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228003.png"
-      alt=""
+      alt="Nora brand form and identity detail"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -465,7 +468,8 @@ The result is a brand that feels fluid rather than fixed, just like movement its
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228004.png"
-      alt=""
+      alt="Nora brand colour and typography"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -610,7 +614,8 @@ Quiet design. Thoughtful details. One cohesive experience.
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228005.png"
-      alt=""
+      alt="Nora branded equipment and studio touchpoints"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -632,7 +637,8 @@ Quiet design. Thoughtful details. One cohesive experience.
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228006.png"
-      alt=""
+      alt="Nora brand bottles and gift materials"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -780,7 +786,8 @@ The identity becomes something you can see, hold and interact with, rather than 
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228007.png"
-      alt=""
+      alt="Nora visiting cards and studio graphics"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -802,7 +809,8 @@ The identity becomes something you can see, hold and interact with, rather than 
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/nora/Frame%202147228008.png"
-      alt=""
+      alt="Nora brand identity final spread"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>

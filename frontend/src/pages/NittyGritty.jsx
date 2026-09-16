@@ -203,7 +203,7 @@ const NittyGritty = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/nittygritty/Frame%20154.png"
-    alt=""
+    alt="Nitty Gritty website hero screen"
     className="
       h-full
       w-full
@@ -340,7 +340,8 @@ const NittyGritty = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/nittygritty/Frame%20155.png"
-    alt=""
+    alt="Nitty Gritty website interior page design"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -499,7 +500,8 @@ const NittyGritty = () => {
     >
       <img
         src="https://ik.imagekit.io/qiap0iq38/nittygritty/Frame%20156.png"
-        alt=""
+        alt="Nitty Gritty mobile website scroll"
+        loading="lazy"
         className="
           h-full
           w-full
@@ -524,7 +526,8 @@ const NittyGritty = () => {
     >
       <img
         src="https://ik.imagekit.io/qiap0iq38/nittygritty/cover.png"
-        alt=""
+        alt="Nitty Gritty website cover image"
+        loading="lazy"
         className="
           h-full
           w-full
@@ -564,7 +567,8 @@ const NittyGritty = () => {
     >
       <img
         src="https://ik.imagekit.io/qiap0iq38/nittygritty/cover%20(1).png"
-        alt=""
+        alt="Nitty Gritty website alternate cover"
+        loading="lazy"
         className="
           h-full
           w-full
@@ -589,7 +593,8 @@ const NittyGritty = () => {
     >
       <img
         src="https://ik.imagekit.io/qiap0iq38/nittygritty/screen%202%201.png"
-        alt=""
+        alt="Nitty Gritty website full page screen"
+        loading="lazy"
         className="
           h-full
           w-full

@@ -214,7 +214,7 @@ const DataCircles = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228009.png"
-    alt=""
+    alt="DataCircles brand identity overview"
     className="
       h-full
       w-full
@@ -342,7 +342,8 @@ const DataCircles = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228010.png"
-    alt=""
+    alt="DataCircles logo mark detail"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -369,7 +370,8 @@ const DataCircles = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228018.png"
-    alt=""
+    alt="DataCircles visual identity system"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -495,7 +497,8 @@ const DataCircles = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228012.png"
-    alt=""
+    alt="DataCircles visual assets — gradients and patterns"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -523,7 +526,8 @@ const DataCircles = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/DC/iMac_on_Table_Mockup_2%201.png"
-    alt=""
+    alt="DataCircles brand applied on iMac mockup"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -564,7 +568,8 @@ const DataCircles = () => {
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228013.png"
-      alt=""
+      alt="DataCircles branded collateral left"
+      loading="lazy"
       className="
         h-full
         w-full
@@ -590,7 +595,8 @@ const DataCircles = () => {
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228014.png"
-      alt=""
+      alt="DataCircles branded collateral right"
+      loading="lazy"
       className="
         h-full
         w-full
@@ -620,7 +626,8 @@ const DataCircles = () => {
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/DC/Frame%202147228013%20(1).png"
-    alt=""
+    alt="DataCircles brand application final spread"
+    loading="lazy"
     className="
       h-full
       w-full

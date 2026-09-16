@@ -141,7 +141,7 @@ const CoffeeTheory = () => {
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228009%20(2).png"
-      alt=""
+      alt="Coffee Theory brand identity hero left"
       className="h-full w-full object-cover"
     />
   </div>
@@ -163,7 +163,8 @@ const CoffeeTheory = () => {
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228010.png"
-      alt=""
+      alt="Coffee Theory brand identity hero right"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -288,7 +289,8 @@ The identity is built around a playful rabbit character, expressive typography a
 >
   <img
     src="https://ik.imagekit.io/qiap0iq38/coffeetheory/color%20palette.png"
-    alt=""
+    alt="Coffee Theory colour palette"
+    loading="lazy"
     className="
       h-full
       w-full
@@ -431,7 +433,8 @@ The identity is built around a playful rabbit character, expressive typography a
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/menu.png"
-      alt=""
+      alt="Coffee Theory café menu design"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -453,7 +456,8 @@ The identity is built around a playful rabbit character, expressive typography a
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/menu%20(1).png"
-      alt=""
+      alt="Coffee Theory alternate menu spread"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -493,7 +497,8 @@ The identity is built around a playful rabbit character, expressive typography a
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228011.png"
-      alt=""
+      alt="Coffee Theory packaging — cups and wrappers"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -515,7 +520,8 @@ The identity is built around a playful rabbit character, expressive typography a
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/Frame%202147228012_cNFSETT7Y.svg"
-      alt=""
+      alt="Coffee Theory brand icons and illustrations"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -655,7 +661,8 @@ The result
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228013%20(1).png"
-      alt=""
+      alt="Coffee Theory tote bags and merchandise"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -677,7 +684,8 @@ The result
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228014.png"
-      alt=""
+      alt="Coffee Theory loyalty cards and brand collateral"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -718,7 +726,8 @@ The result
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228015%20(1).png"
-      alt=""
+      alt="Coffee Theory brand result — packaging at counter"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>
@@ -740,7 +749,8 @@ The result
   >
     <img
       src="https://ik.imagekit.io/qiap0iq38/coffeetheory/Frame%202147228016%20(1).png"
-      alt=""
+      alt="Coffee Theory merchandise and brand items"
+      loading="lazy"
       className="h-full w-full object-cover"
     />
   </div>

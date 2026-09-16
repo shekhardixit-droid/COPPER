@@ -1,7 +1,8 @@
 const { Resend } = require("resend");
 
-const TEAM_EMAIL = "shekhar.dixit@datacircles.in";
-const FROM       = "Copper Studio <hello@thecopperstudio.com>";
+const TEAM_EMAIL  = "shekhar.dixit@datacircles.in";
+const TEAM_EMAIL2 = "contact@thecopperstudio.com";
+const FROM        = "Copper Studio <hello@thecopperstudio.com>";
 
 // ── Helpers ───────────────────────────────────────────────────
 
@@ -112,10 +113,10 @@ const sendNotification = async (type, data) => {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     if (type === "contact-enquiry") {
-      await resend.emails.send({ from: FROM, to: TEAM_EMAIL, subject: `New Contact Enquiry — ${esc(data.firstName)} ${esc(data.lastName)}`, html: contactTeam(data) });
+      await resend.emails.send({ from: FROM, to: [TEAM_EMAIL, TEAM_EMAIL2], subject: `New Contact Enquiry — ${esc(data.firstName)} ${esc(data.lastName)}`, html: contactTeam(data) });
       await resend.emails.send({ from: FROM, to: data.email, subject: `Copper Studio`, html: contactUser(data) });
     } else if (type === "tell-us") {
-      await resend.emails.send({ from: FROM, to: TEAM_EMAIL, subject: `New Scope Builder — ${esc(data.name)}`, html: tellUsTeam(data) });
+      await resend.emails.send({ from: FROM, to: [TEAM_EMAIL, TEAM_EMAIL2], subject: `New Scope Builder — ${esc(data.name)}`, html: tellUsTeam(data) });
       await resend.emails.send({ from: FROM, to: data.email, subject: `Copper Studio`, html: tellUsUser(data) });
     }
     console.log(`[Resend] Both emails sent for ${type}`);
