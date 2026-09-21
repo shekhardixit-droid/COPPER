@@ -9,6 +9,10 @@ import Footer from "../components/home/Footer.jsx";
 import LandingFeatureCard from "../components/brand-identity/LandingFeatureCard.jsx";
 import Marquee from "../components/brand-identity/Marquee.jsx";
 
+/* ------------------------------------------------------------------
+   DATA
+------------------------------------------------------------------- */
+
 const features = [
   {
     image: "https://ik.imagekit.io/qiap0iq38/home/services/services_branding_5.png?updatedAt=1787289846541",
@@ -58,6 +62,19 @@ const features = [
   },
 ];
 
+/* ------------------------------------------------------------------
+   SHARED LAYOUT TOKENS
+   Every block below uses the same centered wrapper + gutters, so text
+   and cards stay aligned at every zoom level and viewport width.
+------------------------------------------------------------------- */
+
+const GUTTER = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
+const WRAP = `mx-auto w-full max-w-[1440px] ${GUTTER}`;
+
+/* ------------------------------------------------------------------
+   PAGE
+------------------------------------------------------------------- */
+
 function BrandIdentity() {
   return (
     <main className="min-h-screen w-full bg-white">
@@ -73,50 +90,26 @@ function BrandIdentity() {
 />
 <meta property="og:site_name" content="Copper Studio" />
       </Helmet>
+    <main className="min-h-screen w-full overflow-x-clip bg-white">
       <Navbar />
-
-      {/* =====================================
-          LANDING PAGE CONTENT
-      ====================================== */}
-
-      <section className="w-full">
-        {/* New landing page components will go here */}
-      </section>
 
       <Hero />
 
-      <div
-        className="
-          mt-8
-          ml-0
-          flex
-          w-full
-          max-w-[1140px]
-          items-center
-          justify-start
-          bg-white
-          px-4
-          py-6
-          text-left
-          sm:px-10
-          sm:py-8
-          md:px-20
-          lg:h-[214px]
-          lg:py-0
-        "
-      >
+      {/* =====================================
+          INTRO STATEMENT
+      ====================================== */}
+
+      <div className={`${WRAP} mt-8 py-8 md:py-12 lg:py-16`}>
         <p
           className="
             max-w-[900px]
+            text-pretty
             font-dm-sans
-            text-lg
+            text-[clamp(1.125rem,2.4vw,1.875rem)]
             font-medium
-            leading-relaxed
+            leading-[1.45]
             tracking-tight
             text-black
-            sm:text-xl
-            md:text-2xl
-            lg:text-3xl
           "
         >
           <span className="text-black/40">
@@ -134,111 +127,50 @@ function BrandIdentity() {
         </p>
       </div>
 
-      <div
-        className="
-          mt-10
-          ml-0
-          flex
-          h-auto
-          w-full
-          max-w-[749px]
-          flex-col
-          justify-center
-          px-4
-          sm:px-10
-          md:px-20
-        "
-      >
-        {/* Heading */}
+      {/* =====================================
+          SECTION HEADING
+      ====================================== */}
 
-        <div
+      <div className={`${WRAP} mt-6 md:mt-10`}>
+        <h2
           className="
-            flex
-            h-auto
-            w-full
-            items-center
+            text-balance
+            font-dm-sans
+            text-[clamp(2.25rem,5vw,3.875rem)]
+            font-semibold
+            leading-[1.1]
+            tracking-tight
+            text-black
           "
         >
-          <h2
-            className="
-              font-dm-sans
-              text-[36px]
-              font-semibold
-              leading-tight
-              tracking-tight
-              text-black
-              sm:text-[48px]
-              md:text-[56px]
-              lg:text-[62px]
-              lg:leading-[52px]
-              lg:whitespace-nowrap
-            "
-          >
-            Brand Identity
-          </h2>
-        </div>
+          Brand Identity
+        </h2>
 
-        {/* Paragraph */}
-
-        <div
+        <p
           className="
             mt-3
-            flex
-            h-auto
-            w-full
             max-w-[747px]
-            items-start
+            font-dm-sans
+            text-[0.9375rem]
+            font-normal
+            leading-relaxed
+            text-black/80
+            sm:text-[1.0625rem]
+            lg:text-lg
           "
         >
-          <p
-            className="
-              w-full
-              max-w-[747px]
-              font-dm-sans
-              text-[15px]
-              font-normal
-              leading-[24px]
-              text-black/80
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-            Develop a strategic brand identity with custom logo design,
-            visual systems, typography, and brand guidelines that create a
-            lasting impression across every touchpoint.
-          </p>
-        </div>
+          Develop a strategic brand identity with custom logo design, visual
+          systems, typography, and brand guidelines that create a lasting
+          impression across every touchpoint.
+        </p>
       </div>
 
       {/* =====================================
           FEATURE CARDS — 2 × 2
       ====================================== */}
 
-      <section
-        className="
-          mt-10
-          w-full
-          gap-y-3
-          px-4
-          pb-20
-          sm:mt-14
-          sm:px-6
-          md:px-10
-          lg:mt-16
-          lg:px-16
-        "
-      >
-        <div
-          className="
-            grid
-            w-full
-            grid-cols-1
-            justify-items-center
-            gap-x-2
-            gap-y-5
-            md:grid-cols-2
-          "
-        >
+      <section className={`${WRAP} mt-10 pb-14 sm:mt-12 md:pb-20 lg:mt-16`}>
+        <div className="grid w-full grid-cols-1 justify-items-center gap-5 md:grid-cols-2">
           {features.map((feature) => (
             <LandingFeatureCard
               key={feature.heading}
@@ -258,6 +190,7 @@ function BrandIdentity() {
       <CTA />
 
       <Footer />
+    </main>
     </main>
   );
 }

@@ -1,5 +1,4 @@
 import Navbar from "../components/home/Navbar";
-import { Helmet } from "react-helmet-async";
 import FourCards from "../components/three-services/FourCards";
 import Footer from "../components/home/Footer";
 import ServiceIntro from "../components/three-services/ServiceIntro";
@@ -11,6 +10,10 @@ import CustomerReviews from "../components/home/CustomerReviews";
 import WhyCopperStudio from "../components/home/WhyCopperStudio";
 import FAQ from "../components/three-services/FAQ";
 import FinalCTA from "../components/contact/CTA";
+
+/* ------------------------------------------------------------------
+   DATA
+------------------------------------------------------------------- */
 
 const features = [
   {
@@ -113,230 +116,193 @@ const features2 = [
   },
 ];
 
-const ThreeServices = () => {
-  return (
-    <main className="min-h-screen w-full bg-white">
-      <Helmet>
-  <title>Services | Copper Studio</title>
-  <meta
-    name="description"
-    content="Explore Copper Studio's brand identity, web design and development, and custom company portal services designed to help businesses build stronger brands and smarter digital experiences."
-  />
-  <meta
-  property="og:image"
-  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
-/>
-<meta property="og:site_name" content="Copper Studio" />
-</Helmet>
+/* ------------------------------------------------------------------
+   SHARED LAYOUT TOKENS
+   - Never use fixed px widths/heights for containers or text boxes.
+     At high zoom the viewport shrinks (in CSS px) and fixed boxes
+     overflow; at low zoom the viewport grows and fixed boxes look
+     stranded. So: fluid width + max-width + centered.
+------------------------------------------------------------------- */
 
-      <Navbar />
-{/* =====================================
-    HERO
-====================================== */}
+// Horizontal page gutters that grow with the viewport
+const GUTTER = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
 
-<section className="mt-20 w-full bg-white">
+// Centered, capped content wrapper
+const WRAP = `mx-auto w-full max-w-[1440px] ${GUTTER}`;
 
-  <div
+/* ------------------------------------------------------------------
+   REUSABLE PIECES
+------------------------------------------------------------------- */
+
+// 2-column card grid used by Service 01 and Service 02
+const FeatureGrid = ({ items }) => (
+  <section className={`${WRAP} mt-10 pb-14 sm:mt-12 md:mt-16 md:pb-20`}>
+    <div className="grid w-full grid-cols-1 justify-items-center gap-5 md:grid-cols-2">
+      {items.map((feature) => (
+        <LandingFeatureCard
+          key={feature.heading}
+          image={feature.image}
+          heading={feature.heading}
+          description={feature.description}
+          tags={feature.tags}
+        />
+      ))}
+    </div>
+  </section>
+);
+
+// Portal card used by Service 03
+const PortalCard = ({ image, heading, description }) => (
+  <article
     className="
-      mx-auto
       flex
-      h-[343px]
-      w-[1200px]
-      max-w-full
+      w-full
+      max-w-[413px]
       flex-col
-      items-center
-      justify-center
-
-      max-[767px]:h-auto
-      max-[767px]:px-5
-      max-[767px]:py-16
+      overflow-hidden
+      rounded-2xl
+      bg-[#f7f7f5]
+      p-2
     "
   >
-
-    {/* Main Text */}
-
-    <div
-      className="
-        flex
-        h-[152px]
-        w-[892px]
-        max-w-full
-        items-center
-        justify-center
-        text-center
-
-        max-[767px]:h-auto
-        max-[767px]:w-full
-      "
-    >
-      <h1
-        className="
-          w-full
-          font-dm-sans
-          text-[70px]
-          font-bold
-          leading-[76px]
-          tracking-[-0.75px]
-          text-black
-
-          max-[767px]:text-[42px]
-          max-[767px]:leading-[46px]
-          max-[767px]:tracking-[-0.5px]
-
-          max-[480px]:text-[34px]
-          max-[480px]:leading-[38px]
-        "
-      >
-        Ideas Into Identities.
-        <br />
-        Identities Into Experiences.
-      </h1>
+    {/* IMAGE: keeps the original 397 x 309 ratio at any width */}
+    <div className="aspect-[397/309] w-full overflow-hidden rounded-xl">
+      <img
+        src={image}
+        alt={heading}
+        loading="lazy"
+        className="h-full w-full object-contain"
+      />
     </div>
 
+    {/* TEXT: height follows content, never clipped */}
+    <div className="flex flex-1 flex-col justify-center px-3 py-5">
+      <h3 className="font-dm-sans text-xl font-semibold leading-tight tracking-tight text-black sm:text-2xl">
+        {heading}
+      </h3>
 
-    {/* Supporting Text */}
-
-    <div
-      className="
-        mt-6
-        flex
-        h-[76px]
-        w-[750px]
-        max-w-full
-        items-center
-        justify-center
-        text-center
-        -translate-y-5
-
-        max-[767px]:mt-8
-        max-[767px]:h-auto
-        max-[767px]:w-full
-        max-[767px]:translate-y-0
-      "
-    >
-      <p
-        className="
-          w-full
-          font-dm-sans
-          text-[18px]
-          font-light
-          leading-[24px]
-          text-black/75
-
-          max-[767px]:text-[16px]
-          max-[767px]:leading-[22px]
-
-          max-[480px]:text-[15px]
-          max-[480px]:leading-[21px]
-        "
-      >
-        We build distinctive brands, thoughtful digital experiences,
-        and custom systems designed around how your business works.
+      <p className="mt-2 font-dm-sans text-base font-normal leading-6 text-black/50">
+        {description}
       </p>
     </div>
+  </article>
+);
 
-  </div>
+/* ------------------------------------------------------------------
+   PAGE
+------------------------------------------------------------------- */
 
+const ThreeServices = () => {
+  return (
+    <main className="min-h-screen w-full overflow-x-clip bg-white">
+      <Navbar />
 
-  {/* =====================================
-      SERVICES HEADING
-  ====================================== */}
+      {/* =====================================
+          HERO
+      ====================================== */}
 
-  <div
-    className="
-      mt-10
-      ml-20
-      flex
-      h-[52px]
-      w-[930px]
-      max-w-full
-      items-center
-      justify-start
-      text-left
+      <section className="mt-20 w-full bg-white">
+        {/* Main text + supporting text */}
+        <div
+          className="
+            mx-auto
+            flex
+            w-full
+            max-w-[1200px]
+            flex-col
+            items-center
+            justify-center
+            px-5
+            py-12
+            text-center
+            sm:px-8
+            md:py-16
+          "
+        >
+          <h1
+            className="
+              w-full
+              max-w-[892px]
+              text-balance
+              font-dm-sans
+              text-[clamp(2.125rem,6vw,4.375rem)]
+              font-bold
+              leading-[1.1]
+              tracking-[-0.02em]
+              text-black
+            "
+          >
+            Ideas Into Identities.
+            <br className="max-[480px]:hidden" />{" "}
+            Identities Into Experiences.
+          </h1>
 
-      max-[767px]:ml-0
-      max-[767px]:mt-8
-      max-[767px]:h-auto
-      max-[767px]:w-full
-      max-[767px]:px-6
-    "
-  >
-    <p
-      className="
-        w-full
-        font-dm-sans
-        text-[62px]
-        font-semibold
-        leading-[52px]
-        tracking-[-0.75px]
-        text-black
+          <p
+            className="
+              mt-5
+              w-full
+              max-w-[750px]
+              text-pretty
+              font-dm-sans
+              text-[0.9375rem]
+              font-light
+              leading-relaxed
+              text-black/75
+              sm:mt-6
+              sm:text-base
+              md:text-lg
+            "
+          >
+            We build distinctive brands, thoughtful digital experiences, and
+            custom systems designed around how your business works.
+          </p>
+        </div>
 
-        max-[767px]:text-[40px]
-        max-[767px]:leading-[44px]
-        max-[767px]:tracking-[-0.5px]
+        {/* SERVICES HEADING + DESCRIPTION (aligned to the same page gutters) */}
+        <div className={`${WRAP} mt-6 md:mt-10`}>
+          <h2
+            className="
+              max-w-[930px]
+              text-balance
+              text-left
+              font-dm-sans
+              text-[clamp(2rem,5vw,3.875rem)]
+              font-semibold
+              leading-[1.1]
+              tracking-[-0.02em]
+              text-black
+            "
+          >
+            Three Services to Move Forward
+          </h2>
 
-        max-[480px]:text-[32px]
-        max-[480px]:leading-[36px]
-      "
-    >
-      Three Services to Move Forward
-    </p>
-  </div>
-
-
-  {/* =====================================
-      SERVICES DESCRIPTION
-  ====================================== */}
-
-  <div
-    className="
-      mt-6
-      ml-20
-      flex
-      h-[95px]
-      w-[928px]
-      max-w-full
-      items-center
-      justify-start
-      text-left
-
-      max-[767px]:ml-0
-      max-[767px]:h-auto
-      max-[767px]:w-full
-      max-[767px]:px-6
-    "
-  >
-    <p
-      className="
-        w-full
-        font-dm-sans
-        text-[18px]
-        font-normal
-        leading-[24px]
-        text-black/75
-
-        max-[767px]:text-[16px]
-        max-[767px]:leading-[22px]
-
-        max-[480px]:text-[15px]
-        max-[480px]:leading-[21px]
-      "
-    >
-      We design brands, digital experiences, and business systems
-      <br className="max-[767px]:hidden" />
-      that help companies stand out and work smarter.
-      <br className="max-[767px]:hidden" />
-      Three focused capabilities, one connected approach,
-      <br className="max-[767px]:hidden" />
-      and everything designed to work together.
-    </p>
-  </div>
-
-</section>
-
+          <p
+            className="
+              mt-5
+              max-w-[928px]
+              text-left
+              font-dm-sans
+              text-[0.9375rem]
+              font-normal
+              leading-relaxed
+              text-black/75
+              sm:mt-6
+              sm:text-base
+              md:text-lg
+            "
+          >
+            We design brands, digital experiences, and business systems
+            <br className="max-lg:hidden" />{" "}
+            that help companies stand out and work smarter.
+            <br className="max-lg:hidden" />{" "}
+            Three focused capabilities, one connected approach,
+            <br className="max-lg:hidden" />{" "}
+            and everything designed to work together.
+          </p>
+        </div>
+      </section>
 
       <FourCards />
-
 
       {/* =====================================
           SERVICE 01
@@ -344,48 +310,11 @@ const ThreeServices = () => {
 
       <ServiceIntro
         svg="/services/main01.svg"
-        heading={
-          <>
-            Brand Identity
-          </>
-        }
+        heading={<>Brand Identity</>}
         description="Develop a strategic brand identity with custom logo design, visual systems, typography, and brand guidelines that create a lasting impression across every touchpoint. Build a consistent and recognisable brand presence that connects with your audience and grows with your business."
       />
 
-
-      <section
-        className="
-          mt-16
-          w-full
-          px-6
-          pb-20
-
-          sm:px-10
-          md:px-16
-        "
-      >
-        <div
-          className="
-            grid
-            w-full
-            grid-cols-1
-            justify-items-center
-            gap-5
-            md:grid-cols-2
-          "
-        >
-          {features.map((feature) => (
-            <LandingFeatureCard
-              key={feature.heading}
-              image={feature.image}
-              heading={feature.heading}
-              description={feature.description}
-              tags={feature.tags}
-            />
-          ))}
-        </div>
-      </section>
-
+      <FeatureGrid items={features} />
 
       {/* =====================================
           SERVICE 02
@@ -402,40 +331,7 @@ const ThreeServices = () => {
         description="Create a digital presence that feels as strong as your brand. We combine thoughtful UX, distinctive visual design, and reliable development to build responsive websites that are easy to navigate, easy to manage, and built to grow with your business."
       />
 
-
-      <section
-        className="
-          mt-16
-          w-full
-          px-6
-          pb-20
-
-          sm:px-10
-          md:px-16
-        "
-      >
-        <div
-          className="
-            grid
-            w-full
-            grid-cols-1
-            justify-items-center
-            gap-5
-            md:grid-cols-2
-          "
-        >
-          {features1.map((feature) => (
-            <LandingFeatureCard
-              key={feature.heading}
-              image={feature.image}
-              heading={feature.heading}
-              description={feature.description}
-              tags={feature.tags}
-            />
-          ))}
-        </div>
-      </section>
-
+      <FeatureGrid items={features1} />
 
       {/* =====================================
           SERVICE 03
@@ -452,127 +348,26 @@ const ThreeServices = () => {
         description="Create secure custom business portals tailored to your workflow. We build systems that simplify communication, centralize information, automate everyday operations, and give your team better control over how the business works."
       />
 
-
-      <section
-        className="
-          mt-16
-          w-full
-          px-6
-          pb-20
-
-          sm:px-10
-          md:px-16
-        "
-      >
-
-        <div
-          className="
-            mx-auto
-            grid
-            w-full
-            max-w-[1280px]
-            grid-cols-1
-            justify-items-center
-            gap-5
-            lg:grid-cols-3
-          "
-        >
-
+      <section className={`${WRAP} mt-10 pb-14 sm:mt-12 md:mt-16 md:pb-20`}>
+        {/* flex-wrap + justify-center: 3 → 2 → 1 columns, and an
+            orphan card is always centered instead of stuck left */}
+        <div className="mx-auto flex w-full max-w-[1280px] flex-wrap justify-center gap-5">
           {features2.map((feature) => (
-            <div
+            <PortalCard
               key={feature.heading}
-              className="
-                h-[460px]
-                w-[413px]
-                max-w-full
-                overflow-hidden
-                rounded-2xl
-                bg-[#f7f7f5]
-                p-2
-              "
-            >
-
-              {/* IMAGE */}
-
-              <div
-                className="
-                  h-[309px]
-                  w-[397px]
-                  max-w-full
-                  overflow-hidden
-                  rounded-xl
-
-                  max-[767px]:h-[260px]
-                "
-              >
-                <img
-                  src={feature.image}
-                  alt={feature.heading}
-                  className="
-                    h-full
-                    w-full
-                    object-contain
-                  "
-                />
-              </div>
-
-
-              {/* HEADING + PARAGRAPH */}
-
-              <div
-                className="
-                  flex
-                  h-[143px]
-                  w-full
-                  flex-col
-                  justify-center
-                  px-3
-                "
-              >
-
-                <h3
-                  className="
-                    font-dm-sans
-                    text-xl
-                    font-semibold
-                    leading-tight
-                    tracking-tight
-                    text-black
-                    sm:text-2xl
-                  "
-                >
-                  {feature.heading}
-                </h3>
-
-                <p
-                  className="
-                    mt-2
-                    max-w-[380px]
-                    font-dm-sans
-                    text-[16px]
-                    font-normal
-                    leading-[24px]
-                    text-black/50
-                  "
-                >
-                  {feature.description}
-                </p>
-
-              </div>
-
-            </div>
+              image={feature.image}
+              heading={feature.heading}
+              description={feature.description}
+            />
           ))}
-
         </div>
-
       </section>
-
 
       <Process />
 
       <TechStack />
 
-     <WhatWeBuild/>
+      <WhatWeBuild />
 
       <CustomerReviews />
 
@@ -583,7 +378,6 @@ const ThreeServices = () => {
       <FinalCTA />
 
       <Footer />
-
     </main>
   );
 };

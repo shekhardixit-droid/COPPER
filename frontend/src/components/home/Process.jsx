@@ -115,28 +115,25 @@ const Process = () => {
       className="
         relative
         bg-#05050b
-        px-4
-        py-16
-        sm:px-6
-        sm:py-20
-        md:px-8
-        md:py-24
+        w-full
+        overflow-x-hidden
+        px-[clamp(1rem,3.5vw,2.5rem)]
+        py-[clamp(4rem,9.4vw,6rem)]
         lg:min-h-screen
-        lg:px-10
         lg:py-16
       "
     >
-      <div className="mx-auto w-full max-w-full">
+      {/* Centered wrapper: keeps the layout centered at every zoom level */}
+      <div className="mx-auto w-full max-w-[1920px]">
 
         <div
           className="
             grid
             grid-cols-1
-            gap-10
+            gap-[clamp(2.5rem,4vw,3rem)]
             lg:min-h-[calc(100vh-8rem)]
             lg:grid-cols-[0.8fr_1.2fr]
             lg:items-start
-            lg:gap-12
           "
         >
 
@@ -144,6 +141,7 @@ const Process = () => {
 
           <div
             className="
+              min-w-0
               self-start
               lg:sticky
               lg:top-24
@@ -170,17 +168,13 @@ const Process = () => {
                 className="
                   mt-0
                   max-w-xl
-                  text-4xl
+                  text-[clamp(1.875rem,7vw,4.5rem)]
                   font-medium
                   leading-[0.95]
                   tracking-tight
                   text-black
-                  sm:text-5xl
-                  md:text-6xl
                   lg:mt-5
-                  lg:text-7xl
                   font-dm-sans
-                  max-[639px]:text-3xl
                   max-[639px]:leading-[1]
                 "
               >
@@ -193,15 +187,11 @@ const Process = () => {
                 className="
                   mt-6
                   max-w-md
-                  text-sm
+                  text-[clamp(0.875rem,1.8vw,1.125rem)]
                   leading-[24px]
                   text-black/70
-                  sm:text-base
-                  md:text-lg
                   font-dm-sans
                   max-[639px]:max-w-full
-                  max-[639px]:text-sm
-                  max-[639px]:leading-6
                 "
               >
                 Whether we're building a brand, a website, or a custom portal,
@@ -227,8 +217,7 @@ const Process = () => {
                 flex
                 w-full
                 flex-col
-                gap-3
-                sm:gap-4
+                gap-[clamp(0.75rem,1.6vw,1rem)]
               "
             >
 
@@ -254,26 +243,20 @@ const Process = () => {
                   className="
                     group
                     flex
-                    min-h-[130px]
+                    min-h-[clamp(120px,20vw,130px)]
                     w-full
                     items-center
                     rounded-2xl
                     bg-05050b
-                    px-5
-                    py-4
+                    px-[clamp(1rem,3.75vw,1.5rem)]
+                    py-[clamp(0.75rem,1.6vw,1rem)]
                     transition-all
                     duration-300
                     hover:border-black/10
-                    sm:px-6
-                    max-[639px]:min-h-[120px]
-                    max-[639px]:px-4
-                    max-[639px]:py-3
                   "
                 >
 
-                  {/* =====================================
-                      NUMBER — 96 × 96
-                  ====================================== */}
+                  {/* NUMBER — 72 → 96 */}
 
                   <motion.div
                     whileHover={{
@@ -284,8 +267,8 @@ const Process = () => {
                     }}
                     className="
                       flex
-                      h-[96px]
-                      w-[96px]
+                      h-[clamp(72px,9.4vw,96px)]
+                      w-[clamp(72px,9.4vw,96px)]
                       shrink-0
                       items-center
                       justify-center
@@ -293,7 +276,7 @@ const Process = () => {
                       bg-05050b
                       bg-white
                       font-dm-sans
-                      text-sm
+                      text-[clamp(0.75rem,1.4vw,0.875rem)]
                       font-medium
                       tracking-[0.12em]
                       text-black/40
@@ -302,70 +285,46 @@ const Process = () => {
                       group-hover:border-orange-500
                       group-hover:bg-orange-500
                       group-hover:text-white
-                      max-[639px]:h-[72px]
-                      max-[639px]:w-[72px]
-                      max-[639px]:text-xs
-                      sm:h-[82px]
-                      sm:w-[82px]
-                      md:h-[96px]
-                      md:w-[96px]
                     "
                   >
                     {step.number}
                   </motion.div>
 
 
-                  {/* =====================================
-                      CONTENT
-                  ====================================== */}
+                  {/* CONTENT */}
 
                   <div
                     className="
-                      ml-5
+                      ml-[clamp(0.75rem,2vw,1.25rem)]
                       flex
                       min-w-0
                       w-full
                       max-w-[522px]
                       flex-col
                       justify-center
-                      max-[639px]:ml-3
                     "
                   >
-
-                    {/* Heading */}
 
                     <h3
                       className="
                         font-['DM_Sans']
-                        text-2xl
+                        text-[clamp(1.125rem,4vw,2.25rem)]
                         font-medium
-                        leading-tight
+                        leading-[1.25]
                         tracking-tight
                         text-black
-                        sm:text-3xl
-                        md:text-4xl
-                        max-[639px]:text-lg
-                        max-[639px]:leading-6
                       "
                     >
                       {step.title}
                     </h3>
 
-
-                    {/* Complete Description */}
-
                     <p
                       className="
-                        mt-2
+                        mt-[clamp(0.25rem,0.8vw,0.5rem)]
                         font-['DM_Sans']
-                        text-sm
-                        leading-5
+                        text-[clamp(0.75rem,1.6vw,1rem)]
+                        leading-[1.45]
                         text-black/50
-                        sm:text-base
-                        sm:leading-6
-                        max-[639px]:mt-1
-                        max-[639px]:text-xs
-                        max-[639px]:leading-5
                       "
                     >
                       {step.description}

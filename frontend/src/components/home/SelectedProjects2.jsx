@@ -15,21 +15,28 @@ const projects = [
   "https://ik.imagekit.io/qiap0iq38/home/Selected%20Projects/projects_qodenext.png",
 ];
 
+// Each group repeats the list this many times so it is always wider than the
+// screen (even at 25% zoom on a big monitor).
+const SETS_PER_GROUP = 3;
+
+// Seconds for the strip to travel one set of 10 images. Higher = slower.
+// 100 matches the pace of the two-row section (50s per 5 images).
+const SECONDS_PER_SET = 100;
+
+const group = Array.from({ length: SETS_PER_GROUP }, () => projects).flat();
+
 const ProjectImage = ({ image, index }) => {
   return (
     <motion.div
       className="
         group
         relative
-        h-[300px]
-        w-[240px]
+        mr-[clamp(0.75rem,1.6vw,1.25rem)]
+        h-[clamp(300px,31vw,400px)]
+        w-[clamp(240px,25vw,320px)]
         shrink-0
         overflow-hidden
         rounded-2xl
-        sm:h-[350px]
-        sm:w-[280px]
-        md:h-[400px]
-        md:w-[320px]
       "
       whileHover={{
         scale: 1.02,
@@ -83,14 +90,11 @@ const SelectedProjects2 = () => {
         className="
           mx-auto
           w-full
+          max-w-[1920px]
           overflow-hidden
           bg-white
-          px-4
-          py-16
-          sm:px-6
-          sm:py-20
-          md:px-10
-          lg:px-16
+          px-[clamp(1rem,4.7vw,4rem)]
+          py-[clamp(4rem,7.8vw,5rem)]
         "
       >
 
@@ -101,29 +105,26 @@ const SelectedProjects2 = () => {
         <div
           className="
             mx-auto
-            mb-8
+            mb-[clamp(2rem,4.7vw,3rem)]
             flex
             w-full
             flex-col
             items-start
             justify-between
             gap-5
-            sm:mb-10
             sm:flex-row
             sm:items-end
             sm:gap-6
-            md:mb-12
           "
         >
 
           <h2
             className="
-              text-4xl
+              text-[clamp(2.25rem,5.9vw,3.75rem)]
               font-medium
+              leading-[1.1]
               tracking-tight
               text-gray-950
-              sm:text-5xl
-              md:text-6xl
             "
           >
             Selected Projects
@@ -187,39 +188,30 @@ const SelectedProjects2 = () => {
             className="
               flex
               w-max
-              gap-3
-              sm:gap-4
-              md:gap-5
+              will-change-transform
             "
             animate={{
               x: ["0%", "-50%"],
             }}
             transition={{
-              duration: 30,
+              duration: SECONDS_PER_SET * SETS_PER_GROUP,
               repeat: Infinity,
               ease: "linear",
             }}
           >
 
-            {/* ORIGINAL LIST */}
+            {/* Two identical groups → -50% loops seamlessly */}
 
-            {projects.map((image, index) => (
-              <ProjectImage
-                key={`project-${index}`}
-                image={image}
-                index={index}
-              />
-            ))}
-
-
-            {/* DUPLICATED LIST FOR CONTINUOUS LOOP */}
-
-            {projects.map((image, index) => (
-              <ProjectImage
-                key={`project-copy-${index}`}
-                image={image}
-                index={index}
-              />
+            {[0, 1].map((g) => (
+              <div key={g} className="flex shrink-0">
+                {group.map((image, index) => (
+                  <ProjectImage
+                    key={`project-${g}-${index}`}
+                    image={image}
+                    index={index % projects.length}
+                  />
+                ))}
+              </div>
             ))}
 
           </motion.div>

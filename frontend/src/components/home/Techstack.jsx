@@ -153,7 +153,7 @@ const TechStack = () => {
           className="
             flex
             w-full
-            justify-start
+            justify-center
           "
         >
           <h2

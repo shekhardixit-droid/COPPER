@@ -18,27 +18,32 @@ const projects = [
 const firstRow = projects.slice(0, 5);
 const secondRow = projects.slice(5, 10);
 
+// Each group repeats the row this many times so it is always wider than the
+// screen (even at 25% zoom on a big monitor).
+const SETS_PER_GROUP = 6;
+
+// Seconds for the strip to travel one set of 5 images. Higher = slower.
+const TOP_SECONDS_PER_SET = 50;
+const BOTTOM_SECONDS_PER_SET = 60;
+
+const buildGroup = (row) =>
+  Array.from({ length: SETS_PER_GROUP }, () => row).flat();
+
+const topGroup = buildGroup(firstRow);
+const bottomGroup = buildGroup(secondRow);
+
 const ProjectImage = ({ image, index }) => {
   return (
     <div
       className="
         group
         relative
-        h-[220px]
-        w-[180px]
+        mr-[clamp(0.5rem,1.6vw,1rem)]
+        h-[clamp(220px,39vw,400px)]
+        w-[clamp(180px,31.25vw,320px)]
         shrink-0
         overflow-hidden
-        rounded-xl
-
-        sm:h-[280px]
-        sm:w-[230px]
-        sm:rounded-2xl
-
-        md:h-[330px]
-        md:w-[270px]
-
-        lg:h-[400px]
-        lg:w-[320px]
+        rounded-[clamp(0.75rem,1.6vw,1rem)]
       "
     >
       <motion.img
@@ -84,11 +89,7 @@ const SelectedProjects = () => {
           w-full
           overflow-hidden
           bg-white
-          py-12
-
-          sm:py-16
-          md:py-20
-          lg:py-24
+          py-[clamp(3rem,9.4vw,6rem)]
         "
       >
 
@@ -101,11 +102,7 @@ const SelectedProjects = () => {
             mx-auto
             w-full
             overflow-hidden
-            px-4
-
-            sm:px-6
-            md:px-10
-            lg:px-16
+            px-[clamp(1rem,6.25vw,4rem)]
           "
         >
 
@@ -115,19 +112,12 @@ const SelectedProjects = () => {
 
           <div
             className="
-              mb-6
+              mb-[clamp(1.5rem,5.5vw,3.5rem)]
               flex
               w-full
               items-center
               justify-between
-              gap-3
-
-              sm:mb-8
-              sm:gap-4
-
-              md:mb-12
-
-              lg:mb-14
+              gap-[clamp(0.75rem,1.6vw,1rem)]
             "
           >
 
@@ -136,18 +126,11 @@ const SelectedProjects = () => {
             <h2
               className="
                 min-w-0
-                text-2xl
+                text-[clamp(1.5rem,4.7vw,3.75rem)]
                 font-medium
+                leading-[1.15]
                 tracking-tight
                 text-gray-950
-
-                sm:text-3xl
-
-                md:text-4xl
-
-                lg:text-5xl
-
-                xl:text-6xl
               "
             >
               Selected Projects
@@ -168,11 +151,11 @@ const SelectedProjects = () => {
                 flex
                 shrink-0
                 items-center
-                gap-1.5
+                gap-[clamp(0.375rem,0.8vw,0.5rem)]
                 rounded-full
-                px-3
-                py-2
-                text-xs
+                px-[clamp(0.75rem,2.3vw,1.5rem)]
+                py-[clamp(0.5rem,1.2vw,0.75rem)]
+                text-[clamp(0.75rem,1.4vw,0.875rem)]
                 font-medium
                 text-gray-900
                 transition-colors
@@ -180,14 +163,6 @@ const SelectedProjects = () => {
                 hover:bg-orange-500
                 hover:text-white
                 translate-y-2
-
-                sm:gap-2
-                sm:px-5
-                sm:py-2.5
-                sm:text-sm
-
-                md:px-6
-                md:py-3
               "
             >
               <span className="whitespace-nowrap">
@@ -196,7 +171,7 @@ const SelectedProjects = () => {
 
               <MdChevronRight
                 size={18}
-                className="sm:h-5 sm:w-5"
+                className="h-[clamp(1.125rem,2vw,1.25rem)] w-[clamp(1.125rem,2vw,1.25rem)]"
               />
             </motion.button>
 
@@ -204,7 +179,7 @@ const SelectedProjects = () => {
 
 
           {/* =====================================
-              TOP MARQUEE — MOVES LEFT
+              TOP MARQUEE — MOVES RIGHT
           ====================================== */}
 
           <div
@@ -219,30 +194,30 @@ const SelectedProjects = () => {
               className="
                 flex
                 w-max
-                gap-2
-
-                sm:gap-3
-                md:gap-4
+                will-change-transform
               "
               animate={{
                 x: ["-50%", "0%"],
               }}
               transition={{
-                duration: 28,
+                duration: TOP_SECONDS_PER_SET * SETS_PER_GROUP,
                 repeat: Infinity,
                 ease: "linear",
               }}
             >
 
-              {[...firstRow, ...firstRow].map(
-                (image, index) => (
-                  <ProjectImage
-                    key={`top-${index}`}
-                    image={image}
-                    index={index}
-                  />
-                )
-              )}
+              {/* Two identical groups → 50% shift loops seamlessly */}
+              {[0, 1].map((g) => (
+                <div key={g} className="flex shrink-0">
+                  {topGroup.map((image, index) => (
+                    <ProjectImage
+                      key={`top-${g}-${index}`}
+                      image={image}
+                      index={index % firstRow.length}
+                    />
+                  ))}
+                </div>
+              ))}
 
             </motion.div>
 
@@ -250,19 +225,15 @@ const SelectedProjects = () => {
 
 
           {/* =====================================
-              BOTTOM MARQUEE — MOVES RIGHT
+              BOTTOM MARQUEE — MOVES LEFT
           ====================================== */}
 
           <div
             className="
               relative
-              mt-2
+              mt-[clamp(0.5rem,1.95vw,1.25rem)]
               w-full
               overflow-hidden
-
-              sm:mt-3
-
-              md:mt-5
             "
           >
 
@@ -270,30 +241,29 @@ const SelectedProjects = () => {
               className="
                 flex
                 w-max
-                gap-2
-
-                sm:gap-3
-                md:gap-4
+                will-change-transform
               "
               animate={{
                 x: ["0%", "-50%"],
               }}
               transition={{
-                duration: 32,
+                duration: BOTTOM_SECONDS_PER_SET * SETS_PER_GROUP,
                 repeat: Infinity,
                 ease: "linear",
               }}
             >
 
-              {[...secondRow, ...secondRow].map(
-                (image, index) => (
-                  <ProjectImage
-                    key={`bottom-${index}`}
-                    image={image}
-                    index={index + 5}
-                  />
-                )
-              )}
+              {[0, 1].map((g) => (
+                <div key={g} className="flex shrink-0">
+                  {bottomGroup.map((image, index) => (
+                    <ProjectImage
+                      key={`bottom-${g}-${index}`}
+                      image={image}
+                      index={(index % secondRow.length) + firstRow.length}
+                    />
+                  ))}
+                </div>
+              ))}
 
             </motion.div>
 

@@ -14,6 +14,19 @@ const projects = [
   "/projects/projects_umaraj.png",
 ];
 
+// Extra sets so the strip is always wider than the screen at any zoom.
+// Each half of the loop holds this many copies of the 10 images.
+const SETS_PER_HALF = 5;
+
+// Original speed: 30 seconds per set of 10 images.
+const SECONDS_PER_SET = 50;
+
+// Two identical halves → the -50% loop is seamless.
+const loopList = Array.from(
+  { length: SETS_PER_HALF * 2 },
+  () => projects
+).flat();
+
 const ProjectImage = ({ image, index }) => {
   return (
     <motion.div
@@ -113,37 +126,27 @@ const SelectedProjects2 = () => {
               flex
               w-max
               gap-3
+              pr-3
               sm:gap-4
+              sm:pr-4
               md:gap-5
+              md:pr-5
             "
             animate={{
               x: ["0%", "-50%"],
             }}
             transition={{
-              duration: 30,
+              duration: SECONDS_PER_SET * SETS_PER_HALF,
               repeat: Infinity,
               ease: "linear",
             }}
           >
 
-            {/* ORIGINAL LIST */}
-
-            {projects.map((image, index) => (
+            {loopList.map((image, index) => (
               <ProjectImage
                 key={`project-${index}`}
                 image={image}
-                index={index}
-              />
-            ))}
-
-
-            {/* DUPLICATED LIST FOR CONTINUOUS LOOP */}
-
-            {projects.map((image, index) => (
-              <ProjectImage
-                key={`project-copy-${index}`}
-                image={image}
-                index={index}
+                index={index % projects.length}
               />
             ))}
 

@@ -9,6 +9,10 @@ import Footer from "../components/home/Footer.jsx";
 import LandingFeatureCard from "../components/webdev/LandingFeatureCard.jsx";
 import Marquee from "../components/webdev/Marquee.jsx";
 
+/* ------------------------------------------------------------------
+   DATA
+------------------------------------------------------------------- */
+
 const features = [
   {
     image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_5.png?updatedAt=1787289848992",
@@ -25,14 +29,14 @@ const features = [
     tags: [],
   },
   {
-     image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_7.png?updatedAt=1787289848294",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_7.png?updatedAt=1787289848294",
     heading: "Campaign Landing Page",
     description:
       "Conversion focused landing pages designed to capture leads and drive customer action.",
     tags: [],
   },
   {
-     image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_8.png?updatedAt=1787289847631",
+    image: "https://ik.imagekit.io/qiap0iq38/home/services/services_website_8.png?updatedAt=1787289847631",
     heading: "Content Management Systems (CMS)",
     description:
       "Easy-to-manage CMS websites that let you update content without technical expertise.",
@@ -40,7 +44,18 @@ const features = [
   },
 ];
 
-const BrandIdentity = () => {
+/* ------------------------------------------------------------------
+   SHARED LAYOUT TOKENS (same as the other service pages)
+------------------------------------------------------------------- */
+
+const GUTTER = "px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20";
+const WRAP = `mx-auto w-full max-w-[1440px] ${GUTTER}`;
+
+/* ------------------------------------------------------------------
+   PAGE
+------------------------------------------------------------------- */
+
+const WebDev = () => {
   return (
     <main className="min-h-screen w-full bg-white">
       <Helmet>
@@ -56,183 +71,88 @@ const BrandIdentity = () => {
 <meta property="og:site_name" content="Copper Studio" />
 </Helmet>
 
+    <main className="min-h-screen w-full overflow-x-clip bg-white">
       <Navbar />
-
-      {/* =====================================
-          LANDING PAGE CONTENT
-      ====================================== */}
-
-      <section className="w-full">
-        {/* New landing page components will go here */}
-      </section>
 
       <Hero />
 
-     
+      {/* =====================================
+          INTRO STATEMENT
+      ====================================== */}
 
-      <div
-        className="
-          mt-15
-          ml-0
-          flex
-          h-[214px]
-          w-full
-          max-w-[1140px]
-          items-center
-          justify-start
-          bg-white
-          px-20
-          text-left
-          max-[1023px]:h-auto
-          max-[1023px]:px-4
-          max-[1023px]:py-6
-          max-[1023px]:mt-6
-          sm:px-10
-        "
-      >
+      <div className={`${WRAP} mt-8 py-8 md:mt-12 md:py-12 lg:py-16`}>
         <p
           className="
             max-w-[900px]
+            text-pretty
             font-dm-sans
-            text-xl
+            text-[clamp(1.125rem,2.4vw,1.875rem)]
             font-medium
-            leading-relaxed
+            leading-[1.45]
             tracking-tight
             text-black
-            sm:text-2xl
-            md:text-3xl
           "
         >
           <span className="text-black/40">
-            We build strategic websites that give your business a clear digital presence. From
+            We build strategic websites that give your business a clear
+            digital presence. From
           </span>{" "}
           <span className="text-black">
-            UX and interface design to responsive development, CMS, and performance
+            UX and interface design to responsive development, CMS, and
+            performance
           </span>{" "}
           <span className="text-black/40">
-            every element works together to create a website that feels distinctive, intuitive, and built to grow.
+            every element works together to create a website that feels
+            distinctive, intuitive, and built to grow.
           </span>
         </p>
       </div>
 
+      {/* =====================================
+          SECTION HEADING
+      ====================================== */}
 
-      <div
-        className="
-          mt-16
-          ml-0
-          flex
-          h-[123px]
-          w-full
-          max-w-[749px]
-          flex-col
-          justify-center
-          max-[1023px]:h-auto
-          max-[1023px]:mt-8
-          max-[1023px]:px-4
-          sm:px-10
-        "
-      >
-        {/* Heading */}
-
-        <div
+      <div className={`${WRAP} mt-6 md:mt-10`}>
+        <h2
           className="
-            flex
-            h-[52px]
-            w-full
-            items-center
-            px-20
-            max-[1023px]:h-auto
-            max-[1023px]:px-0
+            max-w-[1000px]
+            text-balance
+            font-dm-sans
+            text-[clamp(2rem,5vw,3.875rem)]
+            font-semibold
+            leading-[1.1]
+            tracking-tight
+            text-black
           "
         >
-          <h2
-            className="
-              whitespace-nowrap
-              font-dm-sans
-              text-[62px]
-              font-semibold
-              leading-[52px]
-              tracking-tight
-              text-black
-              max-[1023px]:whitespace-normal
-              max-[1023px]:text-[32px]
-              max-[1023px]:leading-tight
-              sm:text-[44px]
-              md:text-[54px]
-              lg:text-[62px]
-              lg:leading-[52px]
-              lg:whitespace-nowrap
-            "
-          >
-            Web Design & Development
-          </h2>
-        </div>
+          Web Design & Development
+        </h2>
 
-
-        {/* Paragraph */}
-
-        <div
+        <p
           className="
             mt-3
-            flex
-            h-[47px]
-            w-full
             max-w-[747px]
-            items-start
-            px-20
-            max-[1023px]:h-auto
-            max-[1023px]:px-0
-            max-[1023px]:mt-3
+            font-dm-sans
+            text-[0.9375rem]
+            font-normal
+            leading-relaxed
+            text-black/80
+            sm:text-base
+            lg:text-lg
           "
         >
-          <p
-            className="
-              h-[48px]
-              w-full
-              max-w-[747px]
-              font-dm-sans
-              text-[18px]
-              font-normal
-              leading-[24px]
-              text-black/80
-              max-[1023px]:h-auto
-              max-[1023px]:text-[15px]
-            "
-          >
-            Design and develop a high-performing website with thoughtful UX, custom interfaces, responsive development, and seamless interactions that turn visitors into customers.
-          </p>
-        </div>
+          Design and develop a high-performing website with thoughtful UX,
+          custom interfaces, responsive development, and seamless
+          interactions that turn visitors into customers.
+        </p>
       </div>
-
 
       {/* =====================================
           FEATURE CARDS — 2 × 2
       ====================================== */}
 
-      <section
-        className="
-          mt-16
-          w-full
-          px-6
-          gap-y-3
-          pb-20
-          sm:px-10
-          md:px-16
-          max-[1023px]:px-4
-          max-[1023px]:mt-8
-        "
-      >
-        <div
-          className="
-            grid
-            w-full
-            grid-cols-1
-            justify-items-center
-            gap-y-5
-            gap-x-2
-            md:grid-cols-2
-          "
-        >
+      <section className={`${WRAP} mt-10 pb-14 sm:mt-12 md:pb-20 lg:mt-16`}>
+        <div className="grid w-full grid-cols-1 justify-items-center gap-5 md:grid-cols-2">
           {features.map((feature) => (
             <LandingFeatureCard
               key={feature.heading}
@@ -249,12 +169,12 @@ const BrandIdentity = () => {
 
       <CustomerReviews />
 
-      <CTA/>
+      <CTA />
 
       <Footer />
-
+    </main>
     </main>
   );
 };
 
-export default BrandIdentity;
+export default WebDev;
