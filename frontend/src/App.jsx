@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter,Routes,Route,useLocation,} from "react-router-dom";
+import { useEffect } from "react";
 
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
@@ -19,6 +20,7 @@ import Designsystem from "./components/project/Designsystem";
 import Casesstudy from "./components/project/Casestudy";
 import Manifesto from "./components/project/Manifesto";
 import Webdesign2 from "./components/project/Webdesign2";
+
 import ThreeServices from "./pages/ThreeServices";
 import MeetCopper from "./pages/MeetCopper";
 import MainProjects from "./pages/MainProjects";
@@ -30,24 +32,33 @@ import Nora from "./pages/Nora";
 import CoffeeTheory from "./pages/CoffeeTheory";
 import NotFound from "./pages/NotFound";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <ScrollToTop />
 
+      <Routes>
         {/* Main Pages */}
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/scope-builder" element={<ScopeBuilder />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route
-          path="/disclosures"
-          element={<Disclosures />}
-         
+        <Route
+          path="/terms-and-conditions"
+          element={<TermsAndConditions />}
         />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/disclosures" element={<Disclosures />} />
+
         {/* Service Pages */}
         <Route path="/brand-identity" element={<BrandIdentity />} />
         <Route path="/web-design" element={<WebDev />} />
@@ -62,18 +73,20 @@ function App() {
         <Route path="/projects/case-study" element={<Casesstudy />} />
         <Route path="/projects/manifesto" element={<Manifesto />} />
         <Route path="/projects/web-design-2" element={<Webdesign2 />} />
-                <Route path="/services" element={<ThreeServices />} />
-                <Route path="/meet-copper" element={<MeetCopper />} />
-                <Route path="/main-projects" element={<MainProjects />} />
-                <Route path="/join-copper" element={<JoinCopper />} />
-                <Route path="/datacircles" element={<DataCircles />} />
-                 <Route path="/nittygritty" element={<NittyGritty/>} />
-                 <Route path="/cottson" element={<Cottson/>} />
-                 <Route path="/nora" element={<Nora/>} />
-                   <Route path="/coffeetheory" element={<CoffeeTheory/>} />
-                  <Route path="*" element={<NotFound />} />
 
+        {/* Additional Pages */}
+        <Route path="/services" element={<ThreeServices />} />
+        <Route path="/meet-copper" element={<MeetCopper />} />
+        <Route path="/main-projects" element={<MainProjects />} />
+        <Route path="/join-copper" element={<JoinCopper />} />
+        <Route path="/datacircles" element={<DataCircles />} />
+        <Route path="/nittygritty" element={<NittyGritty />} />
+        <Route path="/cottson" element={<Cottson />} />
+        <Route path="/nora" element={<Nora />} />
+        <Route path="/coffeetheory" element={<CoffeeTheory />} />
 
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

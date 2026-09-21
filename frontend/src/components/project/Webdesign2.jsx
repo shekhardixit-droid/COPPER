@@ -74,6 +74,12 @@ const Webdesign2 = () => {
               className="block w-full leading-none [&>svg]:block [&>svg]:h-auto [&>svg]:w-full"
               dangerouslySetInnerHTML={{ __html: svg }}
             />
+            <button
+        type="button"
+        onClick={() => window.history.back()}
+        aria-label="Go back"
+        className="absolute left-0 top-0 h-[80px] w-[180px] cursor-pointer bg-transparent"
+      />
           </section>
         ))}
       </article>
