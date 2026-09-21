@@ -29,13 +29,12 @@ import Cottson from "./pages/Cottson";
 import Nora from "./pages/Nora";
 import CoffeeTheory from "./pages/CoffeeTheory";
 import NotFound from "./pages/NotFound";
-import CookieBanner from "./components/CookieBanner";
+
 
 
 function App() {
   return (
     <BrowserRouter>
-     <CookieBanner />
       <Routes>
 
         {/* Main Pages */}
