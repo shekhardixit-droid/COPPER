@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import CTA from "../components/main-projects/CTA";
@@ -102,6 +103,18 @@ const filteredProjects =
 
   return (
     <div className="w-full bg-white">
+      <Helmet>
+      <title>Projects | Copper Studio</title>
+      <meta
+        name="description"
+        content="Explore selected projects and digital experiences created by Copper Studio."
+      />
+      <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+    </Helmet>
 
       {/* NAVBAR */}
       <Navbar />

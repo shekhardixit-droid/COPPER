@@ -1,4 +1,5 @@
 import Navbar from "../components/home/Navbar";
+import { Helmet } from "react-helmet-async";
 import FourCards from "../components/three-services/FourCards";
 import Footer from "../components/home/Footer";
 import ServiceIntro from "../components/three-services/ServiceIntro";
@@ -115,6 +116,18 @@ const features2 = [
 const ThreeServices = () => {
   return (
     <main className="min-h-screen w-full bg-white">
+      <Helmet>
+  <title>Services | Copper Studio</title>
+  <meta
+    name="description"
+    content="Explore Copper Studio's brand identity, web design and development, and custom company portal services designed to help businesses build stronger brands and smarter digital experiences."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
 
       <Navbar />
 {/* =====================================

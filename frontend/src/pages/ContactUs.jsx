@@ -1,4 +1,5 @@
 import Navbar from "../components/home/Navbar";
+import { Helmet } from "react-helmet-async";
 import LetsTalk from "../components/contact/LetsTalk";
 import Conversation from "../components/contact/Conversation";
 import Enquiery from "../components/contact/Enquiery";
@@ -10,6 +11,18 @@ import Footer2 from "../components/contact/Footer2";
 const ContactUs = () => {
   return (
     <main className="min-h-screen w-full bg-white">
+      <Helmet>
+  <title>Contact | Copper Studio</title>
+  <meta
+    name="description"
+    content="Get in touch with Copper Studio to discuss your next brand, website, or digital project."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
 
       <Navbar />
 

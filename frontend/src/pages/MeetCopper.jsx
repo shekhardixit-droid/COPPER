@@ -1,4 +1,5 @@
 import Navbar from "../components/home/Navbar";
+import { Helmet } from "react-helmet-async";
 import Footer from "../components/home/Footer";
 import FinalCTA from "../components/home/FinalCTA";
 import FAQ from "../components/meet-copper/FAQ";
@@ -10,6 +11,18 @@ import Marquee from "../components/meet-copper/Marquee";
 const MeetCopper = () => {
   return (
     <div className="w-full bg-white">
+      <Helmet>
+  <title>Meet Copper | Copper Studio</title>
+  <meta
+    name="description"
+    content="Meet Copper Studio and discover our approach to creating thoughtful digital brands and experiences."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
 
       {/* NAVBAR */}
       <Navbar />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 
@@ -692,6 +692,18 @@ const Projects = () => {
 
   return (
     <main className="min-h-screen w-full bg-white font-['DM_Sans',sans-serif]">
+      <Helmet>
+  <title>Projects | Copper Studio</title>
+  <meta
+    name="description"
+    content="Explore selected branding, web design, and digital projects from Copper Studio."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
 
       <Navbar />
 

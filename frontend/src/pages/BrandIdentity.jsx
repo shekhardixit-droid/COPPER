@@ -1,4 +1,5 @@
 import Navbar from "../components/brand-identity/Navbar.jsx";
+import { Helmet } from "react-helmet-async";
 import Hero from "../components/home/Hero.jsx";
 import FloatingActions from "../components/home/FloatingActions.jsx";
 import CustomerReviews from "../components/home/CustomerReviews.jsx";
@@ -60,6 +61,18 @@ const features = [
 function BrandIdentity() {
   return (
     <main className="min-h-screen w-full bg-white">
+       <Helmet>
+        <title>Brand Identity | Copper Studio</title>
+        <meta
+          name="description"
+          content="Build a distinctive brand identity with Copper Studio through strategy, design, and thoughtful visual systems."
+        />
+        <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+      </Helmet>
       <Navbar />
 
       {/* =====================================

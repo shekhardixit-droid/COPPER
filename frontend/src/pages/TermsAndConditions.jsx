@@ -1,10 +1,23 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 
 const TermsAndConditions = () => {
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-white text-[#05050B]">
+      <Helmet>
+  <title>Terms & Conditions | Copper Studio</title>
+  <meta
+    name="description"
+    content="Read the terms and conditions governing use of the Copper Studio website and services."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
       <Navbar />
 
       {/* =========================

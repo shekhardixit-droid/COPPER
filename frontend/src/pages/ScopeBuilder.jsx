@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import Industry from "../components/scopebuilder/Industry";
 import WhatToBuild from "../components/scopebuilder/WhatToBuild";
@@ -19,6 +20,18 @@ const ScopeBuilder = () => {
   return (
     /* Backdrop */
     <div className="fixed inset-0 z-[9999] flex items-start justify-center overflow-y-auto bg-black/40 px-3 py-4 backdrop-blur-sm sm:items-center sm:px-4 sm:py-6">
+      <Helmet>
+      <title>Scope Builder | Copper Studio</title>
+      <meta
+        name="description"
+        content="Tell Copper Studio about your project and build a tailored scope for your digital needs."
+      />
+      <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+    </Helmet>
       {/* Card — full-screen on mobile, fixed size on desktop */}
       <div className="
         relative w-full max-w-[1000px] overflow-hidden rounded-2xl bg-white shadow-[0_30px_100px_rgba(0,0,0,0.3)]

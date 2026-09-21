@@ -1,10 +1,22 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 
 const Disclosures = () => {
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-white text-[#05050B]">
+      <Helmet>
+  <title>Disclosures | Copper Studio</title>
+  <meta
+    name="description"
+    content="View Copper Studio's disclosures and related information."
+  /><meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
       <Navbar />
 
       {/* =========================

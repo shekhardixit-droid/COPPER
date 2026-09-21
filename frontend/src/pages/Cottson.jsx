@@ -1,10 +1,23 @@
 import Navbar from "../components/home/Navbar";
+import { Helmet } from "react-helmet-async";
 import Footer from "../components/home/Footer";
 import Marquee from "../components/datacircles/Marquee";
  
 const Cottson = () => {
   return (
     <div className="w-full bg-white">
+      <Helmet>
+  <title>Cottson | Copper Studio</title>
+  <meta
+    name="description"
+    content="Explore the Cottson project and brand experience created by Copper Studio."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
       {/* NAVBAR */}
       <Navbar />
  

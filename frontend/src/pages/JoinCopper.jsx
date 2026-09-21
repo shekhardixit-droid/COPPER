@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 
@@ -92,6 +93,18 @@ const JoinCopper = () => {
 
   return (
     <>
+    <Helmet>
+  <title>Join Copper | Copper Studio</title>
+  <meta
+    name="description"
+    content="Explore opportunities to work with Copper Studio and become part of our creative network."
+  />
+  <meta
+  property="og:image"
+  content="https://res.cloudinary.com/tpxo8m6a/image/upload/v1789970465/ChatGPT_Image_Sep_21_2026_11_29_49_AM.png"
+/>
+<meta property="og:site_name" content="Copper Studio" />
+</Helmet>
       <Navbar />
 
       <main className="w-full overflow-hidden bg-white">
